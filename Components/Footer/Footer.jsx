@@ -89,14 +89,14 @@ const Footer = () => {
                                             </Text>
                                         </View>
                                     </TouchableOpacity>
-                                    {/* <TouchableOpacity onPress={() => {navigation.navigate('')}}> */}
+                                    <TouchableOpacity onPress={() => {navigation.navigate('Menu')}}>
                                         <View style={styles.iconFoot}>
                                             <Menu />
                                             <Text style={styles.footText}>
                                                 Меню
                                             </Text>
                                         </View>
-                                    {/* </TouchableOpacity> */}
+                                    </TouchableOpacity>
                                     <View style={styles.iconFoot}>
                                         <Person />
                                         <Text style={styles.footText}>
