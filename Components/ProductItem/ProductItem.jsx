@@ -1,0 +1,88 @@
+import React, { useCallback, useContext, useState } from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import { ThemeContext } from "../Context/Context";
+import Counter from "./Counter/Counter";
+import Imageee from './Image.png'
+import { SliderBox } from "react-native-image-slider-box";
+
+
+const ProductItem = ([id, name, sum, description, weight]) => {
+
+    
+    const {theme} = useContext(ThemeContext)
+
+    const styles = {
+        container: {
+            width: '95%',
+            height: 170,
+            // backgroundColor: theme == 'light' ? 'white' : '#151515'
+        },
+        name: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 18,
+            lineHeight: 20,
+            width: '70%',
+            paddingBottom: 16,
+            color: theme == 'light' ? 'black' : 'white'
+        },
+        description: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 14,
+            lineHeight: 16,
+            width: '85%',
+            color: theme == 'light' ? 'black' : 'white'
+        },
+        summa: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 18,
+            lineHeight: 20,
+            color: theme == 'light' ? 'black' : 'white'
+        },
+        weight: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 14,
+            lineHeight: 16,
+            color: theme == 'light' ? 'black' : 'white'
+        }
+    }
+
+    
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.name}>
+                {name}
+            </Text>
+            <View style={{
+                flexDirection: 'row',
+                columnGap: 50,
+                width: '70%'
+            }}>
+                <Text style={styles.description}>
+                        {description}
+                </Text>
+                <Image style={{width: 100, height: 100, marginTop: -40, borderRadius: 8, marginLeft: 10}} source={Imageee}/>
+            </View>
+            <View style={{
+                marginTop: -20
+            }}>
+                <Counter />
+            </View>
+            <View style={{
+                marginLeft: 110,
+                marginTop: -40
+            }}>
+                <Text style={styles.summa}>
+                    {sum} руб
+                </Text>
+                <Text style={styles.weight}>
+                    {weight} гр
+                </Text>
+            </View>
+        </View>
+    )
+
+
+}
+
+export default ProductItem

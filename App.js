@@ -7,6 +7,10 @@ import { Context } from './Components/Context/Context';
 import Home from './Components/Pages/Home/Home'
 import Menu from '../qrNewNew/Components/Pages/Menu/Menu'
 import ChangeCort from '../qrNewNew/Components/Pages/ChangeCort/ChangeCort.jsx'
+import Oferta from './Components/Pages/Oferta/Oferta';
+import Contacts from './Components/Pages/Contacts/Contacts'
+import Category from './Components/Pages/Category/Category';
+
 
 const Stack = createNativeStackNavigator()
 
@@ -52,6 +56,27 @@ const App = () => {
             headerShown: false
           }}
           />
+          <Stack.Screen
+          name='Oferta'
+          component={Oferta}
+          options = {{
+            headerShown: false
+          }}
+           />
+           <Stack.Screen
+           name = 'Contacts'
+           component = {Contacts}
+           options = {{
+            headerShown: false
+           }}
+           />
+           <Stack.Screen
+           name = 'Categories'
+           component = {Category}
+           options = {{
+            headerShown: false
+           }}
+           />
         </Stack.Navigator>
       </NavigationContainer>
     </Context>

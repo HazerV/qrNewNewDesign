@@ -2,11 +2,8 @@ import React, {useContext} from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Dimensions } from "react-native";
-import GoHome from "./GoHome/GoHome";
-import ThemeSwitcher from "./ThemeSwitcher/ThemeSwitcher";
 import { ThemeContext } from "../Context/Context";
 import CornerLeftB from './icons/Corners/CornerLeftB.svg'
-import CornerRightB from './icons/Corners/CornerRightB.svg'
 import CornerLeftW from './icons/Corners/CornerLeftW.svg'
 import CornerRightW from './icons/Corners/CornerRightW.svg'
 import Info from './icons/Info.svg'

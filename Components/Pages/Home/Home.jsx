@@ -100,13 +100,13 @@ const Home = () => {
                                 justifyContent: 'center',
                                 rowGap: 0
                             }}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => {navigation.navigate('Contacts')}}>
                                     <Text style={styles.text}>
                                         Контакты
                                     </Text>
                                 </TouchableOpacity>
                         
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => {navigation.navigate('Oferta')}}>
                                     <Text style={styles.text}>
                                         Оферта
                                     </Text>
