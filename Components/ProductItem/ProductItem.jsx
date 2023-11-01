@@ -3,10 +3,8 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { ThemeContext } from "../Context/Context";
 import Counter from "./Counter/Counter";
 import Imageee from './Image.png'
-import { SliderBox } from "react-native-image-slider-box";
 
-
-const ProductItem = ([id, name, sum, description, weight]) => {
+const ProductItem = ({id, name, description, sum, weight}) => {
 
     
     const {theme} = useContext(ThemeContext)
@@ -15,7 +13,6 @@ const ProductItem = ([id, name, sum, description, weight]) => {
         container: {
             width: '95%',
             height: 170,
-            // backgroundColor: theme == 'light' ? 'white' : '#151515'
         },
         name: {
             fontFamily: 'Gilroy-Regular',
@@ -23,30 +20,36 @@ const ProductItem = ([id, name, sum, description, weight]) => {
             lineHeight: 20,
             width: '70%',
             paddingBottom: 16,
-            color: theme == 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white'
         },
         description: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 14,
             lineHeight: 16,
             width: '85%',
-            color: theme == 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white'
         },
         summa: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 18,
             lineHeight: 20,
-            color: theme == 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white'
         },
         weight: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 14,
             lineHeight: 16,
-            color: theme == 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white'
+        },
+        image: {
+            width: 100,
+            height: 100,
+            marginTop: -40,
+            borderRadius: 8,
+            marginLeft: 10
         }
-    }
 
-    
+    }
 
     return (
         <View style={styles.container}>
@@ -59,9 +62,9 @@ const ProductItem = ([id, name, sum, description, weight]) => {
                 width: '70%'
             }}>
                 <Text style={styles.description}>
-                        {description}
+                    {description}
                 </Text>
-                <Image style={{width: 100, height: 100, marginTop: -40, borderRadius: 8, marginLeft: 10}} source={Imageee}/>
+                <Image style={styles.image} source={Imageee}/>
             </View>
             <View style={{
                 marginTop: -20

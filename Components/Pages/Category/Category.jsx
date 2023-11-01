@@ -4,6 +4,7 @@ import Footer from "../../Footer/Footer";
 import ProductItem from "../../ProductItem/ProductItem";
 import Counter from "../../ProductItem/Counter/Counter";
 import { ThemeContext } from "../../Context/Context";
+import CartButton from "../../CartRealise/CartButton";
 
 const Category = () => {
 
@@ -33,15 +34,20 @@ const Category = () => {
                         paddingTop: 32,
                         paddingLeft: 16
                     }}>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
+                        <ProductItem name={'Брускетта'} description={'ауываыфва'} id={1} sum={450} weight={200} />
+                        <ProductItem name={'Брускетта'} description={'ауываыфва'} id={2} sum={450} weight={200} />
+                        <ProductItem name={'Брускетта'} description={'ауываыфва'} id={3} sum={450} weight={200} />
+                        <ProductItem name={'Брускетта'} description={'ауываыфва'} id={4} sum={450} weight={200} />
+                        {/*<ProductItem />*/}
+                        {/*<ProductItem />*/}
+                        {/*<ProductItem />*/}
+                        {/*<ProductItem />*/}
+                        {/*<ProductItem />*/}
                     </View>
+
                 </View>
             </ScrollView>
+            <CartButton />
             <Footer />
         </SafeAreaView>
     )
