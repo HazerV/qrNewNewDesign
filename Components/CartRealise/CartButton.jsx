@@ -3,10 +3,12 @@ import {View, Text, TouchableOpacity, Pressable, Modal} from 'react-native'
 import {ThemeContext} from "../Context/Context";
 
 const CartButton = () => {
+
     const {theme} = useContext(ThemeContext)
+
+
     const sum = 4100
     const count = 9
-
     const styles = {
         container: {
             width: 120,
@@ -23,22 +25,27 @@ const CartButton = () => {
             bottom: 16,
         },
         sum: {
-            fontFamily: 'Gilroy-Regular',
+            fontFamily: 'Gilroy-SemiBold',
             fontSize: 18,
             color: theme === 'light' ? 'black' : 'white',
-            lineHeight: 20
+            lineHeight: 22
         },
         count: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 14,
+            lineHeight: 16,
             color: theme === 'light' ? 'black' : 'white'
         }
     }
 
+    const [visible, setVisible] = useState(false)
+    const show = () => setVisible(true)
+    const hide = () => setVisible(false)
+
+
     return (
 
-    <View>
-        <Pressable>
+
             <View style={styles.container}>
                 <Text style = {styles.sum}>
                     {sum} руб
@@ -47,8 +54,6 @@ const CartButton = () => {
                     {count} товаров
                 </Text>
             </View>
-        </Pressable>
-    </View>
     )
 
 }

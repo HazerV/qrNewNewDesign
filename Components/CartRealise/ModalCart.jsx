@@ -6,9 +6,7 @@
 //
 // const ModalCart = () => {
 //
-//     const styles = {
 //
-//     }
 //
 //     return (
 //

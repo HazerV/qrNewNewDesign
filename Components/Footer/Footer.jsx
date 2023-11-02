@@ -63,7 +63,7 @@ const Footer = () => {
                     <View>
                         <View style={styles.leftCorner}>
                             {
-                                theme == 'light' ? (
+                                theme === 'light' ? (
                                     <CornerLeftW/>
                                 ) : (
                                     <CornerLeftB />
@@ -75,8 +75,8 @@ const Footer = () => {
                                 <View style={{
                                     alignItems: 'center',
                                     flexDirection: 'row',
-                                    columnGap: 110,
-                                    marginTop: -50
+                                    columnGap: 60,
+                                    marginTop: -55
                                 }}>
                                     <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
                                         <View style={styles.iconFoot}>
