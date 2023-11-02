@@ -12,11 +12,11 @@ const ProductItem = ({id, name, description, sum, weight}) => {
     const styles = {
         container: {
             width: '95%',
-            height: 170,
+            height: 172,
         },
         name: {
             fontFamily: 'Gilroy-Regular',
-            fontSize: 18,
+            fontSize: 16,
             lineHeight: 20,
             width: '70%',
             paddingBottom: 16,
@@ -24,21 +24,22 @@ const ProductItem = ({id, name, description, sum, weight}) => {
         },
         description: {
             fontFamily: 'Gilroy-Regular',
-            fontSize: 14,
+            fontSize: 12,
             lineHeight: 16,
             width: '85%',
-            color: theme === 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white',
+            marginBottom: 36
         },
         summa: {
             fontFamily: 'Gilroy-Regular',
-            fontSize: 18,
-            lineHeight: 20,
+            fontSize: 16,
+            lineHeight: 19,
             color: theme === 'light' ? 'black' : 'white'
         },
         weight: {
             fontFamily: 'Gilroy-Regular',
-            fontSize: 14,
-            lineHeight: 16,
+            fontSize: 12,
+            lineHeight: 14,
             color: theme === 'light' ? 'black' : 'white'
         },
         image: {

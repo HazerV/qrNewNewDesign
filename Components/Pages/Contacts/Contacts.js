@@ -12,7 +12,7 @@ const Contacts = () => {
     return (
 
         <SafeAreaView style = {{
-            backgroundColor: theme == 'dark' ? '#333333' : 'white',
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
             alignSelf: 'center'
         }}>
             <ScrollView>
@@ -22,32 +22,32 @@ const Contacts = () => {
                     alignSelf: 'center'
                 }}>
                     <Text style={{
-                        fontFamily: 'Gilroy-Regular',
-                        fontSize: 18,
+                        fontFamily: 'Gilroy-SemiBold',
+                        fontSize: 24,
                         lineHeight: 20,
-                        paddingTop: 32,
-                        paddingBottom: 32,
-                        fontWeight: 700,
-                        color: theme == 'light' ? 'black' : 'white'
+                        paddingTop: 48,
+                        paddingBottom: 16,
+                        color: theme === 'light' ? 'black' : 'white'
                     }}>
                         Контакты
                     </Text>
                     <Text style={{
                         fontFamily: 'Gilroy-Regular',
-                        fontSize: 14,
-                        lineHeight: 16,
-                        color: theme == 'light' ? 'black' : 'white'
+                        fontSize: 16,
+                        lineHeight: 18,
+                        color: theme === 'light' ? 'black' : 'white'
                     }}>
-                            Контакты:
-Фактический адрес:  1109012, Москва, ул. Варварка, двлд. 6, стр. 4 
-Электронная почта: info@ginza.ru
-Телефоны: +7 (499) 222-00-00. 
-
-Реквизиты: 
-ООО "Орион" ИНН 7714364969 ОГРН 5157746123937 
-Юридический адрес:
-117218, город Москва, ул. Кржижановского, д. 15 к. 5,  эт 5 пом 515а оф 2
-Тел./факс: +7 (499) 222-00-00.
+                        {'\n'}
+                        Контакты:{'\n'}{'\n'}
+                        Фактический адрес: 1109012, Москва, ул. Варварка, двлд. 6, стр. 4{'\n'}
+                        Электронная почта: info@ginza.ru{'\n'}
+                        Телефоны: +7 (499) 222-00-00.{'\n'}
+                        {'\n'}{'\n'}
+                        Реквизиты:{'\n'}{'\n'}
+                        ООО "Орион" ИНН 7714364969 ОГРН 5157746123937{'\n'}
+                        Юридический адрес:{'\n'}
+                        117218, город Москва, ул. Кржижановского, д. 15 к. 5, эт 5 пом 515а оф 2{'\n'}
+                        Тел./факс: +7 (499) 222-00-00.{'\n'}
                     </Text>
                 </View>
             </ScrollView>

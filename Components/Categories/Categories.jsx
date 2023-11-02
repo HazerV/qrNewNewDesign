@@ -16,7 +16,7 @@ const Categories = () => {
         <View style={{
             flexWrap: 'wrap',
             flexDirection: 'row',
-            columnGap: 32,
+            columnGap: 16,
             justifyContent: 'center',
             rowGap: 16
         }}>

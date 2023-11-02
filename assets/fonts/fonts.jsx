@@ -5,7 +5,7 @@ const useFonts = async () => {
         'Gilroy-Medium': require('../fonts/Gilroy-Medium.ttf'),
         'Gilroy-Thin': require('../fonts/Gilroy-Thin.ttf'),
         'Gilroy-Regular': require('../fonts/Gilroy-Regular.ttf'),
-        'Gilroy-SemiBold': require('../fonts/Gilroy-SemiBold.ttf')
+        'Gilroy-SemiBold': require('../fonts/Gilroy-Semibold.ttf')
     }))
 }
 

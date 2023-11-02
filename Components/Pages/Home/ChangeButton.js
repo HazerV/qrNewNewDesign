@@ -12,16 +12,16 @@ const ChangeButton = () => {
             width: 180,
             padding: 16,
             borderRadius: 16,
-            backgroundColor: theme == 'light' ? 'white' : '#232323',
+            backgroundColor: theme === 'light' ? 'white' : '#232323',
             borderColor: '#CCCCCC',
             borderWidth: 2,
         }}>
             <Text style={{
-                fontFamily: 'Gilroy-Regular',
-                fontSize: 16,
-                lineHeight: 18,
+                fontFamily: 'Gilroy-SemiBold',
+                fontSize: 14,
+                lineHeight: 16,
                 fontWeight: 600,
-                color: theme == 'light' ? 'black' : 'white',
+                color: theme === 'light' ? 'black' : 'white',
                 textAlign: 'center'
             }}>
                 Сменить буфет

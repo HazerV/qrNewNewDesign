@@ -13,59 +13,65 @@ const ChangeCort = () => {
     
     const navigation = useNavigation() 
     const {theme} = useContext(ThemeContext)
-
+    const styles = {
+        areaView: {
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
+            height: '100%'
+        },
+        welcome: {
+            fontSize: 14,
+            fontFamily: 'Gilroy-SemiBold',
+            color: theme === 'dark' ? 'white' : 'black',
+            justifyContent: 'center',
+            textAlign: 'center',
+            width: '80%',
+            lineHeight: 16
+        },
+        chooseBufet: {
+            fontSize: 24,
+            fontFamily: 'Gilroy-SemiBold',
+            color: theme === 'dark' ? 'white' : 'black',
+            paddingTop: 38,
+            lineHeight: 28
+        },
+        bufetImgs: {
+            flexDirection: 'row',
+            columnGap: 32,
+            paddingTop: 32,
+            width: '85%'
+        },
+        attention: {
+            fontSize: 16,
+            fontFamily: 'Gilroy-Regular',
+            color: theme === 'dark' ? 'white' : 'black',
+            justifyContent: 'center',
+            textAlign: 'center',
+            width: '90%',
+            paddingTop: 32,
+            lineHeight: 18
+        }
+    }
 
     return (
-        <SafeAreaView style={{
-            backgroundColor: theme == 'dark' ? '#333333' : 'white',
-            height: '100%'
-        }}>
+        <SafeAreaView style={styles.areaView}>
             <ScrollView>
                 <View style={{
                     alignItems: 'center'
                 }}>
                     <Header />
-                    <Text style={{
-                        fontSize: 16,
-                        fontFamily: 'Gilroy-Regular',
-                        color: theme == 'dark' ? 'white' : 'black',
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        width: '80%',
-                        fontWeight: 680
-                    }}>
+                    <Text style={styles.welcome}>
                         Добро пожаловать в онлайн меню буфетов концертного зала Зарядье
                     </Text>
-                    <Text style={{
-                        fontSize: 24,
-                        fontFamily: 'Gilroy-Regular',
-                        color: theme == 'dark' ? 'white' : 'black',
-                        paddingTop: 38,
-
-                    }}>
+                    <Text style={styles.chooseBufet}>
                         Выберите буфет
                     </Text>
-                    <View style={{
-                        flexDirection: 'row',
-                        columnGap: 32,
-                        paddingTop: 32,
-                        width: '85%'
-                    }}>
+                    <View style={styles.bufetImgs}>
                         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
                             <Image source={Vidovoy} />
                         </TouchableOpacity>
                             <Image source={ChinaTown} />
                     </View>
-                    <Text style={{
-                        fontSize: 16,
-                        fontFamily: 'Gilroy-Regular',
-                        color: theme == 'dark' ? 'white' : 'black',
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        width: '90%',
-                        fontWeight: 680,
-                        paddingTop: 32
-                    }}>
+                    <Text style={styles.attention}>
                         Вы можете забронировать стол на время антракта и сделать предзаказ.{'\n'}{'\n'}
                         1. Сформируйте заказ на сумму от 1500 руб., добавив блюда в корзину{'\n'}
                         2. Оплатите заказ{'\n'}

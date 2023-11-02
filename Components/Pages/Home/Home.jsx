@@ -26,18 +26,19 @@ const Home = () => {
             height: '100%'
         },
         textHead: {
-            fontSize: 16,
+            fontSize: 14,
             fontFamily: 'Gilroy-Regular',
             color: theme == 'dark' ? 'white' : 'black',
             justifyContent: 'center',
             textAlign: 'center',
             width: '80%',
+            lineHeight: 16
         },
         countTables: {
             color: theme == 'light' ? 'black' : 'white',
             textAlign: 'center' ,
             fontFamily: 'Gilroy-Regular',
-            fontSize: 14,
+            fontSize: 12,
             lineHeight: 16,
             width: '80%',
             paddingTop: 16,
@@ -49,17 +50,24 @@ const Home = () => {
         },
         textTheme: {
             color: theme == 'light' ? 'black' : 'white',
-            fontSize: 14,
+            fontSize: 12,
             fontFamily: 'Gilroy-Regular',
-            paddingBottom: 32
+            paddingBottom: 32,
+            lineHeight: 16
         },
         text: {
             textDecorationLine: 'underline',
-            fontSize: 14,
+            fontSize: 12,
             fontFamily: 'Gilroy-Regular',
             color: theme == 'light' ? 'black' : 'white',
             textAlign: 'center',
-            paddingTop: 12
+            paddingTop: 12,
+            lineHeight: 14
+        },
+        contactsButtons: {
+            textAlign: 'center',
+            justifyContent: 'center',
+            rowGap: 0
         }
     }
 
@@ -84,7 +92,7 @@ const Home = () => {
                             <View style={styles.themeSwitcher}>
                                 <ThemeSwitcher />
                                     {
-                                     theme == 'light' ?  (
+                                     theme === 'light' ?  (
                                             <Text style={styles.textTheme}>
                                                 Темная тема
                                             </Text>
@@ -95,11 +103,7 @@ const Home = () => {
                                         )
                                     }
                             </View>
-                            <View style={{
-                                textAlign: 'center',
-                                justifyContent: 'center',
-                                rowGap: 0
-                            }}>
+                            <View style={styles.contactsButtons}>
                                 <TouchableOpacity onPress={() => {navigation.navigate('Contacts')}}>
                                     <Text style={styles.text}>
                                         Контакты
