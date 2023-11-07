@@ -5,6 +5,7 @@ import Footer from "../../Footer/Footer";
 import ProductItem from "../../ProductItem/ProductItem";
 import ModalCart from "../../CartRealise/ModalCart";
 import CartButton from "../../CartRealise/CartButton";
+import axios from "axios";
 
 const Category = () => {
 

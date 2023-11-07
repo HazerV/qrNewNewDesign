@@ -10,7 +10,7 @@ import ChangeCort from '../qrNewNew/Components/Pages/ChangeCort/ChangeCort.jsx'
 import Oferta from './Components/Pages/Oferta/Oferta';
 import Contacts from './Components/Pages/Contacts/Contacts'
 import Category from './Components/Pages/Category/Category';
-
+import cartContext from './Components/Context/CartContext'
 
 const Stack = createNativeStackNavigator()
 
@@ -33,52 +33,52 @@ const App = () => {
 
   return (
     <Context>
-      <NavigationContainer>
-        <Stack.Navigator>
-        <Stack.Screen
-            name='Home'
-            component={Home}
-            options = {{
-              headerShown: false
-            }}
-            />
-        <Stack.Screen
-            name='Menu'
-            component={Menu}
-            options = {{
-              headerShown: false
-            }}
-            />
-          <Stack.Screen
-          name='ChangeCort'
-          component={ChangeCort}
-          options = {{
-            headerShown: false
-          }}
-          />
-          <Stack.Screen
-          name='Oferta'
-          component={Oferta}
-          options = {{
-            headerShown: false
-          }}
-           />
-           <Stack.Screen
-           name = 'Contacts'
-           component = {Contacts}
-           options = {{
-            headerShown: false
-           }}
-           />
-           <Stack.Screen
-           name = 'Categories'
-           component = {Category}
-           options = {{
-            headerShown: false
-           }}
-           />
-        </Stack.Navigator>
-      </NavigationContainer>
+          <NavigationContainer>
+            <Stack.Navigator>
+            <Stack.Screen
+                name='Home'
+                component={Home}
+                options = {{
+                  headerShown: false
+                }}
+                />
+            <Stack.Screen
+                name='Menu'
+                component={Menu}
+                options = {{
+                  headerShown: false
+                }}
+                />
+              <Stack.Screen
+              name='ChangeCort'
+              component={ChangeCort}
+              options = {{
+                headerShown: false
+              }}
+              />
+              <Stack.Screen
+              name='Oferta'
+              component={Oferta}
+              options = {{
+                headerShown: false
+              }}
+               />
+               <Stack.Screen
+               name = 'Contacts'
+               component = {Contacts}
+               options = {{
+                headerShown: false
+               }}
+               />
+               <Stack.Screen
+               name = 'Categories'
+               component = {Category}
+               options = {{
+                headerShown: false
+               }}
+               />
+            </Stack.Navigator>
+          </NavigationContainer>
     </Context>
   )
 

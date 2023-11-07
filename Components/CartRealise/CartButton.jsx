@@ -6,7 +6,6 @@ const CartButton = () => {
 
     const {theme} = useContext(ThemeContext)
 
-
     const sum = 4100
     const count = 9
     const styles = {

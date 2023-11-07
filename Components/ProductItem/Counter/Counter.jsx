@@ -11,7 +11,8 @@ const Counter = () => {
 
     const [ count, setCount ] = useState(0)
     const { theme } = useContext(ThemeContext)
-    const {increment, decrement, cart, setCart} = useContext(ThemeContext)
+    const {increment, decrement, cart, setCart} = useContext(CartContext)
+
 
     const styles = StyleSheet.create({
         container: {
@@ -45,7 +46,8 @@ const Counter = () => {
         <TouchableOpacity onPress={() => {
             {
                 count === 0 ? (
-                    setCount(count+1)
+                    setCount(count+1),
+                    console.log(cart)
                 ) : null
             }
         }}>
@@ -56,6 +58,8 @@ const Counter = () => {
                             <View>
                                 <TouchableOpacity onPress={() => {
                                     setCount (count + 1)
+                                    // increment(),
+                                        console.log(cart)
                                 }}>
                                     <View>
                                         {
@@ -72,7 +76,7 @@ const Counter = () => {
                         : 
                         (
                             <View style={styles.minus}>
-                                        <TouchableOpacity onPress={() => { setCount (count-1) }}>
+                                        <TouchableOpacity onPress={() => { setCount (count-1)}}>
                                             <View style={{
                                                 width: "100%",
                                             }}>
@@ -90,26 +94,27 @@ const Counter = () => {
                                         <Text style={styles.countValue}>
                                             {count}
                                         </Text>
-                                    {
-                                        theme === 'light' ? (
-                                            <TouchableOpacity  onPress={() => { setCount (count+1) }}>
-                                                <View style={{
-                                                marginLeft: 5
-                                            }}>
-                                                    <PlusW/>
-                                                </View>
-                                            </TouchableOpacity>
-                                        ) : (
-                                            <TouchableOpacity onPress={() => { setCount (count+1) }}>
-                                                <View style={{
-                                                borderRadius: 2,
-                                                marginLeft: 5
-                                            }}>
-                                                    <PlusBSvg/>
-                                                </View>
-                                            </TouchableOpacity>
-                                        )
-                                    }
+                                        {
+                                            theme === 'light' ? (
+                                                <TouchableOpacity  onPress={() => { setCount (count+1)
+                                                    console.log(cart)}}>
+                                                    <View style={{
+                                                    marginLeft: 5
+                                                }}>
+                                                        <PlusW/>
+                                                    </View>
+                                                </TouchableOpacity>
+                                            ) : (
+                                                <TouchableOpacity onPress={() => { setCount (count+1) }}>
+                                                    <View style={{
+                                                    borderRadius: 2,
+                                                    marginLeft: 5
+                                                }}>
+                                                        <PlusBSvg/>
+                                                    </View>
+                                                </TouchableOpacity>
+                                            )
+                                        }
                             </View>
                         )
                 }
