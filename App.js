@@ -10,7 +10,8 @@ import ChangeCort from '../qrNewNew/Components/Pages/ChangeCort/ChangeCort.jsx'
 import Oferta from './Components/Pages/Oferta/Oferta';
 import Contacts from './Components/Pages/Contacts/Contacts'
 import Category from './Components/Pages/Category/Category';
-import cartContext from './Components/Context/CartContext'
+import CodePage from "./Components/Pages/CodePage/CodePage";
+
 
 const Stack = createNativeStackNavigator()
 
@@ -35,6 +36,14 @@ const App = () => {
     <Context>
           <NavigationContainer>
             <Stack.Navigator>
+            <Stack.Screen
+                name='CodePage'
+                component={CodePage}
+                options = {{
+                    headerShown: false,
+
+                }}
+                />
             <Stack.Screen
                 name='Home'
                 component={Home}

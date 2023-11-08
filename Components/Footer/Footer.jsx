@@ -94,12 +94,14 @@ const Footer = () => {
                                             </Text>
                                         </View>
                                     </TouchableOpacity>
-                                    <View style={styles.iconFoot}>
-                                        <Person />
-                                        <Text style={styles.footText}>
-                                            Стол
-                                        </Text>
-                                    </View>
+                                    <TouchableOpacity onPress={() => {navigation.navigate('CodePage')}}>
+                                        <View style={styles.iconFoot}>
+                                            <Person />
+                                            <Text style={styles.footText}>
+                                                Стол
+                                            </Text>
+                                        </View>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                             <View style={styles.rightCorner}>

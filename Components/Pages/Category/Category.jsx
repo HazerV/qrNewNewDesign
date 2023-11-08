@@ -6,6 +6,7 @@ import ProductItem from "../../ProductItem/ProductItem";
 import ModalCart from "../../CartRealise/ModalCart";
 import CartButton from "../../CartRealise/CartButton";
 import axios from "axios";
+import MiniProductCart from "../../ProductItem/MiniProductCart";
 
 const Category = () => {
 
@@ -86,6 +87,8 @@ const Category = () => {
                                 <Text style = {styles.modalName}>
                                     Корзина
                                 </Text>
+                                <MiniProductCart />
+
                             </View>
                         )
                     }

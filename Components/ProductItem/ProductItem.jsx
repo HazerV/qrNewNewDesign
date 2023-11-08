@@ -9,6 +9,8 @@ import Images from "./Images";
 const ProductItem = ({id, name, description, sum, weight}) => {
 
     const {theme} = useContext(ThemeContext)
+    const {increment, decrement, remove} = useContext(CartContext)
+    const cartItem = {id, name, description, sum, weight, quantity: 1}
 
     const styles = {
         container: {
@@ -59,7 +61,6 @@ const ProductItem = ({id, name, description, sum, weight}) => {
 
     return (
         <View style={styles.container}>
-            {/*<View style={styles.viewSec}>*/}
                 <Text style={styles.name}>
                     {name}
                 </Text>
@@ -88,9 +89,6 @@ const ProductItem = ({id, name, description, sum, weight}) => {
                         {weight} гр
                     </Text>
                 </View>
-            {/*</View>*/}
-
-
         </View>
     )
 
