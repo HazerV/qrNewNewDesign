@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { ThemeContext } from "../../Context/Context";
+import { ThemeContext } from "../../Components/Context/Context";
 
 
 const AcceptOrd = () => {

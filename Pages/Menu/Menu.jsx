@@ -1,9 +1,9 @@
 import React, {useContext} from "react";
 import { View, Text, Image, StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import Header from "../../Header/Header";
-import Footer from "../../Footer/Footer";
-import { Context, ThemeContext } from "../../Context/Context";
-import Categories from "../../Categories/Categories";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import { Context, ThemeContext } from "../../Components/Context/Context";
+import Categories from "../../Components/Categories/Categories";
 
 const Home = () => {
 

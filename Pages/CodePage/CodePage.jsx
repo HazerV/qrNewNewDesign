@@ -1,6 +1,6 @@
 import React, {useState, Dispatch, useEffect, useRef } from "react";
 import {TextInput, View, TouchableOpacity, Text, SafeAreaView, ScrollView } from "react-native";
-import Header from '../../Header/Header'
+import Header from '../../Components/Header/Header'
 import Svg1 from './SvgImgs/svg1.svg'
 
 const InputComponent = ({ id, currentInput, setCurrentInput }) => {

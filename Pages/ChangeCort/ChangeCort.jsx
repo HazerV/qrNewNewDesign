@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Footer from "../../Footer/Footer";
-import { ThemeContext } from "../../Context/Context";
-import Header from "../../Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import { ThemeContext } from "../../Components/Context/Context";
+import Header from "../../Components/Header/Header";
 import ChinaTown from './Images/ChinaTown.png'
 import Vidovoy from './Images/Vidovoy.png'
 

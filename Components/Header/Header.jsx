@@ -9,26 +9,24 @@ const Header = ( ) => {
 
     const {theme} = useContext(ThemeContext)
 
+    const styles = {
+        container: {
+            alignItems: 'center',
+            marginTop: 32,
+            marginBottom: 16,
+            marginLeft: -16
+        }
+    }
     console.log(theme)
 
     if (theme === 'dark') {
         return (
-        <View style={{
-            alignItems: 'center',
-            marginTop: 32,
-            marginBottom: 16,
-            marginLeft: -16
-        }}>
+        <View style={styles.container}>
             <HeaderBlack />
         </View> ) 
     } else {
         return (
-        <View style={{
-            alignItems: 'center',
-            marginTop: 32,
-            marginBottom: 16,
-            marginLeft: -16
-        }}>
+        <View style={styles.container}>
             <HeaderLight />
         </View> )
     }

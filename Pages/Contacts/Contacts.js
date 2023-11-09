@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import { ThemeContext } from "../../Context/Context";
-import Footer from "../../Footer/Footer";
+import { ThemeContext } from "../../Components/Context/Context";
+import Footer from "../../Components/Footer/Footer";
 
 
 const Contacts = () => {

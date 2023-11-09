@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, StyleSheet, SafeAreaView, ScrollView, Text } from "react-native";
-import Footer from "../../Footer/Footer";
-import { ThemeContext } from "../../Context/Context";
+import Footer from "../../Components/Footer/Footer";
+import { ThemeContext } from "../../Components/Context/Context";
 
 
 const Oferta = () => {

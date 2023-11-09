@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import {View, Text, SafeAreaView, ScrollView, Modal, TouchableOpacity, Button, Pressable} from "react-native";
-import { ThemeContext } from "../../Context/Context";
-import Footer from "../../Footer/Footer";
-import ProductItem from "../../ProductItem/ProductItem";
-import ModalCart from "../../CartRealise/ModalCart";
-import CartButton from "../../CartRealise/CartButton";
+import { ThemeContext } from "../../Components/Context/Context";
+import Footer from "../../Components/Footer/Footer";
+import ProductItem from "../../Components/ProductItem/ProductItem";
+import ModalCart from "../../Components/CartRealise/ModalCart";
+import CartButton from "../../Components/CartRealise/CartButton";
 import axios from "axios";
-import MiniProductCart from "../../ProductItem/MiniProductCart";
+import MiniProductCart from "../../Components/ProductItem/MiniProductCart";
 
 const Category = () => {
 

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
-import { ThemeContext  } from "../../Context/Context";
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
+import { ThemeContext  } from "../../Components/Context/Context";
+import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
 import AcceptOrd from "./AcceptOrd";
-import ThemeSwitcher from "../../Footer/ThemeSwitcher/ThemeSwitcher";
+import ThemeSwitcher from "../../Components/Footer/ThemeSwitcher/ThemeSwitcher";
 import ChangeButton from "./ChangeButton";
-import TrueShop from '../../TrueShop/TrueShop'
-import Categories from "../../Categories/Categories";
-import { useNavigation } from "@react-navigation/native";
+import TrueShop from '../../Components/TrueShop/TrueShop'
+import Categories from "../../Components/Categories/Categories";
+import {useNavigation, useNavigationContainerRef} from "@react-navigation/native";
 
 const Home = () => {
 
@@ -22,20 +22,20 @@ const Home = () => {
             borderBottomRadius: 32
         },
         areaView: {
-            backgroundColor: theme == 'dark' ? '#333333' : 'white',
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
             height: '100%'
         },
         textHead: {
             fontSize: 14,
             fontFamily: 'Gilroy-Regular',
-            color: theme == 'dark' ? 'white' : 'black',
+            color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
             textAlign: 'center',
             width: '80%',
             lineHeight: 16
         },
         countTables: {
-            color: theme == 'light' ? 'black' : 'white',
+            color: theme === 'light' ? 'black' : 'white',
             textAlign: 'center' ,
             fontFamily: 'Gilroy-Regular',
             fontSize: 12,
@@ -49,7 +49,7 @@ const Home = () => {
             paddingTop: 16
         },
         textTheme: {
-            color: theme == 'light' ? 'black' : 'white',
+            color: theme === 'light' ? 'black' : 'white',
             fontSize: 12,
             fontFamily: 'Gilroy-Regular',
             paddingBottom: 32,
@@ -59,7 +59,7 @@ const Home = () => {
             textDecorationLine: 'underline',
             fontSize: 12,
             fontFamily: 'Gilroy-Regular',
-            color: theme == 'light' ? 'black' : 'white',
+            color: theme === 'light' ? 'black' : 'white',
             textAlign: 'center',
             paddingTop: 12,
             lineHeight: 14
