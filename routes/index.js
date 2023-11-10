@@ -5,13 +5,15 @@ import Oferta from '../Pages/Oferta/Oferta';
 import Contacts from '../Pages/Contacts/Contacts'
 import Category from '../Pages/Category/Category';
 import CodePage from "../Pages/CodePage/CodePage";
+import CartPage from "../Pages/CartPage/CartPage";
 
 export default  {
     "Home" : Home,
     "CodePage": CodePage,
     "Menu": Menu,
-    ChangeCort,
-    Oferta,
     "Contacts": Contacts,
-    "Categories": Category
+    "Categories": Category,
+    Oferta,
+    ChangeCort,
+    CartPage
 }

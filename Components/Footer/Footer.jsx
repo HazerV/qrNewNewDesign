@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from "react";
+import React, {useContext, useRef, useState} from "react";
 import {View, TouchableOpacity, Text} from "react-native";
 import {NavigationContainer, useNavigation, useNavigationContainerRef} from "@react-navigation/native";
 import {Dimensions} from "react-native";
@@ -75,8 +75,6 @@ const Footer = () => {
     const {route, setRoute} = useContext(PageContext)
     console.log(route)
 
-
-
     return (
         <View>
             <View style={styles.leftCorner}>
@@ -102,8 +100,7 @@ const Footer = () => {
                                         <Info/>
                                     )
                                 }
-
-                                <Text style={styles.footText}>
+                                <Text style={[styles.footText, {color: route === 'Home' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Инфо
                                 </Text>
                             </View>
@@ -113,24 +110,29 @@ const Footer = () => {
                         }}>
                             <View style={styles.iconFoot}>
                                 {
-                                    route === 'Menu' ? (
+                                    route === 'Menu' || route === 'Categories' ? (
                                         <MenuWhite />
                                     ) : (
                                         <Menu/>
                                     )
                                 }
-
-                                <Text style={styles.footText}>
+                                <Text style={[styles.footText, {color: route === 'Menu' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Меню
                                 </Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => {
-                            navigation.navigate('CodePage')
+                            navigation.navigate('CartPage')
                         }}>
                             <View style={styles.iconFoot}>
-                                <Person/>
-                                <Text style={styles.footText}>
+                                {
+                                    route === 'CartPage' ? (
+                                        <PersonWhite />
+                                    ) : (
+                                        <Person />
+                                    )
+                                }
+                                <Text style={[styles.footText, {color: route === 'CartPage' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Стол
                                 </Text>
                             </View>
@@ -150,6 +152,5 @@ const Footer = () => {
         </View>
     )
 }
-
 
 export default Footer

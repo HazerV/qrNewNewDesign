@@ -3,9 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import useFonts from './assets/fonts/fonts'
 import AppLoading from 'expo-app-loading'
 import {Context, PageContext} from './Components/Context/Context';
-import Navigation from "./Components/Navigation";
-
-
+import Navigation from "./routes/Navigation";
 
 const App = () => {
 

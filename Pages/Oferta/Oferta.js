@@ -7,42 +7,41 @@ import { ThemeContext } from "../../Components/Context/Context";
 const Oferta = () => {
 
     const {theme} = useContext(ThemeContext)
-
-
-
     const styles = StyleSheet.create({
         container: {
-            backgroundColor: theme == 'dark' ? '#333333' : 'white',
-            
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
             alignSelf: 'center'
+        },
+        viewFirst: {
+            alignItems: 'center',
+            width: '95%',
+            alignSelf: 'center',
+            paddingLeft: 10
+        },
+        headName: {
+            fontFamily: 'Gilroy-SemiBold',
+            fontSize: 24,
+            lineHeight: 28,
+            paddingTop: 32,
+            paddingBottom: 32,
+            color: theme === 'light' ? 'black' : 'white'
+        },
+        text: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 14,
+            lineHeight: 16,
+            color: theme === 'light' ? 'black' : 'white'
         }
     })
 
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <View style={{
-                    alignItems: 'center',
-                    width: '95%',
-                    alignSelf: 'center',
-                    paddingLeft: 10
-                }}>
-                    <Text style={{
-                        fontFamily: 'Gilroy-SemiBold',
-                        fontSize: 24,
-                        lineHeight: 28,
-                        paddingTop: 32,
-                        paddingBottom: 32,
-                        color: theme === 'light' ? 'black' : 'white'
-                    }}>
+                <View style={styles.viewFirst}>
+                    <Text style={styles.headName}>
                         Оферта
                     </Text>
-                    <Text style={{
-                        fontFamily: 'Gilroy-Regular',
-                        fontSize: 14,
-                        lineHeight: 16,
-                        color: theme === 'light' ? 'black' : 'white'
-                    }}>
+                    <Text style={styles.text}>
                     СТОРОНАМИ НАСТОЯЩЕГО СОГЛАШЕНИЯ ЯВЛЯЮТСЯ:{'\n'}
 Клиент — физическое лицо, имеющее намерение оформить заказ на сайте официального интернет-магазина ООО "Орион".
 Продавец — ООО "Орион" (адрес: 117218, город Москва, ул. Кржижановского, д. 15 к. 5, эт 5 пом 515а оф 2, ИНН: 7714364969, ОГРН: 5157746123937).
