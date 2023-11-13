@@ -11,7 +11,7 @@ const Home = () => {
     const styles = {
         container: {
             width: '100%',
-            height: '90%',
+            height: '100%',
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
             alignItems: 'center'
         },
@@ -32,7 +32,7 @@ const Home = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            width: '80%',
+            width: '90%',
             height: '100%',
             fontWeight: 600,
             paddingTop: 25
@@ -51,7 +51,7 @@ const Home = () => {
                         </Text>
                     <View style={{
                         paddingTop: 16,
-                        width: '90%'
+                        width: '100%'
                     }}>
                         <Categories/>
                     </View>

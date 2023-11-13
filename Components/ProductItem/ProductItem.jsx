@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from "react";
-import {View, Text, Image, TouchableOpacity, Dimensions} from "react-native";
+import {View, Text, Image, TouchableOpacity, Dimensions, FlatList} from "react-native";
 import { ThemeContext, CartContext } from "../Context/Context";
 import Counter from "./Counter/Counter";
 import Images from "./Images";
@@ -55,8 +55,13 @@ const ProductItem = ({id, name, description, sum, weight}) => {
 
         }
     }
-
-
+    const array = [
+        { id: 1, name: 'Something', description: 'Caviar', sum: 450, weight: 220 },
+        { id: 2, name: 'Something1', description: 'Caviar1', sum: 450, weight: 220 },
+        { id: 3, name: 'Something2', description: 'Caviar2', sum: 450, weight: 220 },
+        { id: 4, name: 'Something3', description: 'Caviar3', sum: 450, weight: 220 },
+        { id: 5, name: 'Something4', description: 'Caviar4', sum: 450, weight: 220 }
+    ]
 
 
     return (
@@ -67,7 +72,6 @@ const ProductItem = ({id, name, description, sum, weight}) => {
                 <Text style={styles.description}>
                     {description}
                 </Text>
-
                 <View style={{
                     top: 0,
                     position: 'absolute',

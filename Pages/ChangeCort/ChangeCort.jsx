@@ -16,7 +16,8 @@ const ChangeCort = () => {
     const styles = {
         areaView: {
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            height: '100%'
+            height: '100%',
+            justifyContent: 'center'
         },
         welcome: {
             fontSize: 14,
@@ -36,9 +37,9 @@ const ChangeCort = () => {
         },
         bufetImgs: {
             flexDirection: 'row',
-            columnGap: 32,
+            columnGap: 16,
             paddingTop: 32,
-            width: '85%'
+            width: '100%'
         },
         attention: {
             fontSize: 16,
@@ -56,7 +57,8 @@ const ChangeCort = () => {
         <SafeAreaView style={styles.areaView}>
             <ScrollView>
                 <View style={{
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}>
                     <Header />
                     <Text style={styles.welcome}>

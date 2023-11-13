@@ -5,7 +5,8 @@ import Footer from "../../Components/Footer/Footer";
 import ProductItem from "../../Components/ProductItem/ProductItem";
 import CartButton from "../../Components/CartRealise/CartButton";
 import axios from "axios";
-import MiniProductCart from "../../Components/ProductItem/MiniProductCart";
+import MiniCartProduct from "../../Components/CartRealise/MiniCartProduct";
+
 
 const Category = () => {
 
@@ -34,7 +35,8 @@ const Category = () => {
     const styles = {
         areaView: {
             backgroundColor: color,
-            alignSelf: 'center'
+            alignSelf: 'center',
+
         },
         nameCategory: {
             color: theme === 'light' ? 'black' : 'white',
@@ -58,7 +60,8 @@ const Category = () => {
             width: '100%',
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
             height: 461,
-            borderRadius: 16
+            borderRadius: 16,
+            zIndex: 7
         },
         modalName: {
             fontSize: 24,
@@ -70,15 +73,9 @@ const Category = () => {
         }
     }
 
-    const array = {
-        prod1: {
-            id: 1,
-            name: 'Брускетта с козьим сыром и тыквой',
-            description: 'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом',
-            sum: 450,
-            weight: 200
-        }
-    }
+
+
+    // console.log(array)
 
     return (
         <SafeAreaView style={[styles.areaView]}>
@@ -88,12 +85,7 @@ const Category = () => {
                         {category}
                     </Text>
                     <View style={styles.objects}>
-                        <ProductItem name={'Брускетта с икрой'} description={'Икра кеты на французском багете со сливочным маслом'} id={1} sum={450} weight={200} />
-                        {/*<ProductItem name={'Брускетта с козьим сыром и тыквой'} description={'Пармская ветчина с сыром креметте, свежим инжиром и кресс-салатом на французскоом багете'} id={2} sum={450} weight={200} />*/}
-                        {/*<ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} id={3} sum={450} weight={200} />*/}
-                        {/*<ProductItem name={'Брускетта с икрой'} description={'Икра кеты на французском багете со сливочным маслом'} id={1} sum={450} weight={200} />*/}
-                        {/*<ProductItem name={'Брускетта с икрой'} description={'Икра кеты на французском багете со сливочным маслом'} id={1} sum={450} weight={200} />*/}
-                        <ProductItem name={array.prod1.name} description={array.prod1.description} sum={array.prod1.sum} weight={array.prod1.weight} />
+                        <ProductItem />
                     </View>
                 </View>
             </ScrollView>
@@ -114,7 +106,9 @@ const Category = () => {
                                 <Text style = {styles.modalName}>
                                     Корзина
                                 </Text>
-                                <MiniProductCart />
+                                <MiniCartProduct price={450} count={2} sum={900} />
+                                <MiniCartProduct price={450} count={2} sum={900} />
+                                <MiniCartProduct price={450} count={2} sum={900} />
                             </View>
                         )
                     }

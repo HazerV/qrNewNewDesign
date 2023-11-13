@@ -18,7 +18,8 @@ const Categories = () => {
             flexDirection: 'row',
             columnGap: 16,
             justifyContent: 'center',
-            rowGap: 16
+            rowGap: 16,
+            width: '100%'
         }}>
             <Image source={Desert} />
             <TouchableOpacity onPress={() => {navigation.navigate('Categories')}}>

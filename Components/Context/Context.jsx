@@ -23,10 +23,6 @@ const Context = ({children}) => {
             } : item))
     }
 
-    const remove = (id) => {
-        setCartItems((prevItems) => prevItems.filter((item) => item.id !== id))
-    }
-
 
     const context = {
         theme,
@@ -57,6 +53,20 @@ const Context = ({children}) => {
 }
 
 
+
+export {
+    Context,
+    ThemeContext,
+    CartContext,
+    PageContext
+}
+
+
+
+
+// const remove = (id) => {
+//     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id))
+// }
 // const сartContext = ({children}) =>
 //     return (
 //         <CartContext.Provider value={{context}}>
@@ -65,10 +75,3 @@ const Context = ({children}) => {
 //     )
 // }
 //
-export {
-    Context,
-    ThemeContext,
-    CartContext,
-    PageContext
-}
-

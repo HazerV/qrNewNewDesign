@@ -7,6 +7,7 @@ import PlusW from '../Counter/PlusW.svg'
 import { ThemeContext, CartContext } from "../../Context/Context";
 import ProductItem from "../ProductItem";
 
+
 const Counter = () => {
 
     const [ count, setCount ] = useState(0)
@@ -25,7 +26,8 @@ const Counter = () => {
             borderWidth: 2,
             alignItems: 'center',
             flexDirection: 'row',
-            rowGap: 20
+            rowGap: 20,
+            zIndex: 1
         },
         countValue: {
             fontSize: 18,
