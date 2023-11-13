@@ -6,7 +6,8 @@ import ProductItem from "../../Components/ProductItem/ProductItem";
 import CartButton from "../../Components/CartRealise/CartButton";
 import axios from "axios";
 import MiniCartProduct from "../../Components/CartRealise/MiniCartProduct";
-
+import LineSvg from '../../Components/Images/Line.svg'
+import AddToCartBtn from "./AddToCartBtn";
 
 const Category = () => {
 
@@ -36,7 +37,6 @@ const Category = () => {
         areaView: {
             backgroundColor: color,
             alignSelf: 'center',
-
         },
         nameCategory: {
             color: theme === 'light' ? 'black' : 'white',
@@ -55,13 +55,13 @@ const Category = () => {
             position: 'absolute',
             left: 0,
             right: 0,
-            bottom: 55,
-            alignItems: 'center',
+            bottom: 60,
+            alignItems: 'start',
             width: '100%',
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
-            height: 461,
+            height: 460,
             borderRadius: 16,
-            zIndex: 7
+
         },
         modalName: {
             fontSize: 24,
@@ -69,7 +69,8 @@ const Category = () => {
             fontFamily: 'Gilroy-SemiBold',
             paddingTop: 48,
             color: theme === 'light' ? 'black' : 'white',
-            paddingBottom: 16
+            paddingBottom: 16,
+            alignSelf: 'center'
         }
     }
 
@@ -85,11 +86,14 @@ const Category = () => {
                         {category}
                     </Text>
                     <View style={styles.objects}>
-                        <ProductItem />
+                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+
                     </View>
                 </View>
             </ScrollView>
-
             <TouchableOpacity onPress={() => {setVisible(true)}}>
                 <Modal
                     onRequestClose={hide}
@@ -109,7 +113,39 @@ const Category = () => {
                                 <MiniCartProduct price={450} count={2} sum={900} />
                                 <MiniCartProduct price={450} count={2} sum={900} />
                                 <MiniCartProduct price={450} count={2} sum={900} />
+                                <LineSvg style={{alignSelf: 'center'}} />
+                                <View style={{
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    paddingTop: 16
+                                }}>
+                                    <Text style={{
+                                        fontFamily: 'Gilroy-Regular',
+                                        fontSize: 16,
+                                        color: "rgba(187, 187, 187, 1)",
+                                        lineHeight: 20,
+                                        alignSelf: 'center'
+                                        // padding: 16
+                                    }}>
+                                        Итого:
+                                    </Text>
+                                    <Text style={{
+                                        fontFamily: 'Gilroy-Regular',
+                                        fontSize: 16,
+                                        color: "rgba(187, 187, 187, 1)",
+                                        lineHeight: 20
+                                    }}>
+                                        {' '} 1 350 руб
+                                    </Text>
+                                </View>
+                                <View style={{
+                                    paddingLeft: 72,
+                                    paddingTop: 16
+                                }}>
+                                    <AddToCartBtn/>
+                                </View>
                             </View>
+
                         )
                     }
                 </Modal>

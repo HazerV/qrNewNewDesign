@@ -1,12 +1,15 @@
 import React, {useContext} from "react";
-import {Dimensions, SafeAreaView, ScrollView, Text, View} from "react-native";
+import {Dimensions, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {ThemeContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import PlusSvg from './Plus.svg'
 import LineSvg from './Line.svg'
+import MiniCartProduct from "../../Components/CartRealise/MiniCartProduct";
+import {useNavigation} from "@react-navigation/native";
 
 const CartPage = () => {
 
+    const navigation = useNavigation()
     const { theme } = useContext(ThemeContext)
     let bgColor = 'white'
     let textColor = 'white'
@@ -62,9 +65,11 @@ const CartPage = () => {
                     <View style={{
                         alignItems: 'center'
                     }}>
-                        <View style={styles.plusBox}>
-                            <PlusSvg style={{alignSelf: 'center', margin: 24}} />
-                        </View>
+                        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
+                            <View style={styles.plusBox}>
+                                <PlusSvg style={{alignSelf: 'center', margin: 24}} />
+                            </View>
+                        </TouchableOpacity>
                         <Text style={{
                             fontSize: 14,
                             lineHeight: 16,
@@ -78,7 +83,17 @@ const CartPage = () => {
                     <LineSvg style={{
                         paddingTop: 32
                     }}/>
+                    <MiniCartProduct price={450} count={2} sum={900} />
+                    <MiniCartProduct price={450} count={2} sum={900} />
+                    <MiniCartProduct price={450} count={2} sum={900} />
+                    <LineSvg style={{
+                        paddingTop: 32
+                    }}/>
+                    <MiniCartProduct price={450} count={2} sum={900} />
+                    <MiniCartProduct price={450} count={2} sum={900} />
                 </View>
+
+
             </ScrollView>
             <Footer />
         </SafeAreaView>
