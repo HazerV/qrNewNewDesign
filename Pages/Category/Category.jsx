@@ -90,7 +90,6 @@ const Category = () => {
                         <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
                         <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
                         <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
-
                     </View>
                 </View>
             </ScrollView>
@@ -137,18 +136,18 @@ const Category = () => {
                                     }}>
                                         {' '} 1 350 руб
                                     </Text>
+                                    </View>
+                                    <View style={{
+                                        paddingLeft: 72,
+                                        paddingTop: 16
+                                    }}>
+                                        <AddToCartBtn/>
+                                    </View>
                                 </View>
-                                <View style={{
-                                    paddingLeft: 72,
-                                    paddingTop: 16
-                                }}>
-                                    <AddToCartBtn/>
-                                </View>
-                            </View>
 
-                        )
-                    }
-                </Modal>
+                            )
+                        }
+                    </Modal>
                 <CartButton />
              </TouchableOpacity>
             <Footer />
