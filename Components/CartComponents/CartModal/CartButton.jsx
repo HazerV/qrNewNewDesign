@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {View, Text, TouchableOpacity, Pressable, Modal} from 'react-native'
-import {ThemeContext} from "../Context/Context";
+import {ThemeContext} from "../../Context/Context";
 
 const CartButton = () => {
 

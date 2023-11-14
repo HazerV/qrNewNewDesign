@@ -3,11 +3,20 @@ import {createContext, useState} from "react";
 const ThemeContext = createContext()
 const CartContext = createContext()
 const PageContext = createContext()
+const BonusContext = createContext()
 
 const Context = ({children}) => {
     const [theme, SetTheme] = useState('light')
     const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
+    const [useBonus, setUseBonus] = useState('')
+
+
+
+
+
+
+
 
     const increment = () => {
         setCartItems((prevItems) =>

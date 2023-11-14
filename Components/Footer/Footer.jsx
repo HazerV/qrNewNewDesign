@@ -126,13 +126,13 @@ const Footer = () => {
                         }}>
                             <View style={styles.iconFoot}>
                                 {
-                                    route === 'CartPage' ? (
+                                    route === 'CartPage' || route === 'SplitPay' ? (
                                         <PersonWhite />
                                     ) : (
                                         <Person />
                                     )
                                 }
-                                <Text style={[styles.footText, {color: route === 'CartPage' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
+                                <Text style={[styles.footText, {color: route === 'CartPage' || route ===  'SplitPay' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Стол
                                 </Text>
                             </View>

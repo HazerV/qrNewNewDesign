@@ -3,9 +3,9 @@ import {View, Text, SafeAreaView, ScrollView, Modal, TouchableOpacity, Button, P
 import { ThemeContext } from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import ProductItem from "../../Components/ProductItem/ProductItem";
-import CartButton from "../../Components/CartRealise/CartButton";
+import CartButton from "../../Components/CartComponents/CartModal/CartButton";
 import axios from "axios";
-import MiniCartProduct from "../../Components/CartRealise/MiniCartProduct";
+import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartProduct";
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
 

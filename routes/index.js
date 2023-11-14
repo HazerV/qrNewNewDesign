@@ -6,6 +6,7 @@ import Contacts from '../Pages/Contacts/Contacts'
 import Category from '../Pages/Category/Category';
 import CodePage from "../Pages/CodePage/CodePage";
 import CartPage from "../Pages/CartPage/CartPage";
+import SplitPay from '../Pages/SplitPay/SplitPay'
 
 export default  {
     "Home" : Home,
@@ -13,6 +14,7 @@ export default  {
     "Menu": Menu,
     "Contacts": Contacts,
     "Categories": Category,
+    'SplitPay': SplitPay,
     Oferta,
     ChangeCort,
     CartPage
