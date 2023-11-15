@@ -19,7 +19,8 @@ const Home = () => {
         container: {
             justifyContent: 'center',
             alignItems: 'center',
-            borderBottomRadius: 32
+            borderBottomRadius: 32,
+            // paddingBottom: 16
         },
         areaView: {
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
@@ -130,7 +131,9 @@ const Home = () => {
                             </View>
                         </View>
                     </View>
-                    <TrueShop />
+                    <View style={{paddingBottom: 16}}>
+                        <TrueShop/>
+                    </View>
                 </ScrollView>
                 <Footer/>
         </SafeAreaView>

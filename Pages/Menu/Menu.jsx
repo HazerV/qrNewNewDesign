@@ -32,10 +32,9 @@ const Home = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            width: '90%',
-            height: '100%',
+            width: '80%',
             fontWeight: 600,
-            paddingTop: 25
+            paddingTop: 25,
         }
     }
 

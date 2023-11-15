@@ -14,7 +14,9 @@ const MiniCartProduct = ({price, count, sum }) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             width: '100%',
-            paddingLeft: 32
+            paddingLeft: 32,
+            alignItems: 'center',
+            justifyContent: 'center'
         },
         textHead: {
             color: theme === 'light' ? 'black' : 'white',

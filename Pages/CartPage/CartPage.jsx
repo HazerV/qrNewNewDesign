@@ -113,9 +113,9 @@ const CartPage = () => {
                     <LineSvg style={{
                         paddingTop: 32
                     }}/>
-                    <BonusTab style={{
-                        alignSelf: 'center'
-                    }}/>
+                    <View style={{paddingTop: 24}}>
+                        <BonusTab style={{ alignSelf: 'center'}}/>
+                    </View>
                     <PayButton/>
                     <TouchableOpacity onPress={() => navigation.navigate('SplitPay')}>
                         <Text style={styles.splitPayText}>

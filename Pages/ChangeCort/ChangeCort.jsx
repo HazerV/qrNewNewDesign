@@ -25,7 +25,7 @@ const ChangeCort = () => {
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
             textAlign: 'center',
-            width: '80%',
+            width: '90%',
             lineHeight: 16
         },
         chooseBufet: {
@@ -39,17 +39,18 @@ const ChangeCort = () => {
             flexDirection: 'row',
             columnGap: 16,
             paddingTop: 32,
-            width: '100%'
+            width: '100%',
+            justifyContent: 'center'
         },
         attention: {
             fontSize: 16,
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            textAlign: 'center',
-            width: '90%',
+            width: '80%',
             paddingTop: 32,
-            lineHeight: 18
+            lineHeight: 18,
+            paddingBottom: 32
         }
     }
 

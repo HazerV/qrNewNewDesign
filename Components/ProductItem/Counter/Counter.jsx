@@ -60,8 +60,6 @@ const Counter = () => {
                             <View>
                                 <TouchableOpacity onPress={() => {
                                     setCount (count + 1)
-                                    // increment(),
-                                        console.log(cart)
                                 }}>
                                     <View>
                                         {
@@ -80,7 +78,7 @@ const Counter = () => {
                             <View style={styles.minus}>
                                         <TouchableOpacity onPress={() => { setCount (count-1)}}>
                                             <View style={{
-                                                width: "100%",
+                                                // width: "100%",
                                             }}>
                                             {
                                               theme === 'light' ?
@@ -98,10 +96,11 @@ const Counter = () => {
                                         </Text>
                                         {
                                             theme === 'light' ? (
-                                                <TouchableOpacity  onPress={() => { setCount (count+1)
-                                                    console.log(cart)}}>
+                                                <TouchableOpacity  onPress={() => { setCount (count+1)}}>
                                                     <View style={{
-                                                    marginLeft: 5
+                                                    marginLeft: 5,
+                                                        width: 10,
+                                                        height: 10
                                                 }}>
                                                         <PlusW/>
                                                     </View>
@@ -110,8 +109,7 @@ const Counter = () => {
                                                 <TouchableOpacity onPress={() => { setCount (count+1) }}>
                                                     <View style={{
                                                     borderRadius: 2,
-                                                    marginLeft: 5
-                                                }}>
+                                                    marginLeft: 5 }}>
                                                         <PlusBSvg/>
                                                     </View>
                                                 </TouchableOpacity>

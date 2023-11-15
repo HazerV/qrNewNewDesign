@@ -9,7 +9,7 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
 
-const Category = () => {
+const CategoryPage = () => {
 
     const {theme} = useContext(ThemeContext)
     const [visible, setVisible] = useState(false)
@@ -35,7 +35,7 @@ const Category = () => {
     const category = 'Брускетты'
     const styles = {
         areaView: {
-            backgroundColor: color,
+            backgroundColor: theme === 'light' ? 'white' : '21, 21, 21, 1',
             alignSelf: 'center',
         },
         nameCategory: {
@@ -56,7 +56,6 @@ const Category = () => {
             left: 0,
             right: 0,
             bottom: 60,
-            alignItems: 'start',
             width: '100%',
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
             height: 460,
@@ -71,6 +70,24 @@ const Category = () => {
             color: theme === 'light' ? 'black' : 'white',
             paddingBottom: 16,
             alignSelf: 'center'
+        },
+        itogText: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 16,
+            color: "rgba(187, 187, 187, 1)",
+            lineHeight: 20,
+            alignSelf: 'center'
+        },
+        sumCount: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 16,
+            color: "rgba(187, 187, 187, 1)",
+            lineHeight: 20
+        },
+        sumBlock: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            paddingTop: 16
         }
     }
 
@@ -90,15 +107,29 @@ const Category = () => {
                         <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
                         <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
                         <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
                     </View>
                 </View>
             </ScrollView>
+
+
             <TouchableOpacity onPress={() => {setVisible(true)}}>
                 <Modal
                     onRequestClose={hide}
                     transparent={true}
                     visible={visible}
                     animationType='slide' >
+                    {
+                        visible === true ? (
+                            <View style={{
+                                width: '500',
+                                height: 838,
+                                backgroundColor: 'black',
+                                opacity: 0.8,
+                            }}>
+                            </View>
+                        ) : null
+                    }
                     {
                         visible === false ? (
                             <View>
@@ -109,42 +140,24 @@ const Category = () => {
                                 <Text style = {styles.modalName}>
                                     Корзина
                                 </Text>
-                                <MiniCartProduct price={450} count={2} sum={900} />
-                                <MiniCartProduct price={450} count={2} sum={900} />
-                                <MiniCartProduct price={450} count={2} sum={900} />
-                                <LineSvg style={{alignSelf: 'center'}} />
-                                <View style={{
-                                    flexDirection: 'row',
-                                    justifyContent: 'center',
-                                    paddingTop: 16
-                                }}>
-                                    <Text style={{
-                                        fontFamily: 'Gilroy-Regular',
-                                        fontSize: 16,
-                                        color: "rgba(187, 187, 187, 1)",
-                                        lineHeight: 20,
-                                        alignSelf: 'center'
-                                        // padding: 16
-                                    }}>
+                                <View>
+                                    <MiniCartProduct price={450} count={2} sum={900} />
+                                    <MiniCartProduct price={450} count={2} sum={900} />
+                                    <MiniCartProduct price={450} count={2} sum={900} />
+                                </View>
+                                <LineSvg style={{alignSelf: 'center', paddingTop: 24}} />
+                                <View style={styles.sumBlock}>
+                                    <Text style={styles.itogText}>
                                         Итого:
                                     </Text>
-                                    <Text style={{
-                                        fontFamily: 'Gilroy-Regular',
-                                        fontSize: 16,
-                                        color: "rgba(187, 187, 187, 1)",
-                                        lineHeight: 20
-                                    }}>
+                                    <Text style={styles.sumCount}>
                                         {' '} 1 350 руб
                                     </Text>
                                     </View>
-                                    <View style={{
-                                        paddingLeft: 72,
-                                        paddingTop: 16
-                                    }}>
+                                    <View style={{ paddingTop: 16, alignSelf: 'center'}}>
                                         <AddToCartBtn/>
                                     </View>
                                 </View>
-
                             )
                         }
                     </Modal>
@@ -155,4 +168,4 @@ const Category = () => {
     )
 }
 
-export default Category
+export default CategoryPage

@@ -22,6 +22,7 @@ const CartButton = () => {
             alignSelf: 'center',
             position: 'absolute',
             bottom: 16,
+
         },
         sum: {
             fontFamily: 'Gilroy-SemiBold',
