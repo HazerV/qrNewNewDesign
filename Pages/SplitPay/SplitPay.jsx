@@ -76,9 +76,7 @@ const SplitPay = () => {
                         </Text>
                     </View>
                     <LineSvg style={{ padding: 24 }}/>
-                    <View style={{
-                        flexDirection: 'column',
-                    }}>
+                    <View style={{ flexDirection: 'column' }}>
                         <PayedProduct name={'Брускетта с пармской ветчиной и инжиром'} count={2} price={450} />
                         <MiniProductForPay name={'Брускетта с козьим сыром и тыквой'} price={350} count={2}  />
                         <MiniProductForPay name={'Брускетта с икрой'} price={350} count={2} />

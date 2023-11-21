@@ -1,34 +1,49 @@
-import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import Desert from '../Images/Desert.png'
-import Water from '../Images/Water.png'
-import Drinks from '../Images/Drinks.png'
-import Bruskett from '../Images/Bruskett.png'
-import ProductItem from "../ProductItem/ProductItem";
-import { useNavigation } from "@react-navigation/native";
+import React, {useEffect, useState} from "react";
+import {View, Image, TouchableOpacity, Text} from "react-native";
+import axios from "axios";
+import {useNavigation} from "@react-navigation/native";
 
 const Categories = () => {
 
-    const navigation = useNavigation()
+    const [path, setPath] = useState(null)
+    const serverUrl = 'https://api.menu.true-false.ru/api'
+
+    const getName = () => {
+        axios.get(`${serverUrl}/categories`, {
+            headers: { 'SubDomain': 'zaryadye' }
+        })
+            .then(res => {
+                setPath(res.data.data.forEach(g => {g.preview}))
+                console.log(res.data.data.forEach(g => {
+                    console.log(g.preview)
+                }))
+            })
+            .catch(err => console.log(err))
+    }
 
 
-    return (
-        <View style={{
-            flexWrap: 'wrap',
-            flexDirection: 'row',
-            columnGap: 16,
-            justifyContent: 'center',
-            rowGap: 16,
-            width: '100%'
+const navigation = useNavigation()
+const styles = {
+    container: {
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        columnGap: 16,
+        justifyContent: 'center',
+        rowGap: 16,
+        width: '100%'
+    }
+}
+return (
+    <View style={styles.container}>
+        <TouchableOpacity onPress={() => {
+            navigation.navigate('Categories')
         }}>
-            <Image source={Desert} />
-            <TouchableOpacity onPress={() => {navigation.navigate('Categories')}}>
-                <Image source={Bruskett} />
-            </TouchableOpacity>
-            <Image source={Water} />
-            <Image source={Drinks} />
-        </View>
-    )
+            <Image style={{
+                width: 176, height: 250
+            }} source={{uri: `${serverUrl}/storage/${getName()}`}}/>
+        </TouchableOpacity>
+    </View>
+)
 
 }
 

@@ -43,11 +43,9 @@ const MiniProductForPay = ({name, price, count, sum}) => {
         chosenProduct: {
             width: 99,
             height: 27,
-            borderWidth: 2,
             borderRadius: 20,
             backgroundColor: '#FF7A00',
             justifyContent: 'center',
-            borderColor: '#555555',
             marginTop: 8
         },
         chooseText: {
@@ -73,8 +71,7 @@ const MiniProductForPay = ({name, price, count, sum}) => {
                         setPressed(true)
                     } else {
                         setPressed(false)
-                    }
-                }}>
+                    }}}>
                     {
                         pressed === false ? (
                             <View style={styles.chooseProduct}>

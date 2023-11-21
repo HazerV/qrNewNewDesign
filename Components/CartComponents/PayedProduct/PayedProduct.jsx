@@ -7,8 +7,8 @@ const name = 'Брускетта с пармской ветчиной и инж�
 
 const PayedProduct = ({name, price, count, sum}) => {
 
-    const {theme} = useContext(ThemeContext)
-    const [pressed, setPressed] = useState(false)
+    // const {theme} = useContext(ThemeContext)
+    // const [pressed, setPressed] = useState(false)
 
     const styles = {
         container: {

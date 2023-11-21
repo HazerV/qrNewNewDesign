@@ -35,7 +35,7 @@ const CategoryPage = () => {
     const category = 'Брускетты'
     const styles = {
         areaView: {
-            backgroundColor: theme === 'light' ? 'white' : '21, 21, 21, 1',
+            backgroundColor: theme === 'light' ? 'white' : '#333333',
             alignSelf: 'center',
         },
         nameCategory: {
@@ -55,7 +55,7 @@ const CategoryPage = () => {
             position: 'absolute',
             left: 0,
             right: 0,
-            bottom: 60,
+            bottom: 50,
             width: '100%',
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
             height: 460,
@@ -123,9 +123,9 @@ const CategoryPage = () => {
                         visible === true ? (
                             <View style={{
                                 width: '500',
-                                height: 838,
+                                height: 800,
                                 backgroundColor: 'black',
-                                opacity: 0.8,
+                                opacity: 0.6,
                             }}>
                             </View>
                         ) : null
