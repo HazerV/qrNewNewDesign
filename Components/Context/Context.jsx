@@ -4,19 +4,14 @@ const ThemeContext = createContext()
 const CartContext = createContext()
 const PageContext = createContext()
 const BonusContext = createContext()
+const CategoryContext = createContext()
 
 const Context = ({children}) => {
     const [theme, SetTheme] = useState('light')
     const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
     const [useBonus, setUseBonus] = useState('')
-
-
-
-
-
-
-
+    const [CategoryVal, setCategoryVal] = useState(null)
 
     const increment = () => {
         setCartItems((prevItems) =>
@@ -32,6 +27,10 @@ const Context = ({children}) => {
             } : item))
     }
 
+    const catCon = {
+        CategoryVal,
+        setCategoryVal
+    }
 
     const context = {
         theme,
@@ -54,7 +53,9 @@ const Context = ({children}) => {
         <ThemeContext.Provider value={context}>
             <CartContext.Provider value={card}>
                 <PageContext.Provider value={pages}>
-                    {children}
+                    <CategoryContext.Provider value={catCon}>
+                        {children}
+                    </CategoryContext.Provider>
                 </PageContext.Provider>
             </CartContext.Provider>
         </ThemeContext.Provider>
@@ -67,7 +68,8 @@ export {
     Context,
     ThemeContext,
     CartContext,
-    PageContext
+    PageContext,
+    CategoryContext
 }
 
 

@@ -9,7 +9,8 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
 
-const CategoryPage = () => {
+const CategoryPage = (props) => {
+    let index = props.route.params.index
 
     const {theme} = useContext(ThemeContext)
     const [visible, setVisible] = useState(false)

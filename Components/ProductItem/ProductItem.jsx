@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useState } from "react";
+import axios from "axios";
 import {View, Text, Image, TouchableOpacity, Dimensions, FlatList} from "react-native";
 import { ThemeContext, CartContext } from "../Context/Context";
 import Counter from "./Counter/Counter";
@@ -9,16 +10,13 @@ import Images from "./Images";
 const ProductItem = ({id, name, description, sum, weight}) => {
 
     const {theme} = useContext(ThemeContext)
-    const {increment, decrement, remove} = useContext(CartContext)
     const cartItem = {id, name, description, sum, weight, quantity: 1}
-
     const styles = {
         container: {
             width: '95%',
             height: 172,
             flexDirection: 'column',
             columnGap: 16,
-            // paddingTop: 32
         },
         name: {
             fontFamily: 'Gilroy-Regular',
@@ -52,17 +50,17 @@ const ProductItem = ({id, name, description, sum, weight}) => {
             flexDirection: 'row',
             columnGap: 50,
             width: '40%',
-
+        },
+        counter: {
+            marginTop: 115,
+            position: 'absolute'
+        },
+        imgPosititon: {
+            top: 0,
+            position: 'absolute',
+            right: 0
         }
     }
-    const array = [
-        { id: 1, name: 'Something', description: 'Caviar', sum: 450, weight: 220 },
-        { id: 2, name: 'Something1', description: 'Caviar1', sum: 450, weight: 220 },
-        { id: 3, name: 'Something2', description: 'Caviar2', sum: 450, weight: 220 },
-        { id: 4, name: 'Something3', description: 'Caviar3', sum: 450, weight: 220 },
-        { id: 5, name: 'Something4', description: 'Caviar4', sum: 450, weight: 220 }
-    ]
-
 
     return (
         <View style={styles.container}>
@@ -72,17 +70,10 @@ const ProductItem = ({id, name, description, sum, weight}) => {
                 <Text style={styles.description}>
                     {description}
                 </Text>
-                <View style={{
-                    top: 0,
-                    position: 'absolute',
-                    right: 0
-                }}>
+                <View style={styles.imgPosititon}>
                     <Images />
                 </View>
-                <View style={{
-                    marginTop: 115,
-                    position: 'absolute'
-                }}>
+                <View style={styles.counter}>
                     <Counter />
                 </View>
                 <View style={{ marginLeft: 110, marginTop: 125, position: 'absolute' }}>

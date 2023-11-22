@@ -1,50 +1,52 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import {View, Image, TouchableOpacity, Text} from "react-native";
 import axios from "axios";
 import {useNavigation} from "@react-navigation/native";
+import stylesCategories from "./StylesCategories";
+import {CategoryContext} from "../Context/Context";
 
 const Categories = () => {
 
-    const [path, setPath] = useState(null)
-    const serverUrl = 'https://api.menu.true-false.ru/api'
+    const {CategoryVal, setCategoryVal} = useContext(CategoryContext)
+    const navigation = useNavigation()
+    const [paths, setPaths] = useState([])
+    const serverUrl = 'https://api.menu.true-false.ru'
 
     const getName = () => {
-        axios.get(`${serverUrl}/categories`, {
-            headers: { 'SubDomain': 'zaryadye' }
+        axios.get(`${serverUrl}/api/categories`, {
+            headers: {'SubDomain': 'zaryadye'}
         })
             .then(res => {
-                setPath(res.data.data.forEach(g => {g.preview}))
-                console.log(res.data.data.forEach(g => {
-                    console.log(g.preview)
-                }))
+                setPaths(
+                    res.data.data.map(g => {
+                        return g.preview;
+                    })
+                )
             })
             .catch(err => console.log(err))
-    }
+    };
+    useEffect(() => {
+        getName()
+    }, []);
 
+    return (
+        <View style={stylesCategories.container}>
+            {paths.map((preview, index) => {
 
-const navigation = useNavigation()
-const styles = {
-    container: {
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        columnGap: 16,
-        justifyContent: 'center',
-        rowGap: 16,
-        width: '100%'
-    }
-}
-return (
-    <View style={styles.container}>
-        <TouchableOpacity onPress={() => {
-            navigation.navigate('Categories')
-        }}>
-            <Image style={{
-                width: 176, height: 250
-            }} source={{uri: `${serverUrl}/storage/${getName()}`}}/>
-        </TouchableOpacity>
-    </View>
-)
-
+                return (
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('Categories', {
+                            index
+                        })
+                        setCategoryVal(index)
+                        console.log(CategoryVal)
+                    }}>
+                        <Image key={index} style={stylesCategories.imgSize}
+                               source={{uri: `${serverUrl}/storage/${preview}`}}/>
+                    </TouchableOpacity>
+                )})}
+        </View>
+    )
 }
 
 export default Categories
