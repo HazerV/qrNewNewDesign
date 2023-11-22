@@ -11,7 +11,7 @@ const Context = ({children}) => {
     const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
     const [useBonus, setUseBonus] = useState('')
-    const [CategoryVal, setCategoryVal] = useState(null)
+    const [Category, setCategory] = useState([])
 
     const increment = () => {
         setCartItems((prevItems) =>
@@ -28,8 +28,8 @@ const Context = ({children}) => {
     }
 
     const catCon = {
-        CategoryVal,
-        setCategoryVal
+        Category,
+        setCategory
     }
 
     const context = {

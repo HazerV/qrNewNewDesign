@@ -7,9 +7,8 @@ import {CategoryContext} from "../Context/Context";
 
 const Categories = () => {
 
-    const {CategoryVal, setCategoryVal} = useContext(CategoryContext)
+    const {Category, setCategory} = useContext(CategoryContext)
     const navigation = useNavigation()
-    const [paths, setPaths] = useState([])
     const serverUrl = 'https://api.menu.true-false.ru'
 
     const getName = () => {
@@ -17,10 +16,8 @@ const Categories = () => {
             headers: {'SubDomain': 'zaryadye'}
         })
             .then(res => {
-                setPaths(
-                    res.data.data.map(g => {
-                        return g.preview;
-                    })
+                setCategory(
+                    res.data.data
                 )
             })
             .catch(err => console.log(err))
@@ -31,20 +28,18 @@ const Categories = () => {
 
     return (
         <View style={stylesCategories.container}>
-            {paths.map((preview, index) => {
-
+            {Category.map((cat, index) => {
                 return (
                     <TouchableOpacity onPress={() => {
                         navigation.navigate('Categories', {
-                            index
+                            cat
                         })
-                        setCategoryVal(index)
-                        console.log(CategoryVal)
                     }}>
                         <Image key={index} style={stylesCategories.imgSize}
-                               source={{uri: `${serverUrl}/storage/${preview}`}}/>
+                               source={{uri: `${serverUrl}/storage/${cat.preview}`}}/>
                     </TouchableOpacity>
-                )})}
+                )
+            })}
         </View>
     )
 }

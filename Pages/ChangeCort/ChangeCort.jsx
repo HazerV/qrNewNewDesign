@@ -1,22 +1,40 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Footer from "../../Components/Footer/Footer";
 import { ThemeContext } from "../../Components/Context/Context";
 import Header from "../../Components/Header/Header";
+import axios from "axios";
 import ChinaTown from './Images/ChinaTown.png'
 import Vidovoy from './Images/Vidovoy.png'
 
 
 const ChangeCort = () => {
-    
+
+    const [data, setData] = useState([])
+    const server = 'https://api.menu.true-false.ru/api/config'
+    useEffect(() => {
+        axios.get(server, {
+            headers: {'SubDomain': 'zaryadye'}
+        })
+            .then((res) => {
+                console.log(res.data.data.halls)
+                setData(res.data.data)
+            })
+            .catch((err) => {console.log(err)})
+    }, []);
+
     const navigation = useNavigation() 
     const {theme} = useContext(ThemeContext)
     const styles = {
         areaView: {
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
             height: '100%',
+            justifyContent: 'center'
+        },
+        container: {
+            alignItems: 'center',
             justifyContent: 'center'
         },
         welcome: {
@@ -57,10 +75,7 @@ const ChangeCort = () => {
     return (
         <SafeAreaView style={styles.areaView}>
             <ScrollView>
-                <View style={{
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
+                <View style={styles.container}>
                     <Header />
                     <Text style={styles.welcome}>
                         Добро пожаловать в онлайн меню буфетов концертного зала Зарядье
@@ -70,9 +85,8 @@ const ChangeCort = () => {
                     </Text>
                     <View style={styles.bufetImgs}>
                         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-                            <Image source={Vidovoy} />
+                            <Image source={{uri: 'https://api.menu.true-false.ru/storage/' + data.halls.image}} />
                         </TouchableOpacity>
-                            <Image source={ChinaTown} />
                     </View>
                     <Text style={styles.attention}>
                         Вы можете забронировать стол на время антракта и сделать предзаказ.{'\n'}{'\n'}

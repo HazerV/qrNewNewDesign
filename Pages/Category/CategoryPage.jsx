@@ -9,8 +9,9 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
 
-const CategoryPage = (props) => {
-    let index = props.route.params.index
+const CategoryPage =  (props) => {
+    let cat  = props.route.params.cat
+    console.log(cat)
 
     const {theme} = useContext(ThemeContext)
     const [visible, setVisible] = useState(false)
@@ -33,7 +34,7 @@ const CategoryPage = (props) => {
         color = 'rgb(60, 60, 60)'
     }
 
-    const category = 'Брускетты'
+    // const category = 'Брускетты'
     const styles = {
         areaView: {
             backgroundColor: theme === 'light' ? 'white' : '#333333',
@@ -94,26 +95,18 @@ const CategoryPage = (props) => {
 
 
 
-    // console.log(array)
-
     return (
         <SafeAreaView style={[styles.areaView]}>
             <ScrollView>
                 <View>
                     <Text style={styles.nameCategory}>
-                        {category}
+                        {cat.name}
                     </Text>
                     <View style={styles.objects}>
-                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
-                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
-                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
-                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
-                        <ProductItem name={'Брускетта с ростбифом'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+                        <ProductItem name={'ssss'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
                     </View>
                 </View>
             </ScrollView>
-
-
             <TouchableOpacity onPress={() => {setVisible(true)}}>
                 <Modal
                     onRequestClose={hide}
