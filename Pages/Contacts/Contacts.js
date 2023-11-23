@@ -3,40 +3,44 @@ import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import { ThemeContext } from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 
-
 const Contacts = () => {
 
     const {theme} = useContext(ThemeContext)
+    const styles = {
+        areaview: {
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
+            alignSelf: 'center'
+        },
+        container: {
+            alignItems: 'center',
+            width: '90%',
+            alignSelf: 'center'
+        },
+        headName: {
+            fontFamily: 'Gilroy-SemiBold',
+            fontSize: 24,
+            lineHeight: 20,
+            paddingTop: 48,
+            paddingBottom: 16,
+            color: theme === 'light' ? 'black' : 'white'
+        },
+        text: {
+            fontFamily: 'Gilroy-Regular',
+            fontSize: 16,
+            lineHeight: 18,
+            color: theme === 'light' ? 'black' : 'white'
+        }
+    }
 
 
     return (
-
-        <SafeAreaView style = {{
-            backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            alignSelf: 'center'
-        }}>
+        <SafeAreaView style = {styles.areaview}>
             <ScrollView>
-                <View style={{
-                    alignItems: 'center',
-                    width: '90%',
-                    alignSelf: 'center'
-                }}>
-                    <Text style={{
-                        fontFamily: 'Gilroy-SemiBold',
-                        fontSize: 24,
-                        lineHeight: 20,
-                        paddingTop: 48,
-                        paddingBottom: 16,
-                        color: theme === 'light' ? 'black' : 'white'
-                    }}>
+                <View style={styles.container}>
+                    <Text style={styles.headName}>
                         Контакты
                     </Text>
-                    <Text style={{
-                        fontFamily: 'Gilroy-Regular',
-                        fontSize: 16,
-                        lineHeight: 18,
-                        color: theme === 'light' ? 'black' : 'white'
-                    }}>
+                    <Text style={styles.text}>
                         {'\n'}
                         Контакты:{'\n'}{'\n'}
                         Фактический адрес: 1109012, Москва, ул. Варварка, двлд. 6, стр. 4{'\n'}
@@ -53,7 +57,6 @@ const Contacts = () => {
             </ScrollView>
             <Footer />
         </SafeAreaView>
-
     )
 }
 

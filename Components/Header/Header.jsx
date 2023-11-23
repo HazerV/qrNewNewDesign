@@ -1,8 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import {View} from "react-native";
 import {ThemeContext} from "../Context/Context";
-import HeaderBlack from '../Header/HeaderBlack.svg'
-import HeaderLight from '../Header/HeaderLight.svg'
 import axios from "axios";
 import {SvgUri} from "react-native-svg";
 
@@ -11,10 +9,9 @@ const Header = () => {
 
     const [data, setData] = useState([])
     const server = 'https://api.menu.true-false.ru/api/config'
+
     useEffect(() => {
-        axios.get(server, {
-            headers: {'SubDomain': 'zaryadye'}
-        })
+        axios.get(server, { headers: {'SubDomain': 'zaryadye'} })
             .then((res) => {
                 console.log(res.data.data.logo_light)
                 setData(res.data.data)

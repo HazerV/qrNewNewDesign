@@ -27,7 +27,6 @@ const Counter = () => {
             alignItems: 'center',
             flexDirection: 'row',
             rowGap: 20,
-            zIndex: 1
         },
         countValue: {
             fontSize: 18,
@@ -77,9 +76,7 @@ const Counter = () => {
                         (
                             <View style={styles.minus}>
                                         <TouchableOpacity onPress={() => { setCount (count-1)}}>
-                                            <View style={{
-                                                // width: "100%",
-                                            }}>
+                                            <View>
                                             {
                                               theme === 'light' ?
                                                 (

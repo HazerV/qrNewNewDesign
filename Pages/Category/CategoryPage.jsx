@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {View, Text, SafeAreaView, ScrollView, Modal, TouchableOpacity, Button, Pressable} from "react-native";
-import { ThemeContext } from "../../Components/Context/Context";
+import { ThemeContext, ProductContext } from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import ProductItem from "../../Components/ProductItem/ProductItem";
 import CartButton from "../../Components/CartComponents/CartModal/CartButton";
@@ -10,9 +10,11 @@ import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
 
 const CategoryPage =  (props) => {
-    let cat  = props.route.params.cat
-    console.log(cat)
 
+    let cat  = props.route.params.cat
+    const serverUrl = 'https://api.menu.true-false.ru'
+
+    const {Product, setProduct} = useContext(ProductContext)
     const {theme} = useContext(ThemeContext)
     const [visible, setVisible] = useState(false)
     const show = () => setVisible(true)
@@ -34,7 +36,20 @@ const CategoryPage =  (props) => {
         color = 'rgb(60, 60, 60)'
     }
 
-    // const category = 'Брускетты'
+    const getProduct = () => {
+        axios.get(`${serverUrl}/api/${cat.slug}/products`, {headers: {'SubDomain' : 'zaryadye'}})
+            .then(
+                res => {
+                    setProduct(res.data.data.products)
+                    // console.log(res.data.data.products)
+                }
+            )
+            .catch(err => {console.log(err)})
+    }
+    useEffect(() => {
+        getProduct()
+    }, []);
+    console.log(Product)
     const styles = {
         areaView: {
             backgroundColor: theme === 'light' ? 'white' : '#333333',
@@ -90,9 +105,20 @@ const CategoryPage =  (props) => {
             flexDirection: 'row',
             justifyContent: 'center',
             paddingTop: 16
+        },
+        modalStyle: {
+            width: '500',
+            height: 800,
+            backgroundColor: 'black',
+            opacity: 0.6,
         }
     }
 
+    const logg = () => {
+        Product.map((prod) => {
+            console.log(prod.name)
+        })
+    }
 
 
     return (
@@ -103,7 +129,13 @@ const CategoryPage =  (props) => {
                         {cat.name}
                     </Text>
                     <View style={styles.objects}>
-                        <ProductItem name={'ssss'} description={'Ростбиф с чесноком, перцем чили, кедровыми орешками, кресс-салатом, вялеными томатами, крем-чизом'} sum={450} weight={220}/>
+                        {
+                            Product.map((prod) => {
+                                return (
+                                    <ProductItem name={prod.name} description={prod.content} sum={prod.price} weight={220} preview={`${serverUrl}/storage/${prod.preview}`}/>
+                                )
+                            })
+                        }
                     </View>
                 </View>
             </ScrollView>
@@ -115,12 +147,7 @@ const CategoryPage =  (props) => {
                     animationType='slide' >
                     {
                         visible === true ? (
-                            <View style={{
-                                width: '500',
-                                height: 800,
-                                backgroundColor: 'black',
-                                opacity: 0.6,
-                            }}>
+                            <View style={styles.modalStyle}>
                             </View>
                         ) : null
                     }
