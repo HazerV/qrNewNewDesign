@@ -65,6 +65,7 @@ const CategoryPage =  (props) => {
         },
         objects: {
             alignItems: 'center',
+            rowGap:24,
             paddingTop: 32,
             paddingLeft: 16
         },
@@ -130,7 +131,8 @@ const CategoryPage =  (props) => {
                     </Text>
                     <View style={styles.objects}>
                         {
-                            Product.map((prod) => {
+                            Product.map((prod, index ) => {
+
                                 return (
                                     <ProductItem name={prod.name} description={prod.content} sum={prod.price} weight={220} preview={`${serverUrl}/storage/${prod.preview}`}/>
                                 )
