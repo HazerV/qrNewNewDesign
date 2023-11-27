@@ -11,7 +11,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
 
     const [open, setOpen] = useState(false)
     const {theme} = useContext(ThemeContext)
-    const styles = {
+    let styles = {
         container: {
             width: Dimensions.get('window').width - 60,
             height: 172,
@@ -19,6 +19,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             // position: 'relative',
             display: 'inline-block',
             columnGap: 16,
+            justifyContent: 'flex-end',
+            paddingBottom: 16
         },
         name: {
             fontFamily: 'Gilroy-Regular',
@@ -41,13 +43,14 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             fontFamily: 'Gilroy-Regular',
             fontSize: 16,
             lineHeight: 19,
-            color: theme === 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white',
+            paddingBottom: 4
         },
         weight: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 12,
             lineHeight: 14,
-            color: theme === 'light' ? 'black' : 'white'
+            color: theme === 'dark' ? '#BBBBBB' : '#555555',
         },
         viewSec: {
             flexDirection: 'row',
@@ -57,7 +60,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
         imgPosititon: {
             top: 0,
             position: 'absolute',
-            right: 0
+            right: 0,
+            zIndex: -1
         },
         openImage: {
             width: Dimensions.get('window').width -45,
@@ -75,7 +79,79 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             width: 100,
             height: 100,
             borderRadius: 8,
-            marginLeft: 10
+            marginLeft: 10,
+        }
+    }
+    if (open === true) {
+        styles = {
+            container: {
+                width: Dimensions.get('window').width - 60,
+                height: open === false ? 172 : Dimensions.get('window').width - 60,
+                flexDirection: 'column',
+                // position: 'relative',
+                display: 'inline-block',
+                columnGap: 16,
+                justifyContent: 'flex-end',
+                paddingBottom: 16
+            },
+            name: {
+                position: 'absolute',
+                top: 16,
+                fontFamily: 'Gilroy-Regular',
+                fontSize: 16,
+                lineHeight: 20,
+                width: Dimensions.get('window').width - 120 - 60,
+                color: 'white',
+            },
+            description: {
+                fontFamily: 'Gilroy-Regular',
+                fontSize: 12,
+                lineHeight: 16,
+                marginBottom: 16,
+                width: Dimensions.get('window').width - 120 - 60,
+            },
+            summa: {
+                fontFamily: 'Gilroy-Regular',
+                fontSize: 16,
+                lineHeight: 19,
+                color: 'white',
+                paddingBottom: 4
+            },
+            weight: {
+                fontFamily: 'Gilroy-Regular',
+                fontSize: 12,
+                lineHeight: 14,
+                color: 'rgba(187, 187, 187, 1)'
+            },
+            viewSec: {
+                flexDirection: 'row',
+                columnGap: 50,
+                width: '40%',
+            },
+            imgPosititon: {
+                top: 0,
+                position: 'absolute',
+                right: 0,
+                zIndex: -1
+            },
+            openImage: {
+                width: Dimensions.get('window').width -45,
+                height: Dimensions.get('window').width - 60,
+                borderRadius: 16
+            },
+            nonContainer: {
+                position: 'relative',
+                top: 0,
+                right: 0,
+                width: Dimensions.get('window').width -45, height: Dimensions.get('window').width - 60,
+                borderRadius: 16
+            },
+            image: {
+                width: 100,
+                height: 100,
+                borderRadius: 8,
+                marginLeft: 10
+            }
         }
     }
 
@@ -84,9 +160,16 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             <Text style={styles.name}>
                 {name}
             </Text>
-            <Text style={styles.description}>
-                {description}
-            </Text>
+            {
+                open === false ? (
+                    <Text style={styles.description}>
+                        {description}
+                    </Text>
+                ) : (
+                    null
+                )
+            }
+
             <View style={styles.imgPosititon}>
                 <View>
                     <TouchableOpacity onPress={() => {
@@ -110,13 +193,13 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 <View style={styles.counter}>
                     <Counter/>
                 </View>
-                <View>
+                <View style={{}}>
                     <Text style={styles.summa}>
                         {sum} руб
                     </Text>
-                    {/*<Text style={styles.weight}>*/}
-                    {/*    {weight} гр*/}
-                    {/*</Text>*/}
+                    <Text style={styles.weight}>
+                        {weight} гр
+                    </Text>
                 </View>
             </View>
         </View>

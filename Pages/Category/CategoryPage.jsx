@@ -112,7 +112,7 @@ const CategoryPage = (props) => {
                                 return (
                                     <ProductItem name={prod.name}
                                                  description={prod.content}
-                                                 sum={prod.price} /*weight={220}*/
+                                                 sum={prod.price} weight={220}
                                                  preview={`${serverUrl}/storage/${prod.preview}`}/>
                                 )
                             })
