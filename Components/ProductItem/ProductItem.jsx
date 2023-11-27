@@ -11,13 +11,12 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
 
     const [open, setOpen] = useState(false)
     const {theme} = useContext(ThemeContext)
-    const cartItem = {id, name, description, sum, weight, quantity: 1}
     const styles = {
         container: {
             width: Dimensions.get('window').width - 60,
             height: 172,
             flexDirection: 'column',
-            position: 'relative',
+            // position: 'relative',
             display: 'inline-block',
             columnGap: 16,
         },
@@ -37,7 +36,6 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             color: theme === 'light' ? 'black' : 'white',
             marginBottom: 16,
             width: Dimensions.get('window').width - 120 - 60,
-
         },
         summa: {
             fontFamily: 'Gilroy-Regular',
@@ -56,17 +54,22 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             columnGap: 50,
             width: '40%',
         },
-        counter: {},
         imgPosititon: {
             top: 0,
             position: 'absolute',
             right: 0
         },
-        openImage: {width: Dimensions.get('window').width -20, height: Dimensions.get('window').width - 60,},
+        openImage: {
+            width: Dimensions.get('window').width -45,
+            height: Dimensions.get('window').width - 60,
+            borderRadius: 16
+        },
         nonContainer: {
-            position: 'absolute',
+            position: 'relative',
             top: 0,
             right: 0,
+            width: Dimensions.get('window').width -45, height: Dimensions.get('window').width - 60,
+            borderRadius: 16
         },
         image: {
             width: 100,
@@ -90,43 +93,34 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                         open === false ? (
                             setOpen(true)
                         ) : (setOpen(false))
-                        console.log(open)
                     }}>
                         {
                             open === false ? (
                                 <Image style={styles.image} source={{uri: `${preview}`}}/>
                             ) : (
-
                                     <View style={styles.nonContainer}>
-                                        <ReactNativeZoomableView
-                                            maxZoom={2}>
                                         <Image style={styles.openImage} source={{uri: `${preview}`}}/>
-                                        </ReactNativeZoomableView>
-
                                     </View>
                             )
                         }
                     </TouchableOpacity>
                 </View>
             </View>
-
             <View style={{display: 'flex', flexDirection: 'row', columnGap: 12, alignItems: 'center'}}>
                 <View style={styles.counter}>
                     <Counter/>
                 </View>
-                <View style={{}}>
+                <View>
                     <Text style={styles.summa}>
                         {sum} руб
                     </Text>
-                    <Text style={styles.weight}>
-                        {weight} гр
-                    </Text>
+                    {/*<Text style={styles.weight}>*/}
+                    {/*    {weight} гр*/}
+                    {/*</Text>*/}
                 </View>
             </View>
         </View>
     )
-
-
 }
 
 export default ProductItem

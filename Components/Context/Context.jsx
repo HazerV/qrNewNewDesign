@@ -8,19 +8,17 @@ const CategoryContext = createContext()
 const ProductContext = createContext()
 
 const Context = ({children}) => {
+    // const [useBonus, setUseBonus] = useState('')
     const [theme, SetTheme] = useState('light')
     const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
-    const [useBonus, setUseBonus] = useState('')
     const [Category, setCategory] = useState([])
     const [Product, setProduct] = useState([])
-
     const increment = () => {
         setCartItems((prevItems) =>
             prevItems.map((item) =>
                 item.id === id ? {...item, quantity: item.quantity + 1} : item))
     }
-
     const decrement = (id) => {
         setCartItems((prevItems) =>
             prevItems.map((item) => item.id === id && item.quantity > 1 ? {
@@ -28,27 +26,22 @@ const Context = ({children}) => {
                 quantity: item.quantity - 1
             } : item))
     }
-
     const prodCon = {
         Product,
         setProduct
     }
-
     const catCon = {
         Category,
         setCategory
     }
-
     const context = {
         theme,
         SetTheme,
     }
-
     const pages = {
         route,
         setRoute
     }
-
     const card = {
         cartItems,
         setCartItems,
@@ -62,7 +55,7 @@ const Context = ({children}) => {
                 <PageContext.Provider value={pages}>
                     <CategoryContext.Provider value={catCon}>
                         <ProductContext.Provider value={prodCon}>
-                        {children}
+                            {children}
                         </ProductContext.Provider>
                     </CategoryContext.Provider>
                 </PageContext.Provider>
@@ -70,8 +63,6 @@ const Context = ({children}) => {
         </ThemeContext.Provider>
     )
 }
-
-
 
 export {
     Context,
@@ -81,18 +72,3 @@ export {
     CategoryContext,
     ProductContext
 }
-
-
-
-
-// const remove = (id) => {
-//     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id))
-// }
-// const сartContext = ({children}) =>
-//     return (
-//         <CartContext.Provider value={{context}}>
-//             {children}
-//         </CartContext.Provider>
-//     )
-// }
-//

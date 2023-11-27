@@ -9,6 +9,10 @@ const Home = () => {
 
     const {theme} = useContext(ThemeContext)
     const styles = {
+        areaView: {
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
+            height: '100%'
+        },
         container: {
             width: '100%',
             height: '100%',
@@ -35,23 +39,21 @@ const Home = () => {
             width: '80%',
             fontWeight: 600,
             paddingTop: 25,
+        },
+        catPlace: {
+            paddingTop: 16,
+            width: '100%'
         }
     }
 
     return (
-        <SafeAreaView style={{
-            backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            height: '100%'
-            }}>
+        <SafeAreaView style={styles.areaView}>
             <ScrollView>
                 <View style={styles.container}>
                         <Text style={styles.headName}>
                             Меню
                         </Text>
-                    <View style={{
-                        paddingTop: 16,
-                        width: '100%'
-                    }}>
+                    <View style={styles.catPlace}>
                         <Categories/>
                     </View>
                     <Text style={styles.attention}>
@@ -70,5 +72,4 @@ const Home = () => {
     ) 
 
 }
-
 export default Home

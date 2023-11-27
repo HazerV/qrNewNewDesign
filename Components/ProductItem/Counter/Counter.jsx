@@ -6,14 +6,16 @@ import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
 import { ThemeContext, CartContext } from "../../Context/Context";
 import ProductItem from "../ProductItem";
+// import {RNSVGPath, SvgUri} from "react-native-svg";
+// import SvgImage from "react-native-svg/lib/typescript/elements/Image";
+// import Svg from "react-native-svg/lib/typescript/ReactNativeSVG.web";
 
 
 const Counter = () => {
 
     const [ count, setCount ] = useState(0)
     const { theme } = useContext(ThemeContext)
-    const {increment, decrement, cart, setCart} = useContext(CartContext)
-
+    // const {increment, decrement, cart, setCart} = useContext(CartContext)
 
     const styles = StyleSheet.create({
         container: {
@@ -47,8 +49,8 @@ const Counter = () => {
         <TouchableOpacity onPress={() => {
             {
                 count === 0 ? (
-                    setCount(count+1),
-                    console.log(cart)
+                    setCount(count+1)
+                    // console.log(cart),
                 ) : null
             }
         }}>
@@ -80,7 +82,7 @@ const Counter = () => {
                                             {
                                               theme === 'light' ?
                                                 (
-                                                    <MinusW/>
+                                                    <MinusW />
                                                 ) : (
                                                     <MinusBSvg/>
                                                 )

@@ -14,17 +14,19 @@ const ChangeCort = () => {
 
     const [data, setData] = useState([])
     const server = 'https://api.menu.true-false.ru/api/config'
+    const storage = 'https://api.menu.true-false.ru/storage'
     useEffect(() => {
         axios.get(server, {
             headers: {'SubDomain': 'zaryadye'}
         })
             .then((res) => {
-                console.log(res.data.data.halls)
-                setData(res.data.data)
+                // console.log(res.data.data.halls)
+                setData(res.data.data.halls)
             })
             .catch((err) => {console.log(err)})
     }, []);
 
+    // console.log(data)
     const navigation = useNavigation() 
     const {theme} = useContext(ThemeContext)
     const styles = {
@@ -71,6 +73,7 @@ const ChangeCort = () => {
             paddingBottom: 32
         }
     }
+    console.log(data.image)
 
     return (
         <SafeAreaView style={styles.areaView}>
@@ -84,9 +87,17 @@ const ChangeCort = () => {
                         Выберите буфет
                     </Text>
                     <View style={styles.bufetImgs}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-                            <Image source={{uri: 'https://api.menu.true-false.ru/storage/' + data.halls.image}} />
-                        </TouchableOpacity>
+                            {
+                                data.map((img, index) => {
+                                    console.log(img.image)
+                                    return (
+                                        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
+                                            <Image style={{width: 400, height: 250, resizeMode: 'contain'}}
+                                                source={{uri: `${storage}/${img.image}`}} />
+                                        </TouchableOpacity>
+                                    )
+                                })
+                            }
                     </View>
                     <Text style={styles.attention}>
                         Вы можете забронировать стол на время антракта и сделать предзаказ.{'\n'}{'\n'}
