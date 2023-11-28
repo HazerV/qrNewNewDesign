@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { View, Text, Image, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import {View, Text, Image, StyleSheet, SafeAreaView, ScrollView, Dimensions} from "react-native";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import { Context, ThemeContext } from "../../Components/Context/Context";
@@ -36,7 +36,7 @@ const Home = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            width: '80%',
+            width: Dimensions.get('window').width -30,
             fontWeight: 600,
             paddingTop: 25,
         },

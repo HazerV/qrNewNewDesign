@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
+import {View, Text, Image, ScrollView, TouchableOpacity, Dimensions} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Footer from "../../Components/Footer/Footer";
@@ -67,7 +67,7 @@ const ChangeCort = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            width: '80%',
+            width: Dimensions.get('window').width -45,
             paddingTop: 32,
             lineHeight: 18,
             paddingBottom: 32
@@ -92,7 +92,7 @@ const ChangeCort = () => {
                                     console.log(img.image)
                                     return (
                                         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-                                            <Image style={{width: 400, height: 250, resizeMode: 'contain'}}
+                                            <Image style={{width: Dimensions.get('window').width -45, height: 250, resizeMode: 'contain'}}
                                                 source={{uri: `${storage}/${img.image}`}} />
                                         </TouchableOpacity>
                                     )

@@ -5,7 +5,7 @@ const stylesCategories = {
             columnGap: 16,
             justifyContent: 'center',
             rowGap: 16,
-            width: '100%',
+            // width: '100%',
     },
     imgSize: {
         width: 176,

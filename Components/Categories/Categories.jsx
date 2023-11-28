@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
-import {View, Image, TouchableOpacity, Text} from "react-native";
+import {View, Image, TouchableOpacity, Text, Dimensions} from "react-native";
 import axios from "axios";
 import {useNavigation} from "@react-navigation/native";
 import stylesCategories from "./StylesCategories";
@@ -27,7 +27,7 @@ const Categories = () => {
     }, []);
 
     return (
-        <View style={stylesCategories.container}>
+        <View style={[stylesCategories.container, {width: Dimensions.get('window').width }]}>
             {Category.map((cat, index) => {
                 return (
                     <TouchableOpacity onPress={() => {

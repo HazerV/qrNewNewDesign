@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import {View, Text, SafeAreaView, ScrollView, Dimensions} from "react-native";
 import { ThemeContext } from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 
@@ -28,7 +28,8 @@ const Contacts = () => {
             fontFamily: 'Gilroy-Regular',
             fontSize: 16,
             lineHeight: 18,
-            color: theme === 'light' ? 'black' : 'white'
+            color: theme === 'light' ? 'black' : 'white',
+            width: Dimensions.get('window').width -45
         }
     }
 

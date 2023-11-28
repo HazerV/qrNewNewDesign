@@ -1,10 +1,10 @@
 import React, {useContext, useState} from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 import PlusBSvg from '../Counter/PlusB.svg'
 import MinusBSvg from '../Counter/MinusB.svg'
 import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
-import { ThemeContext, CartContext } from "../../Context/Context";
+import {ThemeContext, CartContext} from "../../Context/Context";
 import ProductItem from "../ProductItem";
 // import {RNSVGPath, SvgUri} from "react-native-svg";
 // import SvgImage from "react-native-svg/lib/typescript/elements/Image";
@@ -13,8 +13,8 @@ import ProductItem from "../ProductItem";
 
 const Counter = () => {
 
-    const [ count, setCount ] = useState(0)
-    const { theme } = useContext(ThemeContext)
+    const [count, setCount] = useState(0)
+    const {theme} = useContext(ThemeContext)
     // const {increment, decrement, cart, setCart} = useContext(CartContext)
 
     const styles = StyleSheet.create({
@@ -49,71 +49,77 @@ const Counter = () => {
         <TouchableOpacity onPress={() => {
             {
                 count === 0 ? (
-                    setCount(count+1)
-                    // console.log(cart),
+                    setCount(count + 1)
                 ) : null
             }
         }}>
-            <View style = {styles.container}>
+            <View style={styles.container}>
                 {
                     count === 0 ?
                         (
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    setCount (count + 1)
+                                    setCount(count + 1)
                                 }}>
                                     <View>
                                         {
-                                        theme === 'dark' ? (
-                                            <PlusBSvg />
+                                            theme === 'dark' ? (
+                                                <PlusBSvg/>
                                             ) : (
-                                            <PlusW/>
-                                        )
-                                    }
+                                                <PlusW/>
+                                            )
+                                        }
                                     </View>
                                 </TouchableOpacity>
                             </View>
-                        ) 
-                        : 
+                        )
+                        :
                         (
                             <View style={styles.minus}>
-                                        <TouchableOpacity onPress={() => { setCount (count-1)}}>
-                                            <View>
-                                            {
-                                              theme === 'light' ?
+                                <TouchableOpacity onPress={() => {
+                                    setCount(count - 1)
+                                }}>
+                                    <View>
+                                        {
+                                            theme === 'light' ?
                                                 (
-                                                    <MinusW />
+                                                    <MinusW/>
                                                 ) : (
                                                     <MinusBSvg/>
                                                 )
-                                            }
+                                        }
+                                    </View>
+                                </TouchableOpacity>
+
+                                <Text style={styles.countValue}>
+                                    {count}
+                                </Text>
+                                {
+                                    theme === 'light' ? (
+                                        <TouchableOpacity onPress={() => {
+                                            setCount(count + 1)
+                                        }}>
+                                            <View style={{
+                                                marginLeft: 5,
+                                                width: 10,
+                                                height: 10
+                                            }}>
+                                                <PlusW/>
                                             </View>
                                         </TouchableOpacity>
-
-                                        <Text style={styles.countValue}>
-                                            {count}
-                                        </Text>
-                                        {
-                                            theme === 'light' ? (
-                                                <TouchableOpacity  onPress={() => { setCount (count+1)}}>
-                                                    <View style={{
-                                                    marginLeft: 5,
-                                                        width: 10,
-                                                        height: 10
-                                                }}>
-                                                        <PlusW/>
-                                                    </View>
-                                                </TouchableOpacity>
-                                            ) : (
-                                                <TouchableOpacity onPress={() => { setCount (count+1) }}>
-                                                    <View style={{
-                                                    borderRadius: 2,
-                                                    marginLeft: 5 }}>
-                                                        <PlusBSvg/>
-                                                    </View>
-                                                </TouchableOpacity>
-                                            )
-                                        }
+                                    ) : (
+                                        <TouchableOpacity onPress={() => {
+                                            setCount(count + 1)
+                                        }}>
+                                            <View style={{
+                                                borderRadius: 2,
+                                                marginLeft: 5
+                                            }}>
+                                                <PlusBSvg/>
+                                            </View>
+                                        </TouchableOpacity>
+                                    )
+                                }
                             </View>
                         )
                 }

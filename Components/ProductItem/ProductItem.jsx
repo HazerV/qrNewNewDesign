@@ -1,10 +1,11 @@
 import React, {useCallback, useContext, useState} from "react";
 import axios from "axios";
-import {View, Text, Image, TouchableOpacity, Dimensions, FlatList} from "react-native";
+import {View, Text, Image, TouchableOpacity, Dimensions, FlatList, Pressable} from "react-native";
 import {ThemeContext, CartContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
 import Imageee from "./Image.png";
 import {ReactNativeZoomableView} from "@openspacelabs/react-native-zoomable-view";
+import {hide} from "expo-splash-screen";
 
 
 const ProductItem = ({id, name, description, sum, weight, preview}) => {
@@ -16,10 +17,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             width: Dimensions.get('window').width - 60,
             height: 172,
             flexDirection: 'column',
-            // position: 'relative',
             display: 'inline-block',
             columnGap: 16,
-            justifyContent: 'flex-end',
             paddingBottom: 16
         },
         name: {
@@ -64,7 +63,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             zIndex: -1
         },
         openImage: {
-            width: Dimensions.get('window').width -45,
+            width: Dimensions.get('window').width - 45,
             height: Dimensions.get('window').width - 60,
             borderRadius: 16
         },
@@ -72,7 +71,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             position: 'relative',
             top: 0,
             right: 0,
-            width: Dimensions.get('window').width -45, height: Dimensions.get('window').width - 60,
+            width: Dimensions.get('window').width - 45, height: Dimensions.get('window').width - 60,
             borderRadius: 16
         },
         image: {
@@ -88,7 +87,6 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 width: Dimensions.get('window').width - 60,
                 height: open === false ? 172 : Dimensions.get('window').width - 60,
                 flexDirection: 'column',
-                // position: 'relative',
                 display: 'inline-block',
                 columnGap: 16,
                 justifyContent: 'flex-end',
@@ -96,7 +94,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             },
             name: {
                 position: 'absolute',
-                top: 16,
+                top: 0,
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 16,
                 lineHeight: 20,
@@ -129,13 +127,13 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 width: '40%',
             },
             imgPosititon: {
-                top: 0,
+                top: -16,
                 position: 'absolute',
                 right: 0,
                 zIndex: -1
             },
             openImage: {
-                width: Dimensions.get('window').width -45,
+                width: Dimensions.get('window').width - 45,
                 height: Dimensions.get('window').width - 60,
                 borderRadius: 16
             },
@@ -143,7 +141,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 position: 'relative',
                 top: 0,
                 right: 0,
-                width: Dimensions.get('window').width -45, height: Dimensions.get('window').width - 60,
+                width: Dimensions.get('window').width - 45, height: Dimensions.get('window').width - 60,
                 borderRadius: 16
             },
             image: {
@@ -169,7 +167,6 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                     null
                 )
             }
-
             <View style={styles.imgPosititon}>
                 <View>
                     <TouchableOpacity onPress={() => {
@@ -181,19 +178,35 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                             open === false ? (
                                 <Image style={styles.image} source={{uri: `${preview}`}}/>
                             ) : (
-                                    <View style={styles.nonContainer}>
-                                        <Image style={styles.openImage} source={{uri: `${preview}`}}/>
-                                    </View>
+                                <View style={styles.nonContainer}>
+                                    <ReactNativeZoomableView
+                                        onLongPress={() => {
+                                            zoomTo(1.5)
+                                        }}
+                                        maxZoom={1.5}
+                                        minZoom={1}
+                                        bindToBorders={true}
+                                        pinchToZoomInSensitivity={6}
+                                        movementSensibility={1.5}
+                                    >
+                                        <Pressable onPress={() => {
+                                            setOpen(false)
+                                        }}>
+                                            <Image style={styles.openImage} source={{uri: `${preview}`}}/>
+                                        </Pressable>
+                                    </ReactNativeZoomableView>
+                                </View>
                             )
                         }
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={{display: 'flex', flexDirection: 'row', columnGap: 12, alignItems: 'center'}}>
+            <View
+                style={{display: 'flex', flexDirection: 'row', columnGap: 12, alignItems: 'center', paddingBottom: 16}}>
                 <View style={styles.counter}>
                     <Counter/>
                 </View>
-                <View style={{}}>
+                <View>
                     <Text style={styles.summa}>
                         {sum} руб
                     </Text>
