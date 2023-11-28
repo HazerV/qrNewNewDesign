@@ -60,7 +60,8 @@ const Counter = () => {
                             <View>
                                 <TouchableOpacity onPress={() => {
                                     setCount(count + 1)
-                                }}>
+                                }}
+                                hitSlop={15}>
                                     <View>
                                         {
                                             theme === 'dark' ? (
@@ -78,7 +79,7 @@ const Counter = () => {
                             <View style={styles.minus}>
                                 <TouchableOpacity onPress={() => {
                                     setCount(count - 1)
-                                }}>
+                                }} hitSlop={16}>
                                     <View>
                                         {
                                             theme === 'light' ?
@@ -90,7 +91,6 @@ const Counter = () => {
                                         }
                                     </View>
                                 </TouchableOpacity>
-
                                 <Text style={styles.countValue}>
                                     {count}
                                 </Text>
@@ -98,7 +98,7 @@ const Counter = () => {
                                     theme === 'light' ? (
                                         <TouchableOpacity onPress={() => {
                                             setCount(count + 1)
-                                        }}>
+                                        }} hitSlop={18}>
                                             <View style={{
                                                 marginLeft: 5,
                                                 width: 10,
@@ -110,7 +110,7 @@ const Counter = () => {
                                     ) : (
                                         <TouchableOpacity onPress={() => {
                                             setCount(count + 1)
-                                        }}>
+                                        }} hitSlop={18}>
                                             <View style={{
                                                 borderRadius: 2,
                                                 marginLeft: 5

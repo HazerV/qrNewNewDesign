@@ -27,7 +27,7 @@ const Categories = () => {
     }, []);
 
     return (
-        <View style={[stylesCategories.container, {width: Dimensions.get('window').width }]}>
+        <View style={[stylesCategories.container, {width: Dimensions.get('window').width  }]}>
             {Category.map((cat, index) => {
                 return (
                     <TouchableOpacity onPress={() => {

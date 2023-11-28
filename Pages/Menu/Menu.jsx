@@ -36,7 +36,7 @@ const Home = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            width: Dimensions.get('window').width -30,
+            width: Dimensions.get('window').width -80,
             fontWeight: 600,
             paddingTop: 25,
         },

@@ -1,5 +1,15 @@
 import React, {useContext, useState, useEffect} from "react";
-import {View, Text, SafeAreaView, ScrollView, Modal, TouchableOpacity, Button, Pressable} from "react-native";
+import {
+    View,
+    Text,
+    SafeAreaView,
+    ScrollView,
+    Modal,
+    TouchableOpacity,
+    Button,
+    Pressable,
+    Dimensions
+} from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import ProductItem from "../../Components/ProductItem/ProductItem";
@@ -62,7 +72,7 @@ const CategoryPage = (props) => {
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
             height: 460,
             borderRadius: 16,
-
+            // paddingTop: 32
         },
         modalName: {
             fontSize: 24,
@@ -92,8 +102,8 @@ const CategoryPage = (props) => {
             paddingTop: 16
         },
         modalStyle: {
-            width: '500',
-            height: 800,
+            width: Dimensions.get('window').width,
+            height: Dimensions.get('window').height - 80,
             backgroundColor: 'black',
             opacity: 0.6,
         }
@@ -125,11 +135,13 @@ const CategoryPage = (props) => {
                     onRequestClose={hide}
                     transparent={true}
                     visible={visible}
-                    animationType='slide'>
+                    animationType='slide' >
                     {
                         visible === true ? (
-                            <View style={styles.modalStyle}>
-                            </View>
+                            <TouchableOpacity onPress={hide}>
+                                <View style={styles.modalStyle}>
+                                </View>
+                            </TouchableOpacity>
                         ) : null
                     }
                     {

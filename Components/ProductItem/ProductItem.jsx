@@ -21,6 +21,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             columnGap: 16,
             paddingBottom: 16
         },
+        counterBlock: {display: 'flex', flexDirection: 'row', columnGap: 12, alignItems: 'center', paddingBottom: 16},
         name: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 16,
@@ -92,6 +93,13 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 justifyContent: 'flex-end',
                 paddingBottom: 16
             },
+            counterBlock: {
+                display: 'flex',
+                flexDirection: 'row',
+                columnGap: 12,
+                alignItems: 'center',
+                paddingBottom: 16
+            },
             name: {
                 position: 'absolute',
                 top: 0,
@@ -153,6 +161,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
         }
     }
 
+
     return (
         <View style={styles.container}>
             <Text style={styles.name}>
@@ -180,20 +189,17 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                             ) : (
                                 <View style={styles.nonContainer}>
                                     <ReactNativeZoomableView
-                                        onLongPress={() => {
-                                            zoomTo(1.5)
-                                        }}
                                         maxZoom={1.5}
                                         minZoom={1}
                                         bindToBorders={true}
                                         pinchToZoomInSensitivity={6}
                                         movementSensibility={1.5}
                                     >
-                                        <Pressable onPress={() => {
+                                        <TouchableOpacity onPress={() => {
                                             setOpen(false)
-                                        }}>
-                                            <Image style={styles.openImage} source={{uri: `${preview}`}}/>
-                                        </Pressable>
+                                        }} activeOpacity={1}>
+                                                <Image style={styles.openImage} source={{uri: `${preview}`}}/>
+                                        </TouchableOpacity>
                                     </ReactNativeZoomableView>
                                 </View>
                             )
@@ -201,8 +207,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View
-                style={{display: 'flex', flexDirection: 'row', columnGap: 12, alignItems: 'center', paddingBottom: 16}}>
+            <View style={styles.counterBlock}>
                 <View style={styles.counter}>
                     <Counter/>
                 </View>

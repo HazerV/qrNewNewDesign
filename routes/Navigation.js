@@ -1,5 +1,5 @@
 import routes from "./index";
-import React, {useContext, useRef} from "react";
+import React, {useContext} from "react";
 import {
     NavigationContainer,
     useNavigationContainerRef,
@@ -27,7 +27,8 @@ const Navigation = () => {
                 }
             }}
         >
-            <Stack.Navigator>
+            <Stack.Navigator
+            screenOptions={{headerShown: false}}>
                 {
                     Object.keys(routes).map((name)=>
                         (
@@ -41,7 +42,6 @@ const Navigation = () => {
                         )
                     )
                 }
-
             </Stack.Navigator>
         </NavigationContainer>
     )
