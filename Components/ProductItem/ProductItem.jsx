@@ -8,7 +8,7 @@ import {ReactNativeZoomableView} from "@openspacelabs/react-native-zoomable-view
 import {hide} from "expo-splash-screen";
 
 
-const ProductItem = ({id, name, description, sum, weight, preview}) => {
+const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled, setScrollEnabled}) => {
 
     const [open, setOpen] = useState(false)
     const {theme} = useContext(ThemeContext)
@@ -161,6 +161,13 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
         }
     }
 
+    function handleZoomBefore() {
+        console.log('zoom before')
+    }
+
+    function handleZoomAfter() {
+        console.log('zoom after')
+    }
 
     return (
         <View style={styles.container}>
@@ -187,13 +194,24 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                             open === false ? (
                                 <Image style={styles.image} source={{uri: `${preview}`}}/>
                             ) : (
-                                <View style={styles.nonContainer}>
+                                <View style={styles.nonContainer}  >
                                     <ReactNativeZoomableView
                                         maxZoom={1.5}
                                         minZoom={1}
-                                        bindToBorders={true}
-                                        pinchToZoomInSensitivity={6}
-                                        movementSensibility={1.5}
+                                        // bindToBorders={true}
+                                        // pinchToZoomInSensitivity={6}
+                                        // movementSensibility={1.5}
+                                        // onZoomEnd={() => {
+
+                                        // }}
+                                        onZoomBefore={() => {
+                                            console.log('zoom before')
+                                            setScrollEnabled(false)
+                                        }}
+                                        onZoomAfter={() => {
+                                            console.log('zoom end')
+                                            setScrollEnabled(true)
+                                        }}
                                     >
                                         <TouchableOpacity onPress={() => {
                                             setOpen(false)

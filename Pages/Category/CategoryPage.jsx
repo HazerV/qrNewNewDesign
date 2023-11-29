@@ -108,10 +108,11 @@ const CategoryPage = (props) => {
             opacity: 0.6,
         }
     }
-
+    const [scrollEnabled, setScrollEnabled] = useState(true);
+console.log(scrollEnabled)
     return (
         <SafeAreaView style={[styles.areaView]}>
-            <ScrollView>
+            <ScrollView scrollEnabled={scrollEnabled}>
                 <View>
                     <Text style={styles.nameCategory}>
                         {cat.name}
@@ -120,7 +121,11 @@ const CategoryPage = (props) => {
                         {
                             Product.map((prod) => {
                                 return (
-                                    <ProductItem name={prod.name}
+                                    <ProductItem
+                                        key={prod.id}
+                                        scrollEnabled={scrollEnabled}
+                                        setScrollEnabled={setScrollEnabled}
+                                        name={prod.name}
                                                  description={prod.content}
                                                  sum={prod.price} weight={220}
                                                  preview={`${serverUrl}/storage/${prod.preview}`}/>
