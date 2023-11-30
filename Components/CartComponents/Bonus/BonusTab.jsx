@@ -100,10 +100,17 @@ const BonusTab = () => {
     }
 
     const summa = 1350
-    const countBonuses = 500;
-    const bonusesToUse = 500/2;
+    const countBonuses = 600;
+    const bonusesToUse = countBonuses/2;
     const [useBonus, setUseBonus] = useState('0');
     const [bonusState, setBonusState] = useState(bonusesToUse)
+    const limit = (newText) => {
+        if  (newText <= bonusesToUse) {
+            setBonusState(newText)
+        } else {
+            setBonusState(bonusesToUse)
+        }
+    }
 
     return (
         <View>
@@ -120,7 +127,7 @@ const BonusTab = () => {
                             <TextInput
                                 style={styles.bonusInput}
                                 keyboardType='numeric'
-                                onChangeText={newText => setBonusState(newText)}
+                                onChangeText={newText => {limit(newText)}}
                                 maxLength={3}
                                 >
                                 <Text style={styles.textInput}>

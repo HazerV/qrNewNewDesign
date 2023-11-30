@@ -55,7 +55,7 @@ const SplitPay = () => {
             flexDirection: 'row',
             columnGap: 5,
             paddingTop: 21,
-            paddingBottom: 20
+            paddingBottom: 26
         }
 
     }
@@ -82,6 +82,8 @@ const SplitPay = () => {
                         <MiniProductForPay name={'Брускетта с икрой'} price={350} count={2} />
                         <PayedProduct name={'Брускетта с пармской ветчиной и инжиром'} count={2} price={1000} />
                         <MiniProductForPay name={'Брускетта с икрой'} price={350} count={2} />
+                        <PayedProduct name={'Брускетта с пармской ветчиной и инжиром'} count={1} price={500} />
+
                     </View>
                     <View style={styles.billBlock}>
                         <Text style={styles.itogText}>
@@ -91,7 +93,9 @@ const SplitPay = () => {
                             {sum} руб
                         </Text>
                     </View>
-                    <PayButton/>
+                    <View style={{paddingBottom: 16}}>
+                        <PayButton/>
+                    </View>
                 </View>
             </ScrollView>
             <Footer />

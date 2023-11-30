@@ -150,7 +150,7 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 top: 0,
                 right: 0,
                 width: Dimensions.get('window').width - 45, height: Dimensions.get('window').width - 60,
-                borderRadius: 16
+                borderRadius: 16,
             },
             image: {
                 width: 100,
@@ -198,12 +198,9 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                                     <ReactNativeZoomableView
                                         maxZoom={1.5}
                                         minZoom={1}
-                                        // bindToBorders={true}
-                                        // pinchToZoomInSensitivity={6}
-                                        // movementSensibility={1.5}
-                                        // onZoomEnd={() => {
-
-                                        // }}
+                                        bindToBorders={true}
+                                        pinchToZoomInSensitivity={6}
+                                        movementSensibility={1.5}
                                         onZoomBefore={() => {
                                             console.log('zoom before')
                                             setScrollEnabled(false)

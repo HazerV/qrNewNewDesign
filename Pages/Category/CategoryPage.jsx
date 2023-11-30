@@ -113,7 +113,7 @@ console.log(scrollEnabled)
     return (
         <SafeAreaView style={[styles.areaView]}>
             <ScrollView scrollEnabled={scrollEnabled}>
-                <View>
+                <View style={{paddingBottom: 60}}>
                     <Text style={styles.nameCategory}>
                         {cat.name}
                     </Text>

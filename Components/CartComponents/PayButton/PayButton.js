@@ -15,7 +15,7 @@ const PayButton = () => {
             borderWidth: 2,
             borderColor: 'rgba(255, 122, 0, 1)',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         }}>
             <Text style={{
                 fontFamily: 'Gilroy-SemiBold',
