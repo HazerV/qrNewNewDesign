@@ -49,7 +49,7 @@ const Navigation = () => {
                                 name={name}
                                 component={routes[name]}
                                 options={{
-                                    statusBarStyle: color,
+                                    // statusBarStyle: color,
                                     // statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
