@@ -16,7 +16,7 @@ const Home = () => {
     const {theme, SetTheme} = useContext(ThemeContext)
     const navigation = useNavigation()
 
-    console.log(Device.deviceName)
+    // console.log(Device.deviceName)
     const styles = {
         container: {
             justifyContent: 'center',
@@ -76,7 +76,6 @@ const Home = () => {
 
 
     return (
-        <View>
         <SafeAreaView style={styles.areaView}>
                 <ScrollView>
                     <View style={{}}>
@@ -139,9 +138,10 @@ const Home = () => {
                         <TrueShop/>
                     </View>
                 </ScrollView>
+            <Footer/>
         </SafeAreaView>
-    <Footer/>
-        </View>
+
+
     )
 
 }

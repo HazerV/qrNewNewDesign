@@ -9,7 +9,7 @@ const stylesCategories = {
     },
     imgSize: {
         width: 176,
-            height: 250
+        height: 250
     }
 }
 

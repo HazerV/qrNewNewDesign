@@ -17,7 +17,8 @@ const Home = () => {
             width: '100%',
             height: '100%',
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            alignItems: 'center'
+            alignItems: 'center',
+            textAlign: 'center'
         },
         headName: {
             fontSize: 24,
@@ -39,8 +40,7 @@ const Home = () => {
             // width: Dimensions.get('window').width -80,
             fontWeight: 600,
             paddingTop: 25,
-            textAlign: 'left',
-            paddingLeft: Dimensions.get('window').width -10 -395
+            textAlign: 'center',
         },
         catPlace: {
             paddingTop: 16,
@@ -49,6 +49,7 @@ const Home = () => {
     }
 
     return (
+
         <SafeAreaView style={styles.areaView}>
             <ScrollView>
                 <View style={styles.container}>

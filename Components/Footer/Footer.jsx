@@ -12,11 +12,76 @@ import Menu from './icons/Menu.svg'
 import MenuWhite from './icons/MenuWhite.svg'
 import Person from './icons/Person.svg'
 import PersonWhite from './icons/PersonWhite.svg'
+import * as Device from 'expo-device'
+
 
 const Footer = () => {
 
     const navigation = useNavigation()
     const {theme} = useContext(ThemeContext)
+
+    if (Device.deviceName  === 'iPhone 14 Plus') {
+        position = 'absolute'
+    }
+
+
+    const stylesForIosBig = {
+        container: {
+            width: Dimensions.get('window').width,
+            height: 60,
+            backgroundColor: 'rgba(21, 21, 21, 0.9)',
+            opacity: 1,
+            position: 'absolute',
+            // bottom: merg
+        },
+        AreaView: {
+            minHeight: 100,
+        },
+        ScrollView: {
+            minHeight: 30,
+        },
+        icons: {
+            display: 'flex',
+            flexDirection: 'row',
+            columnGap: 8,
+            marginLeft: 16,
+            position: 'absolute', left: 0, right: 0, bottom: 0,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 16
+        },
+        rightCorner: {
+            right: 0,
+            position: 'absolute',
+            top: -30
+        },
+        leftCorner: {
+            left: 0,
+            position: 'absolute',
+            top: -30,
+            opacity: 90
+        },
+        footText: {
+            fontFamily: 'Gilroy-Regular',
+            color: 'rgba(255, 255, 255, 0.5)',
+            fontSize: 12,
+        },
+        footTextWhite: {
+            fontFamily: 'Gilroy-Regular',
+            color: 'rgba(255, 255, 255, 1)',
+            fontSize: 12
+        },
+        iconFoot: {
+            flexDirection: 'column',
+            alignItems: 'center'
+        },
+        place: {
+            alignItems: 'center',
+            flexDirection: 'row',
+            columnGap: 60,
+            marginTop: -55
+        }
+    }
 
     const styles = {
         container: {
@@ -24,7 +89,8 @@ const Footer = () => {
             height: 60,
             backgroundColor: 'rgba(21, 21, 21, 0.9)',
             opacity: 1,
-            // position: 'absolute'
+            // position: position,
+            // bottom: merg
         },
         AreaView: {
             minHeight: 100,
@@ -76,6 +142,8 @@ const Footer = () => {
     }
     const {route, setRoute} = useContext(PageContext)
     console.log(route)
+
+
 
     return (
         <View>
