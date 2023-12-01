@@ -50,7 +50,7 @@ const Navigation = () => {
                                 name={name}
                                 component={routes[name]}
                                 options={{
-                                    // statusBarStyle: theme === 'light' ? 'dark' : 'white',
+                                    statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,
