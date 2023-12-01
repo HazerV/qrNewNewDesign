@@ -9,12 +9,14 @@ import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
 import Categories from "../../Components/Categories/Categories";
 import {useNavigation, useNavigationContainerRef} from "@react-navigation/native";
+import * as Device from 'expo-device'
 
 const Home = () => {
 
     const {theme, SetTheme} = useContext(ThemeContext)
     const navigation = useNavigation()
 
+    console.log(Device.deviceName)
     const styles = {
         container: {
             justifyContent: 'center',
@@ -71,6 +73,7 @@ const Home = () => {
             rowGap: 0
         }
     }
+
 
     return (
         <SafeAreaView style={styles.areaView}>

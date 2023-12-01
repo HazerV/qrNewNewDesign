@@ -7,10 +7,7 @@ import Navigation from "./routes/Navigation";
 import * as NavigationBar from 'expo-navigation-bar';
 
 const App = () => {
-
-
     const [IsReady, SetIsReady] = useState(false)
-
 
     const LoadFonts = async () => {
         await useFonts()
@@ -25,16 +22,6 @@ const App = () => {
             />
         );
     }
-
-    // const AndroidSoftwareNavHidden = async () =>{
-    //     await NavigationBar.setPositionAsync('absolute')
-    //     await NavigationBar.setVisibilityAsync("hidden");
-    //     await NavigationBar.setBehaviorAsync('overlay-swipe')
-    // }
-    //
-    // useEffect(()=>{
-    //     AndroidSoftwareNavHidden()
-    // },[])
 
     return (
         <Context>

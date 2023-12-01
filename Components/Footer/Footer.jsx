@@ -23,7 +23,8 @@ const Footer = () => {
             width: Dimensions.get('window').width,
             height: 60,
             backgroundColor: 'rgba(21, 21, 21, 0.9)',
-            opacity: 1
+            opacity: 1,
+            // position: 'absolute'
         },
         AreaView: {
             minHeight: 100,
