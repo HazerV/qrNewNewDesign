@@ -55,7 +55,7 @@ const Navigation = () => {
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,
                                     headerShown: false,
-                                    statusBarHidden: Platform.OS === 'ios' ? true : false
+                                    // statusBarHidden: Platform.OS === 'ios' ? true : false
                                 }}
                             />
                         )
