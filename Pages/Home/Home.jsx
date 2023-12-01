@@ -76,6 +76,7 @@ const Home = () => {
 
 
     return (
+        <View>
         <SafeAreaView style={styles.areaView}>
                 <ScrollView>
                     <View style={{}}>
@@ -138,8 +139,9 @@ const Home = () => {
                         <TrueShop/>
                     </View>
                 </ScrollView>
-                <Footer/>
         </SafeAreaView>
+    <Footer/>
+        </View>
     )
 
 }
