@@ -22,9 +22,9 @@ const Navigation = () => {
             color = 'white'
         }
     }
-    if (Platform.OS==='ios') {
-        color = 'light'
-    }
+    // if (Platform.OS==='ios') {
+    //     color = 'light'
+    // }
     return (
 
         <NavigationContainer
@@ -54,7 +54,8 @@ const Navigation = () => {
                                     statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,
-                                    headerShown: false
+                                    headerShown: false,
+                                    statusBarHidden: Platform.OS === 'ios' ? true : false
                                 }}
                             />
                         )
