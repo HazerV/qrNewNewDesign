@@ -6,26 +6,24 @@ import {
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {PageContext, ThemeContext} from "../Components/Context/Context";
-import {StatusBar} from "react-native";
+import {Platform, StatusBar} from "react-native";
 
 const Stack = createNativeStackNavigator()
 const Navigation = () => {
     const {route, setRoute} = useContext(PageContext)
     const navigationRef = useNavigationContainerRef();
     const {theme} = useContext(ThemeContext)
-    let color = '#333333'
-    if (theme === 'light') {
-        color = 'light'
-    } else {
-        color = '#333333'
-}
-    let barIcons = 'white'
-    if (theme === 'light') {
-        barIcons = 'white'
-    } else {
-        barIcons = 'dark'
-    }
 
+    let color = 'white'
+    if (Platform.OS==='android') {
+        if (theme === 'light') {
+            color = 'dark'
+        } else {
+            color = 'white'
+        }
+    }  else {
+        color = 'default'
+    }
     return (
 
         <NavigationContainer
@@ -50,7 +48,8 @@ const Navigation = () => {
                                 name={name}
                                 component={routes[name]}
                                 options={{
-                                    statusBarStyle: theme === 'light' ? 'dark' : 'white',
+                                    statusBarStyle: color,
+                                    // statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,
