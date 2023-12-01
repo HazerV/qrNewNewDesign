@@ -21,8 +21,9 @@ const Navigation = () => {
         } else {
             color = 'white'
         }
-    }  else {
-        color = 'default'
+    }
+    if (Platform.OS==='ios') {
+        color = 'light'
     }
     return (
 
