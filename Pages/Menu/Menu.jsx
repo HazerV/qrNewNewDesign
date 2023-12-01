@@ -35,10 +35,11 @@ const Home = () => {
             lineHeight: 16,
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             width: Dimensions.get('window').width -80,
             fontWeight: 600,
             paddingTop: 25,
+            textAlign: 'left'
         },
         catPlace: {
             paddingTop: 16,
