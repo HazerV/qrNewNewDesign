@@ -131,7 +131,7 @@ const Home = () => {
                             </View>
                         </View>
                     </View>
-                    <View style={{paddingBottom: 16}}>
+                    <View style={{paddingBottom: 100}}>
                         <TrueShop/>
                     </View>
                 </ScrollView>

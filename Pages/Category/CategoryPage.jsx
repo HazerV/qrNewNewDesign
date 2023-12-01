@@ -61,7 +61,9 @@ const CategoryPage = (props) => {
             alignItems: 'center',
             rowGap: 24,
             paddingTop: 32,
-            paddingLeft: 16
+            paddingLeft: 16,
+            paddingBottom: 100
+
         },
         modal: {
             position: 'absolute',
