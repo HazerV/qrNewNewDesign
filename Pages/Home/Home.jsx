@@ -33,7 +33,8 @@ const Home = () => {
             justifyContent: 'center',
             textAlign: 'center',
             width: '80%',
-            lineHeight: 16
+            lineHeight: 16,
+
         },
         countTables: {
             color: theme === 'light' ? 'black' : 'white',
@@ -75,7 +76,7 @@ const Home = () => {
     return (
         <SafeAreaView style={styles.areaView}>
                 <ScrollView>
-                    <View style={{}}>
+                    <View style={{paddingTop: 64}}>
                         <Header />
                         <View style={styles.container}>
                             <Text style={styles.textHead}>

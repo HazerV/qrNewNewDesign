@@ -15,18 +15,9 @@ const Navigation = () => {
     const {theme} = useContext(ThemeContext)
 
     let color = 'white'
-    if (Platform.OS==='android') {
-        if (theme === 'light') {
-            color = 'dark'
-        } else {
-            color = 'white'
-        }
-    }
-    // if (Platform.OS==='ios') {
-    //     color = 'light'
-    // }
-    return (
 
+
+    return (
         <NavigationContainer
             ref={navigationRef}
             onReady={() => {
@@ -50,7 +41,7 @@ const Navigation = () => {
                                 component={routes[name]}
                                 options={{
                                     // statusBarStyle: color,
-                                    // statusBarStyle: theme === 'light' ? 'dark' : 'white',
+                                    statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,

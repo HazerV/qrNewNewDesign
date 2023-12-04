@@ -28,7 +28,7 @@ const Home = () => {
             textAlign: 'center',
             width: '90%',
             fontWeight: 600,
-            paddingTop: 48,
+            paddingTop: 64,
         },
         attention: {
             fontSize: 12,
@@ -36,10 +36,10 @@ const Home = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'flex-start',
-            // width: Dimensions.get('window').width -80,
             fontWeight: 600,
             paddingTop: 25,
             textAlign: 'left',
+            paddingBottom: 100,
             paddingLeft: Dimensions.get('window').width -10 -395
         },
         catPlace: {

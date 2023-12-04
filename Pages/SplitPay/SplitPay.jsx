@@ -27,7 +27,8 @@ const SplitPay = () => {
             fontSize: 24,
             lineHeight: 28,
             color: theme === 'light' ? 'black' : 'white',
-            textAlign: 'center'
+            textAlign: 'center',
+            paddingTop: 64
         },
         underHeadText: {
             fontFamily: 'Gilroy-Regular',
@@ -93,7 +94,7 @@ const SplitPay = () => {
                             {sum} руб
                         </Text>
                     </View>
-                    <View style={{paddingBottom: 16}}>
+                    <View style={{paddingBottom: 100}}>
                         <PayButton/>
                     </View>
                 </View>

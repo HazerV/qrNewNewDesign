@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,9 +18,11 @@
       "supportsTablet": true,
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": true
-      }
+      },
+      "bundleIdentifier": "com.vovakra2.qrNewNew"
     },
     "android": {
+      "userInterfaceStyle": "light",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -34,6 +36,11 @@
       "eas": {
         "projectId": "614c2671-bf70-4ee5-b0dd-7cda60911b4f"
       }
-    }
+    },
+    "plugins": [
+      [
+        "./Components/Fixes/withDisableForcedDarkModeAndroid.js"
+      ]
+    ]
   }
 }

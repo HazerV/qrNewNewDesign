@@ -5,7 +5,7 @@ import AppLoading from 'expo-app-loading'
 import {Context, PageContext} from './Components/Context/Context';
 import Navigation from "./routes/Navigation";
 import * as NavigationBar from 'expo-navigation-bar';
-
+// import withDisablreForcedDarkMode from ''
 const App = () => {
 
 

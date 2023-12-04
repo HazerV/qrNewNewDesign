@@ -20,7 +20,7 @@ const Contacts = () => {
             fontFamily: 'Gilroy-SemiBold',
             fontSize: 24,
             lineHeight: 20,
-            paddingTop: 48,
+            paddingTop: 64,
             paddingBottom: 16,
             color: theme === 'light' ? 'black' : 'white'
         },

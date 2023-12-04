@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     Button,
     Pressable,
-    Dimensions
+    Dimensions, StatusBar
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
@@ -54,7 +54,7 @@ const CategoryPage = (props) => {
             fontFamily: 'Gilroy-SemiBold',
             fontSize: 24,
             lineHeight: 30,
-            paddingTop: 32,
+            paddingTop: 64,
             alignSelf: 'center',
         },
         objects: {
@@ -129,7 +129,8 @@ console.log(scrollEnabled)
                                         setScrollEnabled={setScrollEnabled}
                                         name={prod.name}
                                                  description={prod.content}
-                                                 sum={prod.price} weight={220}
+                                                 sum={prod.price}
+                                                 weight={220}
                                                  preview={`${serverUrl}/storage/${prod.preview}`}/>
                                 )
                             })

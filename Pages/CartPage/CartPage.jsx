@@ -46,7 +46,8 @@ const CartPage = () => {
             fontSize: 24,
             lineHeight: 28,
             color: textColor,
-            padding: 16
+            padding: 16,
+            paddingTop: 64
         },
         container: {
             height: '100%',

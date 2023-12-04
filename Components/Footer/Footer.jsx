@@ -4,7 +4,6 @@ import {NavigationContainer, useNavigation, useNavigationContainerRef} from "@re
 import {Dimensions} from "react-native";
 import {PageContext, ThemeContext} from "../Context/Context";
 import CornerLeftB from './icons/Corners/CornerLeftB.svg'
-import CornerLeftW from './icons/Corners/CornerLeftW.svg'
 import CornerRightW from './icons/Corners/CornerRightW.svg'
 import Info from './icons/Info.svg'
 import InfoWhite from './icons/InfoWhite.svg'
@@ -47,7 +46,7 @@ const Footer = () => {
             top: -30
         },
         leftCorner: {
-            left: 0,
+            left: -1,
             position: 'absolute',
             top: -30,
             opacity: 90
@@ -81,7 +80,7 @@ const Footer = () => {
             <View style={styles.leftCorner}>
                 {
                     theme === 'light' ? (
-                        <CornerLeftW/>
+                        <CornerLeftB/>
                     ) : (
                         <CornerLeftB/>
                     )
