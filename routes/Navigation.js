@@ -40,6 +40,7 @@ const Navigation = () => {
                                 name={name}
                                 component={routes[name]}
                                 options={{
+                                    animation: 'none',
                                     // statusBarStyle: color,
                                     statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,

@@ -7,26 +7,30 @@ const AddToCartBtn = () => {
 
     const {theme} = useContext(ThemeContext)
     const navigation = useNavigation()
+    const styles = {
+        container: {
+            width: 250,
+            height: 50,
+            borderWidth: 2,
+            borderRadius: 16,
+            borderColor: 'rgba(255, 122, 0, 1)',
+            backgroundColor: theme === 'light' ? 'white' : 'black',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 16
+        },
+        text: {
+            fontFamily: 'Gilroy-SemiBold',
+            fontSize: 14,
+            lineHeight: 16,
+            color: theme === 'light' ? 'black' : 'white'
+        }
+    }
 
     return (
         <TouchableOpacity onPress={() => navigation.navigate('CartPage')}>
-            <View style={{
-                width: 250,
-                height: 50,
-                borderWidth: 2,
-                borderRadius: 16,
-                borderColor: 'rgba(255, 122, 0, 1)',
-                backgroundColor: theme === 'light' ? 'white' : 'black',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 16
-            }}>
-                <Text style={{
-                    fontFamily: 'Gilroy-SemiBold',
-                    fontSize: 14,
-                    lineHeight: 16,
-                    color: theme === 'light' ? 'black' : 'white'
-                }}>
+            <View style={styles.container}>
+                <Text style={styles.text}>
                     Добавить к заказу
                 </Text>
             </View>

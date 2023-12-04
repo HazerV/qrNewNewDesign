@@ -72,7 +72,8 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
             position: 'relative',
             top: 0,
             right: 0,
-            width: Dimensions.get('window').width - 45, height: Dimensions.get('window').width - 60,
+            width: Dimensions.get('window').width - 45,
+            height: Dimensions.get('window').width - 60,
             borderRadius: 16
         },
         image: {
@@ -138,18 +139,19 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 top: -16,
                 position: 'absolute',
                 right: 0,
-                zIndex: -1
+                zIndex: -1,
             },
             openImage: {
                 width: Dimensions.get('window').width - 45,
                 height: Dimensions.get('window').width - 60,
-                borderRadius: 16
+                borderRadius: 16,
             },
             nonContainer: {
                 position: 'relative',
                 top: 0,
                 right: 0,
-                width: Dimensions.get('window').width - 45, height: Dimensions.get('window').width - 60,
+                width: Dimensions.get('window').width - 45,
+                height: Dimensions.get('window').width - 60,
                 borderRadius: 16,
             },
             image: {
@@ -159,14 +161,6 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 marginLeft: 10
             }
         }
-    }
-
-    function handleZoomBefore() {
-        console.log('zoom before')
-    }
-
-    function handleZoomAfter() {
-        console.log('zoom after')
     }
 
     return (
@@ -201,14 +195,6 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                                         bindToBorders={true}
                                         pinchToZoomInSensitivity={6}
                                         movementSensibility={1.5}
-                                        onZoomBefore={() => {
-                                            console.log('zoom before')
-                                            setScrollEnabled(false)
-                                        }}
-                                        onZoomAfter={() => {
-                                            console.log('zoom end')
-                                            setScrollEnabled(true)
-                                        }}
                                     >
                                         <TouchableOpacity onPress={() => {
                                             setOpen(false)

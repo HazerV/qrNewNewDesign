@@ -60,10 +60,8 @@ const SplitPay = () => {
         }
 
     }
-
     const sum = 1150
     const count = 2
-
     return (
         <SafeAreaView style={styles.areaView}>
             <ScrollView>
