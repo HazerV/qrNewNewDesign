@@ -138,7 +138,5 @@ const Home = () => {
                 <Footer/>
         </SafeAreaView>
     )
-
 }
-
 export default Home
