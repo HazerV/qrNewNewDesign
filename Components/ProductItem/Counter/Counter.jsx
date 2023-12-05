@@ -6,6 +6,7 @@ import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
 import {ThemeContext, CartContext} from "../../Context/Context";
 import ProductItem from "../ProductItem";
+import {config} from "../../../config";
 // import {RNSVGPath, SvgUri} from "react-native-svg";
 // import SvgImage from "react-native-svg/lib/typescript/elements/Image";
 // import Svg from "react-native-svg/lib/typescript/ReactNativeSVG.web";
@@ -24,7 +25,7 @@ const Counter = () => {
             height: 50,
             backgroundColor: theme === 'light' ? 'white' : '#333333',
             borderRadius: 14,
-            borderColor: count === 0 ? 'rgba(85, 85, 85, 1)' : 'rgba(255, 122, 0, 1)',
+            borderColor: count === 0 ? config.buttonBorderNonActiveColor.color : config.buttonBorderActiveColor.color,
             borderWidth: 2,
             alignItems: 'center',
             flexDirection: 'row',

@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import {Text, View, Image, SafeAreaView, TouchableOpacity} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Imageee from '../ProductItem/Image.png'
+import {config} from "../../config";
 
 
 const MiniProductForPay = ({name, price, count, sum}) => {
@@ -30,21 +31,19 @@ const MiniProductForPay = ({name, price, count, sum}) => {
             paddingTop: 4
         },
         chooseProduct: {
-            width: 99,
+            width: 100,
             height: 27,
-            borderWidth: 2,
             borderRadius: 20,
-            backgroundColor: '#555555',
+            backgroundColor: 'config.buttonBorderNonActiveColor.color',
             justifyContent: 'center',
             position: 'relative',
-            borderColor: '#555555',
             marginTop: 8
         },
         chosenProduct: {
-            width: 99,
+            width: 100,
             height: 27,
             borderRadius: 20,
-            backgroundColor: '#FF7A00',
+            backgroundColor: config.buttonBorderActiveColor.color,
             justifyContent: 'center',
             marginTop: 8
         },

@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { ThemeContext } from "../../Components/Context/Context";
-
+import {config} from "../../config";
 
 const AcceptOrd = () => {
 
@@ -11,7 +11,7 @@ const AcceptOrd = () => {
         container: {
             width: 350,
             borderTopRadius: 245,
-            backgroundColor: '#FF7A00',
+            backgroundColor: config.buttonBorderActiveColor.color,
             borderRadius: 32,
             padding: 16 
         },

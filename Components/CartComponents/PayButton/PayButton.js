@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import {Text, View} from "react-native";
 import {ThemeContext} from "../../Context/Context";
+import {config} from "../../../config";
 
 const PayButton = () => {
 
@@ -13,7 +14,7 @@ const PayButton = () => {
             backgroundColor: theme == 'light' ? 'white' : 'black',
             borderRadius: 16,
             borderWidth: 2,
-            borderColor: 'rgba(255, 122, 0, 1)',
+            borderColor: config.buttonBorderActiveColor.color,
             alignItems: 'center',
             justifyContent: 'center',
         }}>

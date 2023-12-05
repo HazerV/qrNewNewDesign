@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {Text, TouchableOpacity, View} from "react-native";
 import {ThemeContext} from "../../Components/Context/Context";
 import {useNavigation} from "@react-navigation/native";
+import {config} from "../../config";
 
 const AddToCartBtn = () => {
 
@@ -13,7 +14,7 @@ const AddToCartBtn = () => {
             height: 50,
             borderWidth: 2,
             borderRadius: 16,
-            borderColor: 'rgba(255, 122, 0, 1)',
+            borderColor: config.buttonBorderActiveColor.color,
             backgroundColor: theme === 'light' ? 'white' : 'black',
             justifyContent: 'center',
             alignItems: 'center',

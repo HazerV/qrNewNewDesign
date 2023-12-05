@@ -41,13 +41,11 @@ const Navigation = () => {
                                 component={routes[name]}
                                 options={{
                                     animation: 'none',
-                                    // statusBarStyle: color,
                                     statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,
                                     headerShown: false,
-                                    // statusBarHidden: Platform.OS === 'ios' ? true : false
                                 }}
                             />
                         )

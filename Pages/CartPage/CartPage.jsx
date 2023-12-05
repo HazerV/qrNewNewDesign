@@ -9,6 +9,7 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import {useNavigation} from "@react-navigation/native";
 import BonusTab from "../../Components/CartComponents/Bonus/BonusTab";
 import PayButton from "../../Components/CartComponents/PayButton/PayButton";
+import {config} from "../../config";
 
 const CartPage = () => {
 
@@ -38,7 +39,7 @@ const CartPage = () => {
             height: 64,
             borderRadius: 16,
             borderWidth: 2,
-            borderColor: 'rgba(255, 122, 0, 1)',
+            borderColor: config.buttonBorderActiveColor.color,
             backgroundColor: theme === 'light' ? 'white' : 'black'
         },
         textTable: {

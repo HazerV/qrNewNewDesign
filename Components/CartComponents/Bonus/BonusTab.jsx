@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, TextInput} from "react-native";
 import {ThemeContext} from "../../Context/Context";
 import ArrowWhiteSvg from '../icons/ArrowWhite.svg'
 import ArrowBlackSvg from '../icons/ArrowBlack.svg'
+import {config} from "../../../config";
 
 const BonusTab = () => {
 
@@ -15,7 +16,7 @@ const BonusTab = () => {
             borderRadius: 16,
             borderWidth: 2,
             backgroundColor: theme === 'light' ? 'white' : '#333333',
-            borderColor: 'gray',
+            borderColor: config.buttonBorderActiveColor.color,
             alignItems: 'flex-start',
             justifyContent: 'center',
         },
@@ -40,7 +41,7 @@ const BonusTab = () => {
             height: 48,
             borderWidth: 2,
             borderRadius: 16,
-            borderColor: 'gray',
+            borderColor: '#BBBBBB',
             marginLeft: 16,
             paddingHorizontal: 16,
         },
@@ -81,7 +82,7 @@ const BonusTab = () => {
             borderWidth: 2,
             borderRadius: 16,
             backgroundColor: 'white',
-            borderColor: 'rgba(255, 122, 0, 1)',
+            borderColor: config.buttonBorderActiveColor.color,
             marginLeft: 16,
             alignItems: 'center',
             justifyContent: 'center'
@@ -92,7 +93,7 @@ const BonusTab = () => {
             borderWidth: 2,
             borderRadius: 16,
             backgroundColor: 'black',
-            borderColor: 'rgba(255, 122, 0, 1)',
+            borderColor: config.buttonBorderActiveColor.color,
             marginLeft: 16,
             alignItems: 'center',
             justifyContent: 'center'

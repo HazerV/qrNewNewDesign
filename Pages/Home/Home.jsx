@@ -7,8 +7,8 @@ import AcceptOrd from "./AcceptOrd";
 import ThemeSwitcher from "../../Components/Footer/ThemeSwitcher/ThemeSwitcher";
 import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
-import Categories from "../../Components/Categories/Categories";
 import {useNavigation, useNavigationContainerRef} from "@react-navigation/native";
+import {config} from "../../config";
 
 const Home = () => {
 
@@ -76,7 +76,7 @@ const Home = () => {
     return (
         <SafeAreaView style={styles.areaView}>
                 <ScrollView>
-                    <View style={{paddingTop: 64}}>
+                    <View style={{paddingTop: config.otstupTop.paddingTop}}>
                         <Header />
                         <View style={styles.container}>
                             <Text style={styles.textHead}>

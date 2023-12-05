@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react";
 import {View, Text, TouchableOpacity, Pressable, Modal} from 'react-native'
 import {ThemeContext} from "../../Context/Context";
+import {config} from "../../../config";
 
 const CartButton = () => {
 
@@ -14,7 +15,7 @@ const CartButton = () => {
             height: 55,
             backgroundColor: theme === 'light' ? 'white' : 'black',
             borderRadius: 14,
-            borderColor: 'rgba(255, 122, 0, 1)',
+            borderColor: config.buttonBorderActiveColor.color,
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',

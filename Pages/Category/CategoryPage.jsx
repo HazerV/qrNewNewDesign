@@ -18,6 +18,7 @@ import axios from "axios";
 import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartProduct";
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
+import {config} from "../../config";
 
 const CategoryPage = (props) => {
 
@@ -54,7 +55,7 @@ const CategoryPage = (props) => {
             fontFamily: 'Gilroy-SemiBold',
             fontSize: 24,
             lineHeight: 30,
-            paddingTop: 64,
+            paddingTop: config.otstupTop.paddingTop,
             alignSelf: 'center',
         },
         objects: {
@@ -74,7 +75,6 @@ const CategoryPage = (props) => {
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
             height: 460,
             borderRadius: 16,
-            // paddingTop: 32
         },
         modalName: {
             fontSize: 24,
