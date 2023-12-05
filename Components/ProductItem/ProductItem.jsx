@@ -1,11 +1,8 @@
-import React, {useCallback, useContext, useState} from "react";
-import axios from "axios";
+import React, {useContext, useState} from "react";
 import {View, Text, Image, TouchableOpacity, Dimensions, FlatList, Pressable} from "react-native";
-import {ThemeContext, CartContext} from "../Context/Context";
+import {ThemeContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
-import Imageee from "./Image.png";
 import {ReactNativeZoomableView} from "@openspacelabs/react-native-zoomable-view";
-import {hide} from "expo-splash-screen";
 import {config} from "../../config";
 
 
@@ -109,7 +106,7 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 fontSize: 16,
                 lineHeight: 20,
                 width: Dimensions.get('window').width - 120 - 60,
-                color: config.textColorOnImage.color,
+                color: config.textColorOnImage,
             },
             description: {
                 fontFamily: 'Gilroy-Regular',
@@ -122,14 +119,14 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 16,
                 lineHeight: 19,
-                color: config.textColorOnImage.color,
+                color: config.textColorOnImage,
                 paddingBottom: 4
             },
             weight: {
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 12,
                 lineHeight: 14,
-                color: config.textColorOnImage.color
+                color: config.textColorOnImage
             },
             viewSec: {
                 flexDirection: 'row',

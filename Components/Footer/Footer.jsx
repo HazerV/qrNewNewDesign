@@ -1,6 +1,6 @@
-import React, {useContext, useRef, useState} from "react";
+import React, {useContext} from "react";
 import {View, TouchableOpacity, Text} from "react-native";
-import {NavigationContainer, useNavigation, useNavigationContainerRef} from "@react-navigation/native";
+import {useNavigation} from "@react-navigation/native";
 import {Dimensions} from "react-native";
 import {PageContext, ThemeContext} from "../Context/Context";
 import CornerLeftB from './icons/Corners/CornerLeftB.svg'
@@ -11,6 +11,7 @@ import Menu from './icons/Menu.svg'
 import MenuWhite from './icons/MenuWhite.svg'
 import Person from './icons/Person.svg'
 import PersonWhite from './icons/PersonWhite.svg'
+import HideWithKeyboard from "react-native-hide-with-keyboard";
 
 const Footer = () => {
 
@@ -72,10 +73,11 @@ const Footer = () => {
             marginTop: -55
         }
     }
-    const {route, setRoute} = useContext(PageContext)
+    const {route} = useContext(PageContext)
     console.log(route)
 
     return (
+        <HideWithKeyboard>
         <View>
             <View style={styles.leftCorner}>
                 {
@@ -150,6 +152,7 @@ const Footer = () => {
                 </View>
             </View>
         </View>
+        </HideWithKeyboard>
     )
 }
 

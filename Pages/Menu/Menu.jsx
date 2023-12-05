@@ -1,8 +1,7 @@
 import React, {useContext} from "react";
-import {View, Text, Image, StyleSheet, SafeAreaView, ScrollView, Dimensions} from "react-native";
-import Header from "../../Components/Header/Header";
+import {View, Text, SafeAreaView, ScrollView, Dimensions} from "react-native";
 import Footer from "../../Components/Footer/Footer";
-import { Context, ThemeContext } from "../../Components/Context/Context";
+import { ThemeContext } from "../../Components/Context/Context";
 import Categories from "../../Components/Categories/Categories";
 
 const Home = () => {
@@ -14,7 +13,7 @@ const Home = () => {
             height: '100%'
         },
         container: {
-            width: '100%',
+            width: '90%',
             height: '100%',
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
             alignItems: 'center'
@@ -40,11 +39,12 @@ const Home = () => {
             paddingTop: 25,
             textAlign: 'left',
             paddingBottom: 100,
-            paddingLeft: Dimensions.get('window').width -10 -395
+            width: Dimensions.get('window').width - 15 - 50
+
         },
         catPlace: {
             paddingTop: 16,
-            width: '100%'
+            width: Dimensions.get('window').width - 15 -20
         }
     }
 
@@ -58,15 +58,6 @@ const Home = () => {
                     <View style={styles.catPlace}>
                         <Categories/>
                     </View>
-                    <Text style={styles.attention}>
-                        Уважаемые гости, меню является рекламной продукцией!{'\n'}{'\n'}
-                        Информация о размерах порций(г), ингредиентах и наличии аллергенов, сведения о пищевой ценности готовой продукции: калорийности, содержании белков, жиров, углеводов предоставляется по запросу.
-                        Забронируйте стол на время антракта и сделайте предзаказ!{'\n'}
-                        {'\n'}Как это работает:{'\n'}
-                        {'\n'}1. Добавьте блюда в корзину на сумму не менее 1500₽{'\n'}
-                        {'\n'}2. Оплатите заказ{'\n'}
-                        {'\n'}3. Проследуйте к вашему столу (номер указан в деталях заказа), заказанные блюда ждут вас!{'\n'}
-                    </Text>
                 </View>
             </ScrollView>
             <Footer/>

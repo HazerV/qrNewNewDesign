@@ -6,7 +6,6 @@ import LineSvg from '../../Components/Images/Line.svg'
 import MiniProductForPay from "../../Components/CartComponents/MiniProductForPay";
 import PayButton from "../../Components/CartComponents/PayButton/PayButton";
 import PayedProduct from "../../Components/CartComponents/PayedProduct/PayedProduct";
-import {config} from "../../config";
 
 const SplitPay = () => {
 

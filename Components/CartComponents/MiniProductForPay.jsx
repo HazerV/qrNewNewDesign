@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {Text, View, Image, SafeAreaView, TouchableOpacity} from "react-native";
+import {Text, View, Image, TouchableOpacity} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Imageee from '../ProductItem/Image.png'
 import {config} from "../../config";
@@ -14,7 +14,6 @@ const MiniProductForPay = ({name, price, count, sum}) => {
         container: {
             padding: 16,
             flexDirection: 'row',
-            // flexWrap: 'wrap',
             width: '100%',
         },
         nameProduct: {
@@ -32,10 +31,9 @@ const MiniProductForPay = ({name, price, count, sum}) => {
         },
         chooseProduct: {
             width: 100,
-            // borderWidth: 2,
             height: 27,
             borderRadius: 22,
-            backgroundColor: config.buttonBorderNonActiveColor.color,
+            backgroundColor: config.buttonBorderNonActiveColor,
             justifyContent: 'center',
             position: 'relative',
             marginTop: 8
@@ -44,7 +42,7 @@ const MiniProductForPay = ({name, price, count, sum}) => {
             width: 100,
             height: 27,
             borderRadius: 22,
-            backgroundColor: config.buttonBorderActiveColor.color,
+            backgroundColor: config.buttonBorderActiveColor,
             justifyContent: 'center',
             marginTop: 8
         },

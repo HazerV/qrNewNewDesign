@@ -1,4 +1,5 @@
 import {createContext, useState} from "react";
+import {Appearance} from "react-native";
 
 const ThemeContext = createContext()
 const CartContext = createContext()
@@ -7,12 +8,19 @@ const BonusContext = createContext()
 const CategoryContext = createContext()
 const ProductContext = createContext()
 
+
+
 const Context = ({children}) => {
     // const [useBonus, setUseBonus] = useState('')
     const [theme, SetTheme] = useState('light')
+    const colorSheme = Appearance.getColorScheme()
+    if (colorSheme === 'dark' ) {
+        SetTheme('dark')
+    }
     const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
     const [Category, setCategory] = useState([])
+    console.log('ss' + colorSheme)
     const [Product, setProduct] = useState([])
     const increment = () => {
         setCartItems((prevItems) =>

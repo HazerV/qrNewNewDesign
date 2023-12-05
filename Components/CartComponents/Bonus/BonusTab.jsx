@@ -16,7 +16,7 @@ const BonusTab = () => {
             borderRadius: 16,
             borderWidth: 2,
             backgroundColor: theme === 'light' ? 'white' : '#333333',
-            borderColor: config.buttonBorderActiveColor.color,
+            borderColor: config.buttonBorderActiveColor,
             alignItems: 'flex-start',
             justifyContent: 'center',
         },
@@ -82,7 +82,7 @@ const BonusTab = () => {
             borderWidth: 2,
             borderRadius: 16,
             backgroundColor: 'white',
-            borderColor: config.buttonBorderActiveColor.color,
+            borderColor: config.buttonBorderActiveColor,
             marginLeft: 16,
             alignItems: 'center',
             justifyContent: 'center'
@@ -92,8 +92,8 @@ const BonusTab = () => {
             height: 48,
             borderWidth: 2,
             borderRadius: 16,
-            backgroundColor: config.buttonBackgroundDark.color,
-            borderColor: config.buttonBorderActiveColor.color,
+            backgroundColor: config.buttonBackgroundDark,
+            borderColor: config.buttonBorderActiveColor,
             marginLeft: 16,
             alignItems: 'center',
             justifyContent: 'center'

@@ -11,7 +11,7 @@ const AcceptOrd = () => {
         container: {
             width: 350,
             borderTopRadius: 245,
-            backgroundColor: config.buttonBorderActiveColor.color,
+            backgroundColor: config.buttonBorderActiveColor,
             borderRadius: 32,
             padding: 16 
         },

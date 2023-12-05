@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {View, Text, TouchableOpacity, Pressable, Modal} from 'react-native'
+import {View, Text } from 'react-native'
 import {ThemeContext} from "../../Context/Context";
 import {config} from "../../../config";
 
@@ -13,9 +13,9 @@ const CartButton = () => {
         container: {
             width: 120,
             height: 55,
-            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color,
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
             borderRadius: 14,
-            borderColor: config.buttonBorderActiveColor.color,
+            borderColor: config.buttonBorderActiveColor,
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
@@ -39,14 +39,7 @@ const CartButton = () => {
         }
     }
 
-    const [visible, setVisible] = useState(false)
-    const show = () => setVisible(true)
-    const hide = () => setVisible(false)
-
-
     return (
-
-
             <View style={styles.container}>
                 <Text style = {styles.sum}>
                     {sum} руб

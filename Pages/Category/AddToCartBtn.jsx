@@ -14,8 +14,8 @@ const AddToCartBtn = () => {
             height: 50,
             borderWidth: 2,
             borderRadius: 16,
-            borderColor: config.buttonBorderActiveColor.color,
-            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color,
+            borderColor: config.buttonBorderActiveColor,
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
             justifyContent: 'center',
             alignItems: 'center',
             padding: 16

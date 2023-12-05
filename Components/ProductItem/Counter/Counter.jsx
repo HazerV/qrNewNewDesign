@@ -5,27 +5,21 @@ import MinusBSvg from '../Counter/MinusB.svg'
 import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
 import {ThemeContext, CartContext} from "../../Context/Context";
-import ProductItem from "../ProductItem";
 import {config} from "../../../config";
-// import {RNSVGPath, SvgUri} from "react-native-svg";
-// import SvgImage from "react-native-svg/lib/typescript/elements/Image";
-// import Svg from "react-native-svg/lib/typescript/ReactNativeSVG.web";
-
 
 const Counter = () => {
 
     const [count, setCount] = useState(0)
     const {theme} = useContext(ThemeContext)
-    // const {increment, decrement, cart, setCart} = useContext(CartContext)
 
     const styles = StyleSheet.create({
         container: {
             justifyContent: 'center',
             width: 100,
             height: 50,
-            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color,
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
             borderRadius: 14,
-            borderColor: count === 0 ? config.buttonBorderNonActiveColor.color : config.buttonBorderActiveColor.color,
+            borderColor: count === 0 ? config.buttonBorderNonActiveColor : config.buttonBorderActiveColor,
             borderWidth: 2,
             alignItems: 'center',
             flexDirection: 'row',

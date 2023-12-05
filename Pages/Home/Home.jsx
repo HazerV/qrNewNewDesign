@@ -7,7 +7,7 @@ import AcceptOrd from "./AcceptOrd";
 import ThemeSwitcher from "../../Components/Footer/ThemeSwitcher/ThemeSwitcher";
 import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
-import {useNavigation, useNavigationContainerRef} from "@react-navigation/native";
+import {useNavigation} from "@react-navigation/native";
 import {config} from "../../config";
 
 const Home = () => {
@@ -20,7 +20,6 @@ const Home = () => {
             justifyContent: 'center',
             alignItems: 'center',
             borderBottomRadius: 32,
-            // paddingBottom: 16
         },
         areaView: {
             backgroundColor: theme === 'dark' ? '#333333' : 'white',

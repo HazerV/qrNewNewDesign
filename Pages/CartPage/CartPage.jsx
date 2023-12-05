@@ -39,8 +39,8 @@ const CartPage = () => {
             height: 64,
             borderRadius: 16,
             borderWidth: 2,
-            borderColor: config.buttonBorderActiveColor.color,
-            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color
+            borderColor: config.buttonBorderActiveColor,
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark
         },
         textTable: {
             fontFamily: 'Gilroy-SemiBold',
@@ -51,17 +51,17 @@ const CartPage = () => {
             paddingTop: 64
         },
         container: {
-            height: '100%',
             alignItems: 'center',
-            justifyContent: 'column',
-            paddingTop: 30,
+            justifyContent: 'center',
+            paddingBottom: 32
         },
         addToOrder: {
             fontSize: 14,
             lineHeight: 16,
             fontFamily: 'Gilroy-Regular',
             paddingTop: 8,
-            color: textColor
+            color: textColor,
+            paddingBottom: 32
         },
         splitPayText: {
             fontSize: 14,
@@ -78,54 +78,55 @@ const CartPage = () => {
     return (
         <SafeAreaView style={styles.areaView}>
             <ScrollView>
-                <View style={styles.container}>
-                    <Text style={styles.textTable}>
-                        Стол №{numberTable}
-                    </Text>
-                    <View style={{
-                        alignItems: 'center'
-                    }}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-                            <View style={styles.plusBox}>
-                                {
-                                    theme === 'dark' ? (
-                                        <PlusSvgBlack style={{alignSelf: 'center', margin: 24}}/>
-                                    ) : (
-                                        <PlusSvgWhite style={{alignSelf: 'center', margin: 24}} />
-                                    )
-                                }
+                <View>
+                    <View style={styles.container}>
+                        <Text style={styles.textTable}>
+                            Стол №{numberTable}
+                        </Text>
+                        <View style={{
+                            alignItems: 'center'
+                        }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
+                                <View style={styles.plusBox}>
+                                    {
+                                        theme === 'dark' ? (
+                                            <PlusSvgBlack style={{alignSelf: 'center', margin: 24}}/>
+                                        ) : (
+                                            <PlusSvgWhite style={{alignSelf: 'center', margin: 24}}/>
+                                        )
+                                    }
 
-                            </View>
+                                </View>
+                            </TouchableOpacity>
+                            <Text style={styles.addToOrder}>
+                                Дополнить заказ
+                            </Text>
+                        </View>
+                        <View style={{paddingBottom: 36}}>
+                            <LineSvg style={{paddingBottom: 24}}/>
+                        </View>
+                        <View>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                        </View>
+                        <View style={{paddingBottom: 36}}>
+                            <LineSvg style={{paddingBottom: 24}}/>
+                        </View>
+                        <MiniCartProduct price={450} count={2} sum={900}/>
+                        <MiniCartProduct price={450} count={2} sum={900}/>
+                        <LineSvg style={{paddingBottom: 24}}/>
+                        <View style={{paddingTop: 24}}>
+                            <BonusTab style={{alignSelf: 'center'}}/>
+                        </View>
+                        <PayButton/>
+                        <TouchableOpacity onPress={() => navigation.navigate('SplitPay')}>
+                            <Text style={styles.splitPayText}>
+                                Раздельная оплата
+                            </Text>
                         </TouchableOpacity>
-                        <Text style={styles.addToOrder}>
-                            Дополнить заказ
-                        </Text>
                     </View>
-                    <LineSvg style={{
-                        paddingTop: 32
-                    }}/>
-                    <MiniCartProduct price={450} count={2} sum={900}/>
-                    <MiniCartProduct price={450} count={2} sum={900}/>
-                    <MiniCartProduct price={450} count={2} sum={900}/>
-                    <LineSvg style={{
-                        paddingTop: 32
-                    }}/>
-                    <MiniCartProduct price={450} count={2} sum={900}/>
-                    <MiniCartProduct price={450} count={2} sum={900}/>
-                    <LineSvg style={{
-                        paddingTop: 32
-                    }}/>
-                    <View style={{paddingTop: 24}}>
-                        <BonusTab style={{ alignSelf: 'center'}}/>
-                    </View>
-                    <PayButton/>
-                    <TouchableOpacity onPress={() => navigation.navigate('SplitPay')}>
-                        <Text style={styles.splitPayText}>
-                            Раздельная оплата
-                        </Text>
-                    </TouchableOpacity>
                 </View>
-
             </ScrollView>
             <Footer/>
         </SafeAreaView>

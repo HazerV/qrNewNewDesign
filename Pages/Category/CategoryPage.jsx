@@ -6,9 +6,7 @@ import {
     ScrollView,
     Modal,
     TouchableOpacity,
-    Button,
-    Pressable,
-    Dimensions, StatusBar
+    Dimensions
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";

@@ -10,10 +10,10 @@ const PayButton = () => {
         container: {
             width: 242,
             height: 48,
-            backgroundColor: theme == 'light' ? 'white' : config.buttonBackgroundDark.color,
+            backgroundColor: theme == 'light' ? 'white' : config.buttonBackgroundDark,
             borderRadius: 16,
             borderWidth: 2,
-            borderColor: config.buttonBorderActiveColor.color,
+            borderColor: config.buttonBorderActiveColor,
             alignItems: 'center',
             justifyContent: 'center',
         },

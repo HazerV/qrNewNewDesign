@@ -1,7 +1,7 @@
 export const config = {
-    buttonBorderActiveColor: { color: '#FF7A00' },
-    buttonBorderNonActiveColor: { color: '#555555' },
-    buttonBackgroundDark: { color: 'black' },
+    buttonBorderActiveColor:  '#FF7A00',
+    buttonBorderNonActiveColor: '#555555',
+    buttonBackgroundDark: 'black',
     otstupTop: { paddingTop: 64 },
-    textColorOnImage: { color: 'white' }
+    textColorOnImage: 'white'
 }
