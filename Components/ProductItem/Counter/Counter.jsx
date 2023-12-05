@@ -23,7 +23,7 @@ const Counter = () => {
             justifyContent: 'center',
             width: 100,
             height: 50,
-            backgroundColor: theme === 'light' ? 'white' : '#333333',
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color,
             borderRadius: 14,
             borderColor: count === 0 ? config.buttonBorderNonActiveColor.color : config.buttonBorderActiveColor.color,
             borderWidth: 2,

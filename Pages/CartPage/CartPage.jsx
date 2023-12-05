@@ -40,7 +40,7 @@ const CartPage = () => {
             borderRadius: 16,
             borderWidth: 2,
             borderColor: config.buttonBorderActiveColor.color,
-            backgroundColor: theme === 'light' ? 'white' : 'black'
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color
         },
         textTable: {
             fontFamily: 'Gilroy-SemiBold',

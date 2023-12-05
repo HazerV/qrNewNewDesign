@@ -92,7 +92,7 @@ const BonusTab = () => {
             height: 48,
             borderWidth: 2,
             borderRadius: 16,
-            backgroundColor: 'black',
+            backgroundColor: config.buttonBackgroundDark.color,
             borderColor: config.buttonBorderActiveColor.color,
             marginLeft: 16,
             alignItems: 'center',

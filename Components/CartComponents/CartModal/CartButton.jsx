@@ -13,7 +13,7 @@ const CartButton = () => {
         container: {
             width: 120,
             height: 55,
-            backgroundColor: theme === 'light' ? 'white' : 'black',
+            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark.color,
             borderRadius: 14,
             borderColor: config.buttonBorderActiveColor.color,
             justifyContent: 'center',

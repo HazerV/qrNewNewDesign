@@ -6,6 +6,7 @@ import Counter from "./Counter/Counter";
 import Imageee from "./Image.png";
 import {ReactNativeZoomableView} from "@openspacelabs/react-native-zoomable-view";
 import {hide} from "expo-splash-screen";
+import {config} from "../../config";
 
 
 const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled, setScrollEnabled}) => {
@@ -108,7 +109,7 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 fontSize: 16,
                 lineHeight: 20,
                 width: Dimensions.get('window').width - 120 - 60,
-                color: 'white',
+                color: config.textColorOnImage.color,
             },
             description: {
                 fontFamily: 'Gilroy-Regular',
@@ -121,14 +122,14 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 16,
                 lineHeight: 19,
-                color: 'white',
+                color: config.textColorOnImage.color,
                 paddingBottom: 4
             },
             weight: {
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 12,
                 lineHeight: 14,
-                color: 'rgba(187, 187, 187, 1)'
+                color: config.textColorOnImage.color
             },
             viewSec: {
                 flexDirection: 'row',
