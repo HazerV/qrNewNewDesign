@@ -99,7 +99,8 @@ const CategoryPage = (props) => {
         sumBlock: {
             flexDirection: 'row',
             justifyContent: 'center',
-            paddingTop: 16
+            paddingTop: 16,
+
         },
         modalStyle: {
             width: Dimensions.get('window').width,
@@ -109,7 +110,7 @@ const CategoryPage = (props) => {
         }
     }
     const [scrollEnabled, setScrollEnabled] = useState(true);
-console.log(scrollEnabled)
+
     return (
         <SafeAreaView style={[styles.areaView]}>
             <ScrollView scrollEnabled={scrollEnabled}>
@@ -126,10 +127,10 @@ console.log(scrollEnabled)
                                         scrollEnabled={scrollEnabled}
                                         setScrollEnabled={setScrollEnabled}
                                         name={prod.name}
-                                                 description={prod.content}
-                                                 sum={prod.price}
-                                                 weight={220}
-                                                 preview={`${serverUrl}/storage/${prod.preview}`}/>
+                                        description={prod.content}
+                                        sum={prod.price}
+                                        weight={220}
+                                        preview={`${serverUrl}/storage/${prod.preview}`}/>
                                 )
                             })
                         }
@@ -158,11 +159,19 @@ console.log(scrollEnabled)
                                 <Text style={styles.modalName}>
                                     Корзина
                                 </Text>
-                                <View>
+                                <ScrollView>
+                                <View style={{
+                                    alignItems: 'center'
+                                }}>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
                                     <MiniCartProduct price={450} count={2} sum={900}/>
                                     <MiniCartProduct price={450} count={2} sum={900}/>
                                     <MiniCartProduct price={450} count={2} sum={900}/>
                                 </View>
+                                </ScrollView>
                                 <LineSvg style={{alignSelf: 'center', paddingTop: 24}}/>
                                 <View style={styles.sumBlock}>
                                     <Text style={styles.itogText}>
@@ -172,7 +181,7 @@ console.log(scrollEnabled)
                                         {' '} 1 350 руб
                                     </Text>
                                 </View>
-                                <View style={{paddingTop: 16, alignSelf: 'center'}}>
+                                <View style={{ alignSelf: 'center'}}>
                                     <AddToCartBtn/>
                                 </View>
                             </View>

@@ -18,7 +18,7 @@ const AddToCartBtn = () => {
             backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 16
+            // padding: 16
         },
         text: {
             fontFamily: 'Gilroy-SemiBold',

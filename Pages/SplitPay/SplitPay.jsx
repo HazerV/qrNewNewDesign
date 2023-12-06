@@ -10,7 +10,6 @@ import PayedProduct from "../../Components/CartComponents/PayedProduct/PayedProd
 const SplitPay = () => {
 
     const {theme} = useContext(ThemeContext)
-
     const styles = {
         areaView: {
             height: '100%',

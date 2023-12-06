@@ -33,7 +33,6 @@ const Contacts = () => {
         }
     }
 
-
     return (
         <SafeAreaView style = {styles.areaview}>
             <ScrollView>
