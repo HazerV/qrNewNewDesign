@@ -23,7 +23,6 @@ const Footer = () => {
             width: Dimensions.get('window').width,
             height: 60,
             backgroundColor: 'rgba(21, 21, 21, 0.9)',
-            opacity: 1
         },
         AreaView: {
             minHeight: 100,
@@ -74,19 +73,12 @@ const Footer = () => {
         }
     }
     const {route} = useContext(PageContext)
-    console.log(route)
 
     return (
         <HideWithKeyboard>
         <View>
             <View style={styles.leftCorner}>
-                {
-                    theme === 'light' ? (
-                        <CornerLeftB/>
-                    ) : (
-                        <CornerLeftB/>
-                    )
-                }
+                <CornerLeftB/>
             </View>
             <View style={styles.container}>
                 <View style={styles.icons}>
@@ -142,13 +134,7 @@ const Footer = () => {
                     </View>
                 </View>
                 <View style={styles.rightCorner}>
-                    {
-                        theme === 'light' ? (
-                            <CornerRightW/>
-                        ) : (
-                            <CornerRightW/>
-                        )
-                    }
+                    <CornerRightW/>
                 </View>
             </View>
         </View>

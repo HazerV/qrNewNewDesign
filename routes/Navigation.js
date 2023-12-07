@@ -14,9 +14,6 @@ const Navigation = () => {
     const navigationRef = useNavigationContainerRef();
     const {theme} = useContext(ThemeContext)
 
-    let color = 'white'
-
-
     return (
         <NavigationContainer
             ref={navigationRef}

@@ -104,7 +104,7 @@ const CategoryPage = (props) => {
         },
         modalStyle: {
             width: Dimensions.get('window').width,
-            height: Dimensions.get('window').height - 80,
+            height: Dimensions.get('window').height - 460,
             backgroundColor: 'black',
             opacity: 0.6,
         }
@@ -114,7 +114,7 @@ const CategoryPage = (props) => {
     return (
         <SafeAreaView style={[styles.areaView]}>
             <ScrollView scrollEnabled={scrollEnabled}>
-                <View style={{paddingBottom: 60}}>
+                <View style={{paddingBottom: 100}}>
                     <Text style={styles.nameCategory}>
                         {cat.name}
                     </Text>
@@ -160,9 +160,7 @@ const CategoryPage = (props) => {
                                     Корзина
                                 </Text>
                                 <ScrollView>
-                                <View style={{
-                                    alignItems: 'center'
-                                }}>
+                                <View style={{ alignItems: 'center' }}>
                                     <MiniCartProduct price={450} count={2} sum={900}/>
                                     <MiniCartProduct price={450} count={2} sum={900}/>
                                     <MiniCartProduct price={450} count={2} sum={900}/>

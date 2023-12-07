@@ -20,14 +20,12 @@ const ChangeCort = () => {
             headers: {'SubDomain': 'zaryadye'}
         })
             .then((res) => {
-                // console.log(res.data.data.halls)
                 setData(res.data.data.halls)
             })
             .catch((err) => {console.log(err)})
     }, []);
 
-    // console.log(data)
-    const navigation = useNavigation() 
+    const navigation = useNavigation()
     const {theme} = useContext(ThemeContext)
     const styles = {
         areaView: {
@@ -46,34 +44,34 @@ const ChangeCort = () => {
             justifyContent: 'center',
             textAlign: 'center',
             width: '90%',
-            lineHeight: 16
+            lineHeight: 16,
+            paddingBottom: 38
         },
         chooseBufet: {
             fontSize: 24,
             fontFamily: 'Gilroy-SemiBold',
             color: theme === 'dark' ? 'white' : 'black',
-            paddingTop: 38,
-            lineHeight: 28
+            lineHeight: 28,
+            paddingBottom: 32
         },
         bufetImgs: {
             flexDirection: 'row',
             columnGap: 16,
-            paddingTop: 32,
             width: '100%',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            paddingBottom: 32
         },
         attention: {
             fontSize: 16,
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'center',
-            width: Dimensions.get('window').width -45,
-            paddingTop: 32,
+            width: Dimensions.get('window').width -45 -45,
+            // paddingTop: 32,
             lineHeight: 18,
             paddingBottom: 32
         }
     }
-    console.log(data.image)
 
     return (
         <SafeAreaView style={styles.areaView}>
@@ -88,8 +86,7 @@ const ChangeCort = () => {
                     </Text>
                     <View style={styles.bufetImgs}>
                             {
-                                data.map((img, index) => {
-                                    console.log(img.image)
+                                data.map((img) => {
                                     return (
                                         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
                                             <Image style={{width: Dimensions.get('window').width -45, height: 250, resizeMode: 'contain'}}
