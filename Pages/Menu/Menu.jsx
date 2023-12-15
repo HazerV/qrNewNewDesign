@@ -3,6 +3,7 @@ import {View, Text, SafeAreaView, ScrollView, Dimensions} from "react-native";
 import Footer from "../../Components/Footer/Footer";
 import { ThemeContext } from "../../Components/Context/Context";
 import Categories from "../../Components/Categories/Categories";
+import {config} from "../../config";
 
 const Home = () => {
 
@@ -13,7 +14,7 @@ const Home = () => {
             height: '100%'
         },
         container: {
-            width: '90%',
+            width: '100%',
             height: '100%',
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
             alignItems: 'center'
@@ -27,7 +28,7 @@ const Home = () => {
             textAlign: 'center',
             width: '90%',
             fontWeight: 600,
-            paddingTop: 64,
+            paddingTop: config.otstupTop,
         },
         attention: {
             fontSize: 12,
@@ -35,12 +36,10 @@ const Home = () => {
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
             justifyContent: 'flex-start',
-            fontWeight: 600,
             paddingTop: 25,
             textAlign: 'left',
-            paddingBottom: 100,
+            paddingBottom: config.otstupBottom,
             width: Dimensions.get('window').width - 15 - 50
-
         },
         catPlace: {
             paddingTop: 16,

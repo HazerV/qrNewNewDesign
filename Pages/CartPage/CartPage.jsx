@@ -17,7 +17,6 @@ const CartPage = () => {
     const {theme} = useContext(ThemeContext)
     let bgColor = 'white'
     let textColor = 'white'
-
     if (theme === 'light') {
         textColor = 'black'
     }
@@ -27,8 +26,6 @@ const CartPage = () => {
     if (theme === 'dark') {
         bgColor = '#333333'
     }
-
-
     const styles = {
         areaView: {
             height: '100%',
@@ -39,7 +36,7 @@ const CartPage = () => {
             height: 64,
             borderRadius: 16,
             borderWidth: 2,
-            borderColor: config.buttonBorderActiveColor,
+            borderColor: config.accentColor,
             backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark
         },
         textTable: {
@@ -74,7 +71,6 @@ const CartPage = () => {
     }
 
     const numberTable = 7
-
     return (
         <SafeAreaView style={styles.areaView}>
             <ScrollView>
@@ -83,9 +79,7 @@ const CartPage = () => {
                         <Text style={styles.textTable}>
                             Стол №{numberTable}
                         </Text>
-                        <View style={{
-                            alignItems: 'center'
-                        }}>
+                        <View style={{ alignItems: 'center' }}>
                             <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
                                 <View style={styles.plusBox}>
                                     {
@@ -95,7 +89,6 @@ const CartPage = () => {
                                             <PlusSvgWhite style={{alignSelf: 'center', margin: 24}}/>
                                         )
                                     }
-
                                 </View>
                             </TouchableOpacity>
                             <Text style={styles.addToOrder}>

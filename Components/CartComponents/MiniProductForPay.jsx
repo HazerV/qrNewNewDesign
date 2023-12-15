@@ -33,7 +33,7 @@ const MiniProductForPay = ({name, price, count, sum}) => {
             width: 100,
             height: 27,
             borderRadius: 22,
-            backgroundColor: config.buttonBorderNonActiveColor,
+            backgroundColor: config.accentColorNonActive,
             justifyContent: 'center',
             position: 'relative',
             marginTop: 8
@@ -42,7 +42,7 @@ const MiniProductForPay = ({name, price, count, sum}) => {
             width: 100,
             height: 27,
             borderRadius: 22,
-            backgroundColor: config.buttonBorderActiveColor,
+            backgroundColor: config.accentColor,
             justifyContent: 'center',
             marginTop: 8
         },

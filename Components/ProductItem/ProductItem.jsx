@@ -1,12 +1,19 @@
 import React, {useContext, useState} from "react";
-import {View, Text, Image, TouchableOpacity, Dimensions, FlatList, Pressable} from "react-native";
+import {View, Text, Image, TouchableOpacity, Dimensions} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
-import {ReactNativeZoomableView} from "@openspacelabs/react-native-zoomable-view";
 import {config} from "../../config";
+import 'react-native-gesture-handler'
+import {
+    LongPressGestureHandler,
+    GestureHandlerRootView,
+    State,
+    Gesture
+} from "react-native-gesture-handler";
+import Animated from "react-native-reanimated";
+import ZoomFunction from "./Zoom/ZoomFunction";
 
-
-const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled, setScrollEnabled}) => {
+const ProductItem = ({id, name, description, sum, weight, preview}) => {
 
     const [open, setOpen] = useState(false)
     const {theme} = useContext(ThemeContext)
@@ -161,6 +168,7 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
         }
     }
 
+
     return (
         <View style={styles.container}>
             <Text style={styles.name}>
@@ -186,20 +194,14 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
                             open === false ? (
                                 <Image style={styles.image} source={{uri: `${preview}`}}/>
                             ) : (
-                                <View style={styles.nonContainer}  >
-                                    <ReactNativeZoomableView
-                                        maxZoom={1.5}
-                                        minZoom={1}
-                                        bindToBorders={true}
-                                        pinchToZoomInSensitivity={6}
-                                        movementSensibility={1.5}
-                                    >
-                                        <TouchableOpacity onPress={() => {
-                                            setOpen(false)
-                                        }} activeOpacity={1}>
-                                                <Image style={styles.openImage} source={{uri: `${preview}`}}/>
-                                        </TouchableOpacity>
-                                    </ReactNativeZoomableView>
+                                <View style={styles.nonContainer}>
+                                    <TouchableOpacity onPress={() => {
+                                        setOpen(false)
+                                    }} activeOpacity={1}>
+                                        <ZoomFunction>
+                                            <Image style={styles.openImage} source={{uri: `${preview}`}}/>
+                                        </ZoomFunction>
+                                    </TouchableOpacity>
                                 </View>
                             )
                         }
@@ -222,5 +224,4 @@ const ProductItem = ({id, name, description, sum, weight, preview, scrollEnabled
         </View>
     )
 }
-
 export default ProductItem

@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
-import { ThemeContext  } from "../../Components/Context/Context";
+import React, {useContext} from "react";
+import {View, Text, SafeAreaView, ScrollView, TouchableOpacity} from "react-native";
+import {ThemeContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import AcceptOrd from "./AcceptOrd";
@@ -33,11 +33,10 @@ const Home = () => {
             textAlign: 'center',
             width: '80%',
             lineHeight: 16,
-
         },
         countTables: {
             color: theme === 'light' ? 'black' : 'white',
-            textAlign: 'center' ,
+            textAlign: 'center',
             fontFamily: 'Gilroy-Regular',
             fontSize: 12,
             lineHeight: 16,
@@ -74,68 +73,74 @@ const Home = () => {
 
     return (
         <SafeAreaView style={styles.areaView}>
-                <ScrollView>
-                    <View style={{paddingTop: config.otstupTop.paddingTop}}>
-                        <Header />
-                        <View style={styles.container}>
-                            <Text style={styles.textHead}>
-                                Онлайн-меню буфета «Китай-город» концертного зала Зарядье
-                            </Text>
-                            <View style={{marginTop: 16, paddingBottom: 16}}>
-                                <AcceptOrd />
-                            </View>
-                            <Text style={styles.countTables}>
-                                    Количество столов, доступных для бронирования, ограничено
-                            </Text>
-                            <TouchableOpacity onPress={() => {navigation.navigate('ChangeCort')}}>
-                                <ChangeButton />
+            <ScrollView>
+                <View style={{paddingTop: config.otstupTop}}>
+                    <Header/>
+                    <View style={styles.container}>
+                        <Text style={styles.textHead}>
+                            Онлайн-меню буфета «Китай-город» концертного зала Зарядье
+                        </Text>
+                        <View style={{marginTop: 16, paddingBottom: 16}}>
+                            <AcceptOrd/>
+                        </View>
+                        <Text style={styles.countTables}>
+                            Количество столов, доступных для бронирования, ограничено
+                        </Text>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate('ChangeCort')
+                        }}>
+                            <ChangeButton/>
+                        </TouchableOpacity>
+                        <View style={styles.themeSwitcher}>
+                            <ThemeSwitcher/>
+                            {
+                                theme === 'light' ? (
+                                    <Text style={styles.textTheme}>
+                                        Темная тема
+                                    </Text>
+                                ) : (
+                                    <Text style={styles.textTheme}>
+                                        Светлая тема
+                                    </Text>
+                                )
+                            }
+                        </View>
+                        <View style={styles.contactsButtons}>
+                            <TouchableOpacity onPress={() => {
+                                navigation.navigate('Contacts')
+                            }}>
+                                <Text style={styles.text}>
+                                    Контакты
+                                </Text>
                             </TouchableOpacity>
-                            <View style={styles.themeSwitcher}>
-                                <ThemeSwitcher />
-                                    {
-                                     theme === 'light' ?  (
-                                            <Text style={styles.textTheme}>
-                                                Темная тема
-                                            </Text>
-                                        ) :  (
-                                            <Text style = {styles.textTheme}>
-                                                Светлая тема
-                                            </Text>
-                                        )
-                                    }
-                            </View>
-                            <View style={styles.contactsButtons}>
-                                <TouchableOpacity onPress={() => {navigation.navigate('Contacts')}}>
-                                    <Text style={styles.text}>
-                                        Контакты
-                                    </Text>
-                                </TouchableOpacity>
-                        
-                                <TouchableOpacity onPress={() => {navigation.navigate('Oferta')}}>
-                                    <Text style={styles.text}>
-                                        Оферта
-                                    </Text>
-                                </TouchableOpacity>
-                        
-                                <TouchableOpacity>
-                                    <Text style={styles.text}>
-                                        Пользовательское соглашение
-                                    </Text>
-                                </TouchableOpacity>
-                        
-                                <TouchableOpacity>
-                                    <Text style={styles.text}>
-                                        Политика конфиденциальности
-                                    </Text>
-                                </TouchableOpacity>
-                            </View>
+
+                            <TouchableOpacity onPress={() => {
+                                navigation.navigate('Oferta')
+                            }}>
+                                <Text style={styles.text}>
+                                    Оферта
+                                </Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity>
+                                <Text style={styles.text}>
+                                    Пользовательское соглашение
+                                </Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity>
+                                <Text style={styles.text}>
+                                    Политика конфиденциальности
+                                </Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={{paddingBottom: 100}}>
-                        <TrueShop/>
-                    </View>
-                </ScrollView>
-                <Footer/>
+                </View>
+                <View style={{paddingBottom: config.otstupBottom}}>
+                    <TrueShop/>
+                </View>
+            </ScrollView>
+            <Footer/>
         </SafeAreaView>
     )
 }

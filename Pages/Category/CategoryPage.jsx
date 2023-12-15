@@ -6,7 +6,8 @@ import {
     ScrollView,
     Modal,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    StatusBar
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
@@ -19,16 +20,13 @@ import AddToCartBtn from "./AddToCartBtn";
 import {config} from "../../config";
 
 const CategoryPage = (props) => {
-
     let cat = props.route.params.cat
     const serverUrl = 'https://api.menu.true-false.ru'
-
     const {Product, setProduct} = useContext(ProductContext)
     const {theme} = useContext(ThemeContext)
     const [visible, setVisible] = useState(false)
     const show = () => setVisible(true)
     const hide = () => setVisible(false)
-
     const getProduct = () => {
         axios.get(`${serverUrl}/api/${cat.slug}/products`, {headers: {'SubDomain': 'zaryadye'}})
             .then(
@@ -43,9 +41,17 @@ const CategoryPage = (props) => {
     useEffect(() => {
         getProduct()
     }, []);
+
+    let color = 'white'
+    if (theme === 'light') {
+        color = 'white'
+    }
+    if (theme === 'dark') {
+        color = '#333333'
+    }
     const styles = {
         areaView: {
-            backgroundColor: theme === 'light' ? 'white' : '#333333',
+            backgroundColor: color,
             alignSelf: 'center',
         },
         nameCategory: {
@@ -53,7 +59,7 @@ const CategoryPage = (props) => {
             fontFamily: 'Gilroy-SemiBold',
             fontSize: 24,
             lineHeight: 30,
-            paddingTop: config.otstupTop.paddingTop,
+            paddingTop: config.otstupTop,
             alignSelf: 'center',
         },
         objects: {
@@ -61,8 +67,7 @@ const CategoryPage = (props) => {
             rowGap: 24,
             paddingTop: 32,
             paddingLeft: 16,
-            paddingBottom: 100
-
+            paddingBottom: config.otstupBottom
         },
         modal: {
             position: 'absolute',
@@ -94,12 +99,13 @@ const CategoryPage = (props) => {
             fontFamily: 'Gilroy-Regular',
             fontSize: 16,
             color: "rgba(187, 187, 187, 1)",
-            lineHeight: 20
+            lineHeight: 20,
         },
         sumBlock: {
             flexDirection: 'row',
             justifyContent: 'center',
             paddingTop: 16,
+            paddingBottom: 9
 
         },
         modalStyle: {
@@ -113,8 +119,9 @@ const CategoryPage = (props) => {
 
     return (
         <SafeAreaView style={[styles.areaView]}>
+            <StatusBar backgroundColor={visible === true ? 'rgba(21, 21, 21, 1)' : color}/>
             <ScrollView scrollEnabled={scrollEnabled}>
-                <View style={{paddingBottom: 100}}>
+                <View style={{paddingBottom: config.otstupBottom}}>
                     <Text style={styles.nameCategory}>
                         {cat.name}
                     </Text>
@@ -142,7 +149,7 @@ const CategoryPage = (props) => {
                     onRequestClose={hide}
                     transparent={true}
                     visible={visible}
-                    animationType='slide' >
+                    animationType='slide'>
                     {
                         visible === true ? (
                             <TouchableOpacity onPress={hide}>
@@ -160,17 +167,17 @@ const CategoryPage = (props) => {
                                     Корзина
                                 </Text>
                                 <ScrollView>
-                                <View style={{ alignItems: 'center' }}>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                </View>
+                                    <View style={{alignItems: 'center'}}>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                        <MiniCartProduct price={450} count={2} sum={900}/>
+                                    </View>
                                 </ScrollView>
-                                <LineSvg style={{alignSelf: 'center', paddingTop: 24}}/>
+                                <LineSvg style={{alignSelf: 'center', paddingTop: 25}}/>
                                 <View style={styles.sumBlock}>
                                     <Text style={styles.itogText}>
                                         Итого:
@@ -179,7 +186,7 @@ const CategoryPage = (props) => {
                                         {' '} 1 350 руб
                                     </Text>
                                 </View>
-                                <View style={{ alignSelf: 'center'}}>
+                                <View style={{alignSelf: 'center', paddingBottom: 16}}>
                                     <AddToCartBtn/>
                                 </View>
                             </View>
@@ -192,5 +199,4 @@ const CategoryPage = (props) => {
         </SafeAreaView>
     )
 }
-
 export default CategoryPage

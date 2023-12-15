@@ -3,6 +3,7 @@ import useFonts from './assets/fonts/fonts'
 import AppLoading from 'expo-app-loading'
 import {Context} from './Components/Context/Context';
 import Navigation from "./routes/Navigation";
+import 'react-native-gesture-handler'
 const App = () => {
 
     const [IsReady, SetIsReady] = useState(false)

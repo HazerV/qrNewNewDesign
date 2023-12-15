@@ -4,14 +4,13 @@ import axios from "axios";
 import {useNavigation} from "@react-navigation/native";
 import stylesCategories from "./StylesCategories";
 import {CategoryContext, ThemeContext} from "../Context/Context";
-import DefaultInitialImageDimensions from "react-native-render-html/src/elements/defaultInitialImageDimensions";
+import {config} from "../../config";
 
 const Categories = () => {
 
     const {Category, setCategory} = useContext(CategoryContext)
     const navigation = useNavigation()
     const serverUrl = 'https://api.menu.true-false.ru'
-
     const getName = () => {
         axios.get(`${serverUrl}/api/categories`, {
             headers: {'SubDomain': 'zaryadye'}
@@ -26,11 +25,24 @@ const Categories = () => {
     useEffect(() => {
         getName()
     }, []);
-
     const {theme} = useContext(ThemeContext)
-
+    const styles = {
+        attention: {
+            fontSize: 12,
+            lineHeight: 16,
+            fontFamily: 'Gilroy-Regular',
+            color: theme === 'dark' ? 'white' : 'black',
+            justifyContent: 'flex-start',
+            fontWeight: 600,
+            paddingTop: 25,
+            textAlign: 'left',
+            paddingBottom: config.otstupBottom,
+            width: '100%'
+            // width: Dimensions.get('window').width - 30
+        }
+    }
     return (
-        <View style={[stylesCategories.container, {width: Dimensions.get('window').width}]}>
+        <View style={[stylesCategories.container, {width: Dimensions.get('window').width -30}]}>
             {Category.map((cat, index) => {
                 return (
                     <TouchableOpacity onPress={() => {
@@ -43,18 +55,7 @@ const Categories = () => {
                     </TouchableOpacity>
                 )
             })}
-            <Text style={{
-                fontSize: 12,
-                lineHeight: 16,
-                fontFamily: 'Gilroy-Regular',
-                color: theme === 'dark' ? 'white' : 'black',
-                justifyContent: 'flex-start',
-                fontWeight: 600,
-                paddingTop: 25,
-                textAlign: 'left',
-                paddingBottom: 100,
-                width: Dimensions.get('window').width - 60
-            }}>
+            <Text style={styles.attention}>
                 Уважаемые гости, меню является рекламной продукцией!{'\n'}{'\n'}
                 Информация о размерах порций(г), ингредиентах и наличии аллергенов, сведения о пищевой ценности готовой
                 продукции: калорийности, содержании белков, жиров, углеводов предоставляется по запросу.

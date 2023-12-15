@@ -19,7 +19,7 @@ const Counter = () => {
             height: 50,
             backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
             borderRadius: 14,
-            borderColor: count === 0 ? config.buttonBorderNonActiveColor : config.buttonBorderActiveColor,
+            borderColor: count === 0 ? config.accentColorNonActive : config.accentColor,
             borderWidth: 2,
             alignItems: 'center',
             flexDirection: 'row',

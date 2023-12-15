@@ -13,7 +13,7 @@ const PayButton = () => {
             backgroundColor: theme == 'light' ? 'white' : config.buttonBackgroundDark,
             borderRadius: 16,
             borderWidth: 2,
-            borderColor: config.buttonBorderActiveColor,
+            borderColor: config.accentColor,
             alignItems: 'center',
             justifyContent: 'center',
         },

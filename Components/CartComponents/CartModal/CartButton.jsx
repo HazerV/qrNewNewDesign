@@ -15,7 +15,7 @@ const CartButton = () => {
             height: 55,
             backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
             borderRadius: 14,
-            borderColor: config.buttonBorderActiveColor,
+            borderColor: config.accentColor,
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
