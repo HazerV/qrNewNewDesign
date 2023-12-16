@@ -15,15 +15,16 @@ const ZoomFunction =  ({children}) => {
     const contextScale = useSharedValue(1);
     const pinchGesture = Gesture.Pinch()
         .onUpdate((event) => {
-            scale.value = contextScale.value * event.scale
+            scale.value = contextScale.value * event.scale   ///
         })
         .onEnd(() => {
-            contextScale.value = scale.value
+            contextScale.value = scale.value      //
         })
+
     const longPressGesture = Gesture.LongPress()
         .onEnd(() => {
             scale.value = 1
-            contextScale.value = scale.value
+            contextScale.value = scale.value      //
         })
         .onStart(() => {
             runOnJS(impactAsync)(ImpactFeedbackStyle.Medium)
@@ -42,10 +43,13 @@ const ZoomFunction =  ({children}) => {
         .onEnd(() => {
             offset.value = withSpring({x: 0,y: 0})
             pressed.value = false
-            // scale.value = 1
+            // scale.value = 1.5
         })
+
+
     const composedGestures =  Gesture.Simultaneous(longPressGesture, Gesture.Simultaneous(panGesture, pinchGesture))
-    const composedRase = Gesture.Race(longPressGesture, pinchGesture)
+    const composedGestures1 =  Gesture.Simultaneous(panGesture, pinchGesture)
+
     const animatedStyles = useAnimatedStyle(() => {
         return {
             transform: [
@@ -58,7 +62,7 @@ const ZoomFunction =  ({children}) => {
     });
     return  (
         <GestureHandlerRootView>
-            <GestureDetector gesture={composedRase}>
+            <GestureDetector gesture={composedGestures}>
                 <Animated.View style={animatedStyles}>
                     {children}
                 </Animated.View>

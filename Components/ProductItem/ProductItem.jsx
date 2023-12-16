@@ -77,8 +77,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             position: 'relative',
             top: 0,
             right: 0,
-            width: Dimensions.get('window').width - 45,
-            height: Dimensions.get('window').width - 60,
+            // width: Dimensions.get('window').width - 45,
+            // height: Dimensions.get('window').width - 60,
             borderRadius: 16,
             overflow: 'hidden'
         },
@@ -95,7 +95,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 width: Dimensions.get('window').width - 60,
                 height: open === false ? 172 : Dimensions.get('window').width - 60,
                 flexDirection: 'column',
-                display: 'inline-block',
+                // display: 'inline-block',
                 columnGap: 16,
                 justifyContent: 'flex-end',
                 paddingBottom: 16
@@ -156,8 +156,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 position: 'relative',
                 top: 0,
                 right: 0,
-                width: Dimensions.get('window').width - 45,
-                height: Dimensions.get('window').width - 60,
+                // width: Dimensions.get('window').width - 20,
+                // height: Dimensions.get('window').width - 60,
                 borderRadius: 16,
                 overflow: 'hidden'
             },
