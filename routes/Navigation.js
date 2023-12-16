@@ -38,8 +38,8 @@ const Navigation = () => {
                                 component={routes[name]}
                                 options={{
                                     animation: 'none',
-                                    statusBarStyle: theme === 'light' ? 'dark' : 'white',
-                                    statusBarTranslucent: true,
+                                    // statusBarStyle: theme === 'light' ? 'dark' : 'white',
+                                    // statusBarTranslucent: true,
                                     statusBarColor: 'transparent',
                                     navigationBarHidden: true,
                                     headerShown: false

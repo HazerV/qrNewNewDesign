@@ -79,7 +79,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             right: 0,
             width: Dimensions.get('window').width - 45,
             height: Dimensions.get('window').width - 60,
-            borderRadius: 16
+            borderRadius: 16,
+            overflow: 'hidden'
         },
         image: {
             width: 100,
@@ -158,6 +159,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 width: Dimensions.get('window').width - 45,
                 height: Dimensions.get('window').width - 60,
                 borderRadius: 16,
+                overflow: 'hidden'
             },
             image: {
                 width: 100,
@@ -167,7 +169,6 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             }
         }
     }
-
 
     return (
         <View style={styles.container}>
