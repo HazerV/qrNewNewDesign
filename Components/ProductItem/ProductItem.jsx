@@ -71,7 +71,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
         openImage: {
             width: Dimensions.get('window').width - 45,
             height: Dimensions.get('window').width - 60,
-            borderRadius: 16
+            borderRadius: 16,
+            resizeMode: 'contain'
         },
         nonContainer: {
             position: 'relative',
@@ -80,7 +81,8 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             // width: Dimensions.get('window').width - 45,
             // height: Dimensions.get('window').width - 60,
             borderRadius: 16,
-            overflow: 'hidden'
+            overflow: 'hidden',
+            // hitSlop: 10
         },
         image: {
             width: 100,
@@ -159,7 +161,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                 // width: Dimensions.get('window').width - 20,
                 // height: Dimensions.get('window').width - 60,
                 borderRadius: 16,
-                overflow: 'hidden'
+                overflow: 'hidden',
             },
             image: {
                 width: 100,
