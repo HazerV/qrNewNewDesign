@@ -26,20 +26,26 @@ const ZoomFunction =  ({children}) => {
         .onStart((event) => {
             console.log('coords', event)
             runOnJS(impactAsync)(ImpactFeedbackStyle.Medium)
+            const imageX = 0
+            const imageY = 0
+            const scaleFactor = 2
             offset.value = {
-                x: event.x,
-                y: event.y
+                x: 0 - (1.5 - 1) * (event.absoluteX),
+                y: 0 - (1.5 - 1) * (event.absoluteY)
+                // x: event.absoluteX - scaleFactor * event.x,
+                // y: event.absoluteY - scaleFactor * event.y
             }
-            // scale.value = 2
-            // contextScale.value = 2
+            console.log('xxx', offset.value.x)
+            scale.value = 1.8
+            contextScale.value = 2
         })
         .onEnd(() => {
             offset.value = {
                 x: 0,
                 y: 0
             }
-            // scale.value = 1
-            // contextScale.value = scale.value
+            scale.value = 1
+            contextScale.value = scale.value
         })
     const panGesture = Gesture.Pan()
         .averageTouches(true)
@@ -62,8 +68,8 @@ const ZoomFunction =  ({children}) => {
     const animatedStyles = useAnimatedStyle(() => {
         return {
             transform: [
-                { translateX: offset.value.x  },
-                { translateY: offset.value.y },
+                { translateX: 0 },
+                { translateY: 0 },
                 { scale:  withSpring(scale.value) }
             ],
             zIndex: pressed.value ? 2 : 0
@@ -71,7 +77,7 @@ const ZoomFunction =  ({children}) => {
     });
     return  (
         <GestureHandlerRootView>
-            <GestureDetector gesture={longPressGesture}>
+            <GestureDetector gesture={composedGestures}>
                 <Animated.View style={animatedStyles}>
                     {children}
                 </Animated.View>

@@ -4,10 +4,8 @@ import {
     Text,
     SafeAreaView,
     ScrollView,
-    Modal,
-    TouchableOpacity,
     Dimensions,
-    StatusBar
+    StatusBar,
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
@@ -18,6 +16,7 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
 import {config} from "../../config";
+import Modal from "react-native-modal";
 
 const CategoryPage = (props) => {
     let cat = props.route.params.cat
@@ -120,7 +119,7 @@ const CategoryPage = (props) => {
     return (
         <SafeAreaView style={[styles.areaView]}>
             <StatusBar backgroundColor={visible === true ? 'rgba(21, 21, 21, 1)' : color}/>
-            <ScrollView scrollEnabled={scrollEnabled}>
+            <ScrollView scrollEnabled={scrollEnabled} >
                 <View style={{paddingBottom: config.otstupBottom}}>
                     <Text style={styles.nameCategory}>
                         {cat.name}
@@ -144,57 +143,44 @@ const CategoryPage = (props) => {
                     </View>
                 </View>
             </ScrollView>
-            <TouchableOpacity onPress={() => { show() }}>
-                <Modal
-                    onRequestClose={hide}
-                    transparent={true}
-                    visible={visible}
-                    animationType='slide'>
-                    {
-                        visible === true ? (
-                            <TouchableOpacity onPress={hide}>
-                                <View style={styles.modalStyle}>
-                                </View>
-                            </TouchableOpacity>
-                        ) : null
-                    }
-                    {
-                        visible === false ? (
-                            null
-                        ) : (
-                            <View style={styles.modal}>
-                                <Text style={styles.modalName}>
-                                    Корзина
-                                </Text>
-                                <ScrollView>
-                                    <View style={{alignItems: 'center'}}>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                        <MiniCartProduct price={450} count={2} sum={900}/>
-                                    </View>
-                                </ScrollView>
-                                <LineSvg style={{alignSelf: 'center', paddingTop: 25}}/>
-                                <View style={styles.sumBlock}>
-                                    <Text style={styles.itogText}>
-                                        Итого:
-                                    </Text>
-                                    <Text style={styles.sumCount}>
-                                        {' '} 1 350 руб
-                                    </Text>
-                                </View>
-                                <View style={{alignSelf: 'center', paddingBottom: 16}}>
-                                    <AddToCartBtn/>
-                                </View>
-                            </View>
-                        )
-                    }
-                </Modal>
-                <CartButton/>
-            </TouchableOpacity>
+            <Modal
+                deviceHeight={Dimensions.get('window').height - 460}
+                deviceWidth={Dimensions.get('window').width}
+                onBackdropPress={hide}
+                isVisible={visible}
+
+                >
+                <View style={styles.modal}>
+                    <Text style={styles.modalName}>
+                        Корзина
+                    </Text>
+                    <ScrollView>
+                        <View style={{alignItems: 'center'}}>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                            <MiniCartProduct price={450} count={2} sum={900}/>
+                        </View>
+                    </ScrollView>
+                    <LineSvg style={{alignSelf: 'center', paddingTop: 25}}/>
+                    <View style={styles.sumBlock}>
+                        <Text style={styles.itogText}>
+                            Итого:
+                        </Text>
+                        <Text style={styles.sumCount}>
+                            {' '} 1 350 руб
+                        </Text>
+                    </View>
+                    <View style={{alignSelf: 'center', paddingBottom: 16}}>
+                        <AddToCartBtn/>
+                    </View>
+                </View>
+            </Modal>
+                <CartButton onPress={show}/>
+
             <Footer/>
         </SafeAreaView>
     )

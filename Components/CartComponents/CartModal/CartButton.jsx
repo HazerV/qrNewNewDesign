@@ -1,9 +1,9 @@
 import React, {useContext, useState} from "react";
-import {View, Text } from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 import {ThemeContext} from "../../Context/Context";
 import {config} from "../../../config";
 
-const CartButton = () => {
+const CartButton = ({onPress}) => {
 
     const {theme} = useContext(ThemeContext)
 
@@ -40,6 +40,7 @@ const CartButton = () => {
     }
 
     return (
+        <TouchableOpacity onPress={() => {onPress()}}>
             <View style={styles.container}>
                 <Text style = {styles.sum}>
                     {sum} руб
@@ -48,6 +49,7 @@ const CartButton = () => {
                     {count} товаров
                 </Text>
             </View>
+        </TouchableOpacity>
     )
 
 }

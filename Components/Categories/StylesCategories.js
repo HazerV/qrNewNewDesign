@@ -5,11 +5,12 @@ const stylesCategories = {
             columnGap: 16,
             justifyContent: 'center',
             rowGap: 16,
-            // width: '100%',
+            width: '100%',
+            flex: 1
     },
     imgSize: {
         width: 176,
-            height: 250
+        height: 250
     }
 }
 
