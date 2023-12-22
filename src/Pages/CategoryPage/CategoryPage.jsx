@@ -59,14 +59,13 @@ const CategoryPage = (props) => {
     const dynamicStyles = {
         color: theme === 'light' ? 'black' : 'white',
         bgColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
-
     }
 
     const [scrollEnabled, setScrollEnabled] = useState(true);
     return (
         <SafeAreaView style={{
             backgroundColor: color,
-            alignSelf: 'center'
+            alignSelf: 'center',
         }}>
             <StatusBar/>
             <ScrollView scrollEnabled={scrollEnabled}>
@@ -76,23 +75,32 @@ const CategoryPage = (props) => {
                     </Text>
                     <View style={styles.objects}>
                         {
-                            Product.map((prod) => {
-                                return (
-                                    loading === false ? (
-                                        <ProductItem
-                                            key={prod.id}
-                                            scrollEnabled={scrollEnabled}
-                                            setScrollEnabled={setScrollEnabled}
-                                            name={prod.name}
-                                            description={prod.content}
-                                            sum={prod.price}
-                                            weight={220}
-                                            preview={`${serverUrl}/storage/${prod.preview}`}/>
-                                    ) : (
-                                        loading && <ActivityIndicator animating={true} style={{padding: 50}}/>
-                                    )
+                            loading === false ? (
+                                Product.map((prod) => {
+                                        return (
+                                            <ProductItem
+                                                key={prod.id}
+                                                scrollEnabled={scrollEnabled}
+                                                setScrollEnabled={setScrollEnabled}
+                                                name={prod.name}
+                                                description={prod.content}
+                                                sum={prod.price}
+                                                weight={220}
+                                                preview={`${serverUrl}/storage/${prod.preview}`}/>
+                                        )
+                                    }
                                 )
-                            })
+                            ) : (
+                                loading && <ActivityIndicator color={config.accentColor}
+                                                              animating={true}
+                                                              style={{
+                                                                  alignSelf: 'center',
+                                                                  justifyContent: 'center',
+                                                                  flex: 1,
+                                                                  paddingTop: 300,
+                                                                  alignItems: 'center'
+                                                              }}/>
+                            )
                         }
                     </View>
                 </View>
@@ -133,13 +141,11 @@ const CategoryPage = (props) => {
                 </View>
             </Modal>
             <CartButton onPress={show}/>
-
             <Footer/>
         </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
-    areaView: {},
     nameCategory: {
         fontFamily: 'Gilroy-SemiBold',
         fontSize: 24,
