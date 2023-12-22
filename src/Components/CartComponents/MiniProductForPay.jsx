@@ -2,8 +2,7 @@ import React, {useContext, useState} from "react";
 import {Text, View, Image, TouchableOpacity} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Imageee from '../ProductItem/Image.png'
-import {config} from "../../config";
-
+import {config} from "../../../config";
 
 const MiniProductForPay = ({name, price, count, sum}) => {
 

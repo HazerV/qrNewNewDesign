@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Text, TouchableOpacity, View} from "react-native";
 import {ThemeContext} from "../../Components/Context/Context";
 import {useNavigation} from "@react-navigation/native";
-import {config} from "../../config";
+import {config} from "../../../config";
 
 const AddToCartBtn = () => {
 

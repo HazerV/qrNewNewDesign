@@ -15,7 +15,7 @@ import axios from "axios";
 import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartProduct";
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
-import { config } from "../../config";
+import {config} from "../../../config";
 import Modal from "react-native-modal";
 
 const CategoryPage = (props) => {

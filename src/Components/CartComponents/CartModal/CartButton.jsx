@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {View, Text, TouchableOpacity} from 'react-native'
 import {ThemeContext} from "../../Context/Context";
-import {config} from "../../../config";
+import {config} from "../../../../config";
 
 const CartButton = ({onPress}) => {
 

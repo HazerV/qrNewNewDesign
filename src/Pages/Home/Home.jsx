@@ -8,8 +8,7 @@ import ThemeSwitcher from "../../Components/Footer/ThemeSwitcher/ThemeSwitcher";
 import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
 import {useNavigation} from "@react-navigation/native";
-import {config} from "../../config";
-
+import {config} from "../../../config";
 const Home = () => {
 
     const {theme} = useContext(ThemeContext)

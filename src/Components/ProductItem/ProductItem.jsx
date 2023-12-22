@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {View, Text, Image, TouchableOpacity, Dimensions} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
-import {config} from "../../config";
+import {config} from "../../../config";
 import 'react-native-gesture-handler'
 import {
     LongPressGestureHandler,

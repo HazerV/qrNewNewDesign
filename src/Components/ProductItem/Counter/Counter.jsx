@@ -5,7 +5,7 @@ import MinusBSvg from '../Counter/MinusB.svg'
 import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
 import {ThemeContext, CartContext} from "../../Context/Context";
-import {config} from "../../../config";
+import {config} from "../../../../config";
 
 const Counter = () => {
 

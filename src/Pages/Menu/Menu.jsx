@@ -3,8 +3,7 @@ import {View, Text, SafeAreaView, ScrollView, Dimensions} from "react-native";
 import Footer from "../../Components/Footer/Footer";
 import { ThemeContext } from "../../Components/Context/Context";
 import Categories from "../../Components/Categories/Categories";
-import {config} from "../../config";
-
+import {config} from "../../../config";
 const Home = () => {
 
     const {theme} = useContext(ThemeContext)

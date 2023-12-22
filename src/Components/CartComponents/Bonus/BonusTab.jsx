@@ -3,8 +3,7 @@ import {View, Text, TouchableOpacity, TextInput} from "react-native";
 import {ThemeContext} from "../../Context/Context";
 import ArrowWhiteSvg from '../icons/ArrowWhite.svg'
 import ArrowBlackSvg from '../icons/ArrowBlack.svg'
-import {config} from "../../../config";
-
+import {config} from "../../../../config";
 const BonusTab = () => {
 
     const {theme} = useContext(ThemeContext);

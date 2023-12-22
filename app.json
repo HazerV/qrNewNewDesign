@@ -39,8 +39,9 @@
     },
     "plugins": [
       [
-        "./Components/Fixes/withDisableForcedDarkModeAndroid.js"
+        "./Fixes/withDisableForcedDarkModeAndroid.js"
       ]
     ]
   }
 }
+

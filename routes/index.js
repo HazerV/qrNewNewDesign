@@ -1,16 +1,14 @@
-import Home from '../Pages/Home/Home'
-import Menu from '../Pages/Menu/Menu'
-import ChangeCort from '../Pages/ChangeCort/ChangeCort.jsx'
-import Oferta from '../Pages/Oferta/Oferta';
-import Contacts from '../Pages/Contacts/Contacts'
-import CategoryPage from '../Pages/Category/CategoryPage';
-import CodePage from "../Pages/CodePage/CodePage";
-import CartPage from "../Pages/CartPage/CartPage";
-import SplitPay from '../Pages/SplitPay/SplitPay'
+import Home from "../src/Pages/Home/Home";
+import Menu from "../src/Pages/Menu/Menu";
+import Contacts from "../src/Pages/Contacts/Contacts";
+import CategoryPage from "../src/Pages/Category/CategoryPage";
+import SplitPay from "../src/Pages/SplitPay/SplitPay";
+import ChangeCort from "../src/Pages/ChangeCort/ChangeCort";
+import Oferta from "../src/Pages/Oferta/Oferta";
+import CartPage from "../src/Pages/CartPage/CartPage";
 
 export default  {
     "Home" : Home,
-    "CodePage": CodePage,
     "Menu": Menu,
     "Contacts": Contacts,
     "Categories": CategoryPage,

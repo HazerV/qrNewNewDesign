@@ -33,7 +33,7 @@ const ChangeCort = () => {
             <ScrollView>
                 <View style={[styles.container, {color: dynamicStyle.textColor}]}>
                     <Header />
-                    <Text style={styles.welcome}>
+                    <Text style={[styles.welcome, {color: dynamicStyle.textColor}]}>
                         Добро пожаловать в онлайн меню буфетов концертного зала Зарядье
                     </Text>
                     <Text style={[styles.chooseBufet, {color: dynamicStyle.textColor}]}>

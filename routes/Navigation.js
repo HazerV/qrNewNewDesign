@@ -5,7 +5,7 @@ import {
     useNavigationContainerRef,
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {PageContext, ThemeContext} from "../Components/Context/Context";
+import {ThemeContext, PageContext} from "../src/Components/Context/Context";
 
 const Stack = createNativeStackNavigator()
 const Navigation = () => {

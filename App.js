@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import useFonts from './assets/fonts/fonts'
 import AppLoading from 'expo-app-loading'
-import {Context} from './Components/Context/Context';
 import Navigation from "./routes/Navigation";
 import 'react-native-gesture-handler'
+import {Context} from "./src/Components/Context/Context";
+
 const App = () => {
 
     const [IsReady, SetIsReady] = useState(false)

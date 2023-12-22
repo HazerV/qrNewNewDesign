@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Text, View} from "react-native";
 import {ThemeContext} from "../../Context/Context";
-import {config} from "../../../config";
+import {config} from "../../../../config";
 
 const PayButton = () => {
 

@@ -4,7 +4,7 @@ import axios from "axios";
 import {useNavigation} from "@react-navigation/native";
 import stylesCategories from "./StylesCategories";
 import {CategoryContext, ThemeContext} from "../Context/Context";
-import {config} from "../../config";
+import {config} from "../../../config";
 
 const Categories = () => {
 

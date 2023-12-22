@@ -9,7 +9,7 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import {useNavigation} from "@react-navigation/native";
 import BonusTab from "../../Components/CartComponents/Bonus/BonusTab";
 import PayButton from "../../Components/CartComponents/PayButton/PayButton";
-import {config} from "../../config";
+import {config} from "../../../config";
 
 const CartPage = () => {
 
