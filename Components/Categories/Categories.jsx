@@ -32,17 +32,15 @@ const Categories = () => {
             lineHeight: 16,
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
-            justifyContent: 'flex-start',
             fontWeight: 600,
             paddingTop: 25,
             textAlign: 'left',
             paddingBottom: config.otstupBottom,
-            width: '100%'
             // width: Dimensions.get('window').width - 30
         }
     }
     return (
-        <View style={[stylesCategories.container, {width: Dimensions.get('window').width -30}]}>
+        <View style={[stylesCategories.container, {width: 368}]}>
             {Category.map((cat, index) => {
                 return (
                     <TouchableOpacity onPress={() => {
@@ -55,6 +53,7 @@ const Categories = () => {
                     </TouchableOpacity>
                 )
             })}
+
             <Text style={styles.attention}>
                 Уважаемые гости, меню является рекламной продукцией!{'\n'}{'\n'}
                 Информация о размерах порций(г), ингредиентах и наличии аллергенов, сведения о пищевой ценности готовой

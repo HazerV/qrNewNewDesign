@@ -15,7 +15,7 @@ import axios from "axios";
 import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartProduct";
 import LineSvg from '../../Components/Images/Line.svg'
 import AddToCartBtn from "./AddToCartBtn";
-import {config} from "../../config";
+import { config } from "../../config";
 import Modal from "react-native-modal";
 
 const CategoryPage = (props) => {
@@ -147,9 +147,7 @@ const CategoryPage = (props) => {
                 deviceHeight={Dimensions.get('window').height - 460}
                 deviceWidth={Dimensions.get('window').width}
                 onBackdropPress={hide}
-                isVisible={visible}
-
-                >
+                isVisible={visible}>
                 <View style={styles.modal}>
                     <Text style={styles.modalName}>
                         Корзина

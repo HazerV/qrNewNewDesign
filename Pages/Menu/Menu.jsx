@@ -43,7 +43,7 @@ const Home = () => {
         },
         catPlace: {
             paddingTop: 16,
-            width: Dimensions.get('window').width - 15 -20
+            width: Dimensions.get('window').width - 15 -30
         }
     }
 

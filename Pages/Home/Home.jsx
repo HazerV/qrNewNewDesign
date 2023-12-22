@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {View, Text, SafeAreaView, ScrollView, TouchableOpacity} from "react-native";
+import {View, Text, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet} from "react-native";
 import {ThemeContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
@@ -10,80 +10,30 @@ import TrueShop from '../../Components/TrueShop/TrueShop'
 import {useNavigation} from "@react-navigation/native";
 import {config} from "../../config";
 
+
 const Home = () => {
 
     const {theme, SetTheme} = useContext(ThemeContext)
     const navigation = useNavigation()
-
-    const styles = {
-        container: {
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderBottomRadius: 32,
-        },
-        areaView: {
-            backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            height: '100%'
-        },
-        textHead: {
-            fontSize: 14,
-            fontFamily: 'Gilroy-Regular',
-            color: theme === 'dark' ? 'white' : 'black',
-            justifyContent: 'center',
-            textAlign: 'center',
-            width: '80%',
-            lineHeight: 16,
-        },
-        countTables: {
-            color: theme === 'light' ? 'black' : 'white',
-            textAlign: 'center',
-            fontFamily: 'Gilroy-Regular',
-            fontSize: 12,
-            lineHeight: 16,
-            width: '80%',
-            paddingTop: 16,
-            paddingBottom: 24
-        },
-        themeSwitcher: {
-            alignItems: 'center',
-            paddingTop: 16
-        },
-        textTheme: {
-            color: theme === 'light' ? 'black' : 'white',
-            fontSize: 12,
-            fontFamily: 'Gilroy-Regular',
-            paddingBottom: 32,
-            lineHeight: 16
-        },
-        text: {
-            textDecorationLine: 'underline',
-            fontSize: 12,
-            fontFamily: 'Gilroy-Regular',
-            color: theme === 'light' ? 'black' : 'white',
-            textAlign: 'center',
-            paddingTop: 12,
-            lineHeight: 14
-        },
-        contactsButtons: {
-            textAlign: 'center',
-            justifyContent: 'center',
-            rowGap: 0
-        }
+    const dinamicSt = {
+        color: theme === 'light' ? 'black' : 'white',
     }
 
     return (
-        <SafeAreaView style={styles.areaView}>
+        <SafeAreaView style={{
+            backgroundColor: theme === 'dark' ? '#333333' : 'white',
+            height: '100%'}}>
             <ScrollView>
                 <View style={{paddingTop: config.otstupTop}}>
                     <Header/>
                     <View style={styles.container}>
-                        <Text style={styles.textHead}>
+                        <Text style={[styles.textHead, {color: dinamicSt.color}]}>
                             Онлайн-меню буфета «Китай-город» концертного зала Зарядье
                         </Text>
                         <View style={{marginTop: 16, paddingBottom: 16}}>
                             <AcceptOrd/>
                         </View>
-                        <Text style={styles.countTables}>
+                        <Text style={[styles.countTables, {color: dinamicSt.color}]}>
                             Количество столов, доступных для бронирования, ограничено
                         </Text>
                         <TouchableOpacity onPress={() => {
@@ -95,11 +45,11 @@ const Home = () => {
                             <ThemeSwitcher/>
                             {
                                 theme === 'light' ? (
-                                    <Text style={styles.textTheme}>
+                                    <Text style={[styles.textTheme, {color: dinamicSt.color}]}>
                                         Темная тема
                                     </Text>
                                 ) : (
-                                    <Text style={styles.textTheme}>
+                                    <Text style={[styles.textTheme, {color: dinamicSt.color}]}>
                                         Светлая тема
                                     </Text>
                                 )
@@ -109,7 +59,7 @@ const Home = () => {
                             <TouchableOpacity onPress={() => {
                                 navigation.navigate('Contacts')
                             }}>
-                                <Text style={styles.text}>
+                                <Text style={[styles.text, {color: dinamicSt.color}]}>
                                     Контакты
                                 </Text>
                             </TouchableOpacity>
@@ -117,19 +67,19 @@ const Home = () => {
                             <TouchableOpacity onPress={() => {
                                 navigation.navigate('Oferta')
                             }}>
-                                <Text style={styles.text}>
+                                <Text style={[styles.text, {color: dinamicSt.color}]}>
                                     Оферта
                                 </Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity>
-                                <Text style={styles.text}>
+                                <Text style={[styles.text, {color: dinamicSt.color}]}>
                                     Пользовательское соглашение
                                 </Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity>
-                                <Text style={styles.text}>
+                                <Text style={[styles.text, {color: dinamicSt.color}]}>
                                     Политика конфиденциальности
                                 </Text>
                             </TouchableOpacity>
@@ -144,4 +94,52 @@ const Home = () => {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomRadius: 32,
+    },
+    textHead: {
+        fontSize: 14,
+        fontFamily: 'Gilroy-Regular',
+        justifyContent: 'center',
+        textAlign: 'center',
+        width: '80%',
+        lineHeight: 16,
+    },
+    countTables: {
+        textAlign: 'center',
+        fontFamily: 'Gilroy-Regular',
+        fontSize: 12,
+        lineHeight: 16,
+        width: '80%',
+        paddingTop: 16,
+        paddingBottom: 24
+    },
+    themeSwitcher: {
+        alignItems: 'center',
+        paddingTop: 16
+    },
+    textTheme: {
+        fontSize: 12,
+        fontFamily: 'Gilroy-Regular',
+        paddingBottom: 32,
+        lineHeight: 16
+    },
+    text: {
+        textDecorationLine: 'underline',
+        fontSize: 12,
+        fontFamily: 'Gilroy-Regular',
+        textAlign: 'center',
+        paddingTop: 12,
+        lineHeight: 14
+    },
+    contactsButtons: {
+        textAlign: 'center',
+        justifyContent: 'center',
+        rowGap: 0
+    }
+})
 export default Home
