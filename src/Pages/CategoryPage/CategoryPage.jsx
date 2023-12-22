@@ -6,6 +6,7 @@ import {
     ScrollView,
     Dimensions,
     StatusBar,
+    StyleSheet
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
@@ -19,13 +20,16 @@ import {config} from "../../../config";
 import Modal from "react-native-modal";
 
 const CategoryPage = (props) => {
-    let cat = props.route.params.cat
-    const serverUrl = 'https://api.menu.true-false.ru'
-    const {Product, setProduct} = useContext(ProductContext)
-    const {theme} = useContext(ThemeContext)
-    const [visible, setVisible] = useState(false)
+
     const show = () => setVisible(true)
     const hide = () => setVisible(false)
+    const {theme} = useContext(ThemeContext)
+    const [visible, setVisible] = useState(false)
+
+    let cat = props.route.params.cat
+    const serverUrl = config.getProductUrl
+    const {Product, setProduct} = useContext(ProductContext)
+
     const getProduct = () => {
         axios.get(`${serverUrl}/api/${cat.slug}/products`, {headers: {'SubDomain': 'zaryadye'}})
             .then(
@@ -48,79 +52,22 @@ const CategoryPage = (props) => {
     if (theme === 'dark') {
         color = '#333333'
     }
-    const styles = {
-        areaView: {
-            backgroundColor: color,
-            alignSelf: 'center',
-        },
-        nameCategory: {
-            color: theme === 'light' ? 'black' : 'white',
-            fontFamily: 'Gilroy-SemiBold',
-            fontSize: 24,
-            lineHeight: 30,
-            paddingTop: config.otstupTop,
-            alignSelf: 'center',
-        },
-        objects: {
-            alignItems: 'center',
-            rowGap: 24,
-            paddingTop: 32,
-            paddingLeft: 16,
-            paddingBottom: config.otstupBottom
-        },
-        modal: {
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 37,
-            width: '100%',
-            backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
-            height: 460,
-            borderRadius: 16,
-        },
-        modalName: {
-            fontSize: 24,
-            lineHeight: 28,
-            fontFamily: 'Gilroy-SemiBold',
-            paddingTop: 48,
-            color: theme === 'light' ? 'black' : 'white',
-            paddingBottom: 16,
-            alignSelf: 'center'
-        },
-        itogText: {
-            fontFamily: 'Gilroy-Regular',
-            fontSize: 16,
-            color: "rgba(187, 187, 187, 1)",
-            lineHeight: 20,
-            alignSelf: 'center'
-        },
-        sumCount: {
-            fontFamily: 'Gilroy-Regular',
-            fontSize: 16,
-            color: "rgba(187, 187, 187, 1)",
-            lineHeight: 20,
-        },
-        sumBlock: {
-            flexDirection: 'row',
-            justifyContent: 'center',
-            paddingTop: 16,
-            paddingBottom: 9
+    const dynamicStyles = {
+        color: theme === 'light' ? 'black' : 'white',
+        bgColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
 
-        },
-        modalStyle: {
-            width: Dimensions.get('window').width,
-            height: Dimensions.get('window').height - 460,
-            backgroundColor: 'black',
-            opacity: 0.6,
-        }
     }
+
     const [scrollEnabled, setScrollEnabled] = useState(true);
     return (
-        <SafeAreaView style={[styles.areaView]}>
-            <StatusBar backgroundColor={visible === true ? 'rgba(21, 21, 21, 1)' : color}/>
-            <ScrollView scrollEnabled={scrollEnabled} >
+        <SafeAreaView style={{
+            backgroundColor: color,
+            alignSelf: 'center'
+        }}>
+            <StatusBar/>
+            <ScrollView scrollEnabled={scrollEnabled}>
                 <View style={{paddingBottom: config.otstupBottom}}>
-                    <Text style={styles.nameCategory}>
+                    <Text style={[styles.nameCategory, {color: dynamicStyles.color}]}>
                         {cat.name}
                     </Text>
                     <View style={styles.objects}>
@@ -148,8 +95,8 @@ const CategoryPage = (props) => {
                 onBackdropPress={hide}
                 isVisible={visible}
             >
-                <View style={styles.modal}>
-                    <Text style={styles.modalName}>
+                <View style={[styles.modal, {backgroundColor: dynamicStyles.bgColor}]}>
+                    <Text style={[styles.modalName, {color: dynamicStyles.color}]}>
                         Корзина
                     </Text>
                     <ScrollView>
@@ -177,10 +124,71 @@ const CategoryPage = (props) => {
                     </View>
                 </View>
             </Modal>
-                <CartButton onPress={show}/>
+            <CartButton onPress={show}/>
 
             <Footer/>
         </SafeAreaView>
     )
 }
+const styles = StyleSheet.create({
+    areaView: {},
+    nameCategory: {
+        fontFamily: 'Gilroy-SemiBold',
+        fontSize: 24,
+        lineHeight: 30,
+        paddingTop: config.otstupTop,
+        alignSelf: 'center',
+    },
+    objects: {
+        alignItems: 'center',
+        rowGap: 24,
+        paddingTop: 32,
+        paddingLeft: 16,
+        paddingBottom: config.otstupBottom
+    },
+    modal: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 37,
+        width: '100%',
+        height: 460,
+        borderRadius: 16,
+    },
+    modalName: {
+        fontSize: 24,
+        lineHeight: 28,
+        fontFamily: 'Gilroy-SemiBold',
+        paddingTop: 48,
+        paddingBottom: 16,
+        alignSelf: 'center'
+    },
+    itogText: {
+        fontFamily: 'Gilroy-Regular',
+        fontSize: 16,
+        color: "rgba(187, 187, 187, 1)",
+        lineHeight: 20,
+        alignSelf: 'center'
+    },
+    sumCount: {
+        fontFamily: 'Gilroy-Regular',
+        fontSize: 16,
+        color: "rgba(187, 187, 187, 1)",
+        lineHeight: 20,
+    },
+    sumBlock: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        paddingTop: 16,
+        paddingBottom: 9
+
+    },
+    modalStyle: {
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height - 460,
+        backgroundColor: 'black',
+        opacity: 0.6,
+    }
+})
+
 export default CategoryPage

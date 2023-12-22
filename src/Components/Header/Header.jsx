@@ -3,12 +3,12 @@ import {View, StyleSheet} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import axios from "axios";
 import {SvgUri} from "react-native-svg";
-
+import {config} from "../../../config";
 
 const Header = () => {
 
     const [data, setData] = useState([])
-    const server = 'https://api.menu.true-false.ru/api/config'
+    const server = config.server
     useEffect(() => {
         axios.get(server, { headers: {'SubDomain': 'zaryadye'} })
             .then((res) => {
@@ -25,12 +25,12 @@ const Header = () => {
     if (theme === 'dark') {
         return (
             <View style={styles.container}>
-                <SvgUri uri={'https://api.menu.true-false.ru/storage/' + data.logo_light}/>
+                <SvgUri uri={config.storage + data.logo_light}/>
             </View>)
     } else {
         return (
             <View style={styles.container}>
-                <SvgUri uri={'https://api.menu.true-false.ru/storage/' + data.logo_dark}/>
+                <SvgUri uri={config.storage + data.logo_dark}/>
             </View>)
     }
 }

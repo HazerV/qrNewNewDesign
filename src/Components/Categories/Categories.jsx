@@ -10,7 +10,8 @@ const Categories = () => {
 
     const {Category, setCategory} = useContext(CategoryContext)
     const navigation = useNavigation()
-    const serverUrl = 'https://api.menu.true-false.ru'
+    const serverUrl = config.server
+    const storage = config.storage
     const getName = () => {
         axios.get(`${serverUrl}/api/categories`, {
             headers: {'SubDomain': 'zaryadye'}
@@ -49,7 +50,7 @@ const Categories = () => {
                         })
                     }}>
                             <Image key={index} style={stylesCategories.imgSize}
-                               source={{uri: `${serverUrl}/storage/${cat.preview}`}}/>
+                               source={{uri: `${config.storage}${cat.preview}`}}/>
                     </TouchableOpacity>
                 )
             })}

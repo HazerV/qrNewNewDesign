@@ -6,12 +6,12 @@ import Footer from "../../Components/Footer/Footer";
 import { ThemeContext } from "../../Components/Context/Context";
 import Header from "../../Components/Header/Header";
 import axios from "axios";
+import {config} from "../../../config";
 
 const ChangeCort = () => {
-
     const [data, setData] = useState([])
-    const server = 'https://api.menu.true-false.ru/api/config'
-    const storage = 'https://api.menu.true-false.ru/storage'
+    const server = config.server
+    const storage = config.storage
     useEffect(() => {
         axios.get(server, {
             headers: {'SubDomain': 'zaryadye'}
