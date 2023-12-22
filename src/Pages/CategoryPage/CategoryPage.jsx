@@ -6,7 +6,7 @@ import {
     ScrollView,
     Dimensions,
     StatusBar,
-    StyleSheet
+    StyleSheet, ActivityIndicator
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
@@ -30,15 +30,19 @@ const CategoryPage = (props) => {
     const serverUrl = config.getProductUrl
     const {Product, setProduct} = useContext(ProductContext)
 
+    const [loading, setLoading] = useState(false)
     const getProduct = () => {
+        setLoading(true)
         axios.get(`${serverUrl}/api/${cat.slug}/products`, {headers: {'SubDomain': 'zaryadye'}})
             .then(
                 res => {
                     setProduct(res.data.data.products)
+                    setLoading(false)
                 }
             )
             .catch(err => {
                 console.log(err)
+                setLoading(false)
             })
     }
     useEffect(() => {
@@ -74,15 +78,19 @@ const CategoryPage = (props) => {
                         {
                             Product.map((prod) => {
                                 return (
-                                    <ProductItem
-                                        key={prod.id}
-                                        scrollEnabled={scrollEnabled}
-                                        setScrollEnabled={setScrollEnabled}
-                                        name={prod.name}
-                                        description={prod.content}
-                                        sum={prod.price}
-                                        weight={220}
-                                        preview={`${serverUrl}/storage/${prod.preview}`}/>
+                                    loading === false ? (
+                                        <ProductItem
+                                            key={prod.id}
+                                            scrollEnabled={scrollEnabled}
+                                            setScrollEnabled={setScrollEnabled}
+                                            name={prod.name}
+                                            description={prod.content}
+                                            sum={prod.price}
+                                            weight={220}
+                                            preview={`${serverUrl}/storage/${prod.preview}`}/>
+                                    ) : (
+                                        loading && <ActivityIndicator animating={true} style={{padding: 50}}/>
+                                    )
                                 )
                             })
                         }
