@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import {View} from "react-native";
+import {View, StyleSheet} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import axios from "axios";
 import {SvgUri} from "react-native-svg";
@@ -9,7 +9,6 @@ const Header = () => {
 
     const [data, setData] = useState([])
     const server = 'https://api.menu.true-false.ru/api/config'
-
     useEffect(() => {
         axios.get(server, { headers: {'SubDomain': 'zaryadye'} })
             .then((res) => {
@@ -23,19 +22,6 @@ const Header = () => {
 
     const {theme} = useContext(ThemeContext)
 
-    const styles = {
-        container: {
-            alignItems: 'center',
-            alignSelf: 'center',
-            justifyContent: 'center',
-            marginTop: 16,
-            marginBottom: 16,
-            marginLeft: -16,
-            width: 238,
-            height: 128
-        }
-    }
-
     if (theme === 'dark') {
         return (
             <View style={styles.container}>
@@ -48,5 +34,18 @@ const Header = () => {
             </View>)
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        marginTop: 16,
+        marginBottom: 16,
+        marginLeft: -16,
+        width: 238,
+        height: 128
+    }
+})
 
 export default Header

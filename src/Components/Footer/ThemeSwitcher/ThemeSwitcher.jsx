@@ -7,15 +7,15 @@ import SunSvgW from '../icons/SunSvgW.svg'
 const ThemeSwitcher = () => {
 
     const {theme, SetTheme} = useContext(ThemeContext)
-    if (theme == 'dark') {
+    if (theme === 'dark') {
         return (
-            <TouchableOpacity onPress={() => theme == 'light' ? SetTheme('dark') : SetTheme('light')}>
+            <TouchableOpacity onPress={() => theme === 'light' ? SetTheme('dark') : SetTheme('light')}>
                 <SunSvgB/>
             </TouchableOpacity>
         )
     } else {
         return (
-            <TouchableOpacity onPress={() => theme == 'light' ? SetTheme('dark') : SetTheme('light')}>
+            <TouchableOpacity onPress={() => theme === 'light' ? SetTheme('dark') : SetTheme('light')}>
                 <SunSvgW/>
             </TouchableOpacity>
         )

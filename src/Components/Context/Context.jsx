@@ -9,7 +9,6 @@ const CategoryContext = createContext()
 const ProductContext = createContext()
 
 
-
 const Context = ({children}) => {
     // const [useBonus, setUseBonus] = useState('')
     const [theme, SetTheme] = useState('light')

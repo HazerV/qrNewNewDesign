@@ -72,7 +72,7 @@ const CategoryPage = (props) => {
             position: 'absolute',
             left: 0,
             right: 0,
-            bottom: 50,
+            bottom: 37,
             width: '100%',
             backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
             height: 460,
@@ -115,7 +115,6 @@ const CategoryPage = (props) => {
         }
     }
     const [scrollEnabled, setScrollEnabled] = useState(true);
-
     return (
         <SafeAreaView style={[styles.areaView]}>
             <StatusBar backgroundColor={visible === true ? 'rgba(21, 21, 21, 1)' : color}/>
@@ -147,7 +146,8 @@ const CategoryPage = (props) => {
                 deviceHeight={Dimensions.get('window').height - 460}
                 deviceWidth={Dimensions.get('window').width}
                 onBackdropPress={hide}
-                isVisible={visible}>
+                isVisible={visible}
+            >
                 <View style={styles.modal}>
                     <Text style={styles.modalName}>
                         Корзина
