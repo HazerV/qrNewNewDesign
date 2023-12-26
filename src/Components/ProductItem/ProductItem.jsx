@@ -98,8 +98,12 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
     if (open === true) {
         styles = {
             container: {
-                width: Dimensions.get('window').width,
+                width: Dimensions.get('window').width +3 ,
                 height: Dimensions.get('window').width,
+                resizeMethod: 'scale',
+                resizeMode: 'cover',
+                left: -2,
+                right: 0,
                 flexDirection: 'column',
                 columnGap: 16,
                 justifyContent: 'flex-end',
@@ -110,13 +114,13 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                 columnGap: 12,
                 alignItems: 'center',
                 paddingBottom: 10,
-                left: 7,
+                left: 11,
                 // bottom: 16
             },
             name: {
                 position: 'absolute',
                 top: 10,
-                left: 10,
+                left: 12,
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 16,
                 lineHeight: 20,
@@ -160,11 +164,11 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
             openImage: {
                 // alignSelf: 'center',
                 // paddingBottom: 26,
-                resizeMode: 'contain',
+                resizeMode: 'cover',
+                left: 1,
                 height: Dimensions.get('window').width,
-                width: Dimensions.get('window').width,
+                width: Dimensions.get('window').width +1,
                 // alignItems: 'center',
-
             },
             nonContainer: {
                 position: 'relative',
