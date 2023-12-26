@@ -13,7 +13,7 @@ import {
 import Animated from "react-native-reanimated";
 import ZoomFunction from "./Zoom/ZoomFunction";
 
-const ProductItem = ({id, name, description, sum, weight, preview}) => {
+const ProductItem = ({ name, description, sum, weight, preview }) => {
 
     const [open, setOpen] = useState(false)
     const {theme} = useContext(ThemeContext)
@@ -23,10 +23,15 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             height: 172,
             flexDirection: 'column',
             display: 'inline-block',
-            columnGap: 16,
+            // columnGap: 16,
+            // paddingBottom: 16
+        },
+        counterBlock: {
+            display: 'flex',
+            flexDirection: 'row',
+            columnGap: 12,
             paddingBottom: 16
         },
-        counterBlock: {display: 'flex', flexDirection: 'row', columnGap: 12, alignItems: 'center', paddingBottom: 16},
         name: {
             fontFamily: 'Gilroy-Regular',
             fontSize: 16,
@@ -65,53 +70,58 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
         imgPosititon: {
             top: 0,
             position: 'absolute',
+            // bottom: 0,
             right: 0,
-            zIndex: -1
+            zIndex: -1,
+            borderRadius: 16
         },
         openImage: {
-            width: Dimensions.get('window').width - 45,
-            height: Dimensions.get('window').width - 60,
-            borderRadius: 16,
-            resizeMode: 'contain'
+            width: 550,
+            height: 600,
+            borderRadius: 16
         },
         nonContainer: {
             position: 'relative',
             top: 0,
             right: 0,
-            // width: Dimensions.get('window').width - 45,
-            // height: Dimensions.get('window').width - 60,
+            bottom: 0,
             borderRadius: 16,
             overflow: 'hidden',
-            // hitSlop: 10
+            alignItems: 'center',
+
         },
         image: {
             width: 100,
             height: 100,
-            borderRadius: 8,
-            marginLeft: 10,
+            // marginLeft: 10,
+            overflow: 'hidden',
+            borderRadius: 8
         }
     }
     if (open === true) {
         styles = {
             container: {
-                width: Dimensions.get('window').width - 60,
-                height: open === false ? 172 : Dimensions.get('window').width - 60,
+                width: Dimensions.get('window').width,
+                height: Dimensions.get('window').width,
                 flexDirection: 'column',
                 // display: 'inline-block',
                 columnGap: 16,
                 justifyContent: 'flex-end',
-                paddingBottom: 16
+                paddingBottom: 26,
             },
             counterBlock: {
                 display: 'flex',
                 flexDirection: 'row',
                 columnGap: 12,
                 alignItems: 'center',
-                paddingBottom: 16
+                paddingBottom: 10,
+                left: 10,
+                bottom: -8
             },
             name: {
                 position: 'absolute',
                 top: 0,
+                left: 10,
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 16,
                 lineHeight: 20,
@@ -141,33 +151,44 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
             viewSec: {
                 flexDirection: 'row',
                 columnGap: 50,
-                width: '40%',
+                width: '100%',
+                alignItems: 'center',
             },
             imgPosititon: {
                 top: -16,
                 position: 'absolute',
                 right: 0,
                 zIndex: -1,
+                alignItems: 'center'
+                // overflow: 'hidden',
             },
             openImage: {
-                width: Dimensions.get('window').width - 45,
-                height: Dimensions.get('window').width - 60,
-                borderRadius: 16,
+                alignSelf: 'center',
+                paddingBottom: 26,
+                resizeMode: 'contain',
+                height: Dimensions.get('window').width,
+                width: Dimensions.get('window').width,
+                alignItems: 'center'
             },
             nonContainer: {
-                position: 'relative',
+                // position: 'relative',
                 top: 0,
-                right: 0,
-                // width: Dimensions.get('window').width - 20,
-                // height: Dimensions.get('window').width - 60,
-                borderRadius: 16,
+                left: 0,
+                // left: 21.5,
+                alignSelf: 'center',
+                height: Dimensions.get('window').width,
+                width: Dimensions.get('window').width,
                 overflow: 'hidden',
+                alignItems: 'center'
             },
             image: {
                 width: 100,
-                height: 100,
+                height: 150,
                 borderRadius: 8,
-                marginLeft: 10
+                marginLeft: 10,
+                alignSelf: 'center',
+                resizeMode: 'contain',
+                // overflow: 'hidden',
             }
         }
     }
@@ -201,9 +222,7 @@ const ProductItem = ({id, name, description, sum, weight, preview}) => {
                                     <TouchableOpacity onPress={() => {
                                         setOpen(false)
                                     }} activeOpacity={1}>
-                                        <ZoomFunction>
-                                            <Image style={styles.openImage} source={{uri: `${preview}`}}/>
-                                        </ZoomFunction>
+                                        <Image style={styles.openImage} source={{uri: `${preview}`}}/>
                                     </TouchableOpacity>
                                 </View>
                             )

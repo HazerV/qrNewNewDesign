@@ -5,7 +5,7 @@ export const config = {
     otstupTop: 64,
     otstupBottom: 100,
     textColorOnImage: 'white',
-    server: 'https://api.menu.true-false.ru/api/config',
+    server: 'https://api.menu.true-false.ru/api',
     storage: 'https://api.menu.true-false.ru/storage/',
     getProductUrl: 'https://api.menu.true-false.ru'
 }

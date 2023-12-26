@@ -7,7 +7,8 @@ const stylesCategories = {
         alignItems: 'center',
         rowGap: 16,
         width: '100%',
-        flex: 1
+        flex: 1,
+        // paddingBottom: 55,
     },
     imgSize: {
         width: 176,

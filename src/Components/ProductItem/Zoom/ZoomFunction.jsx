@@ -36,7 +36,7 @@ const ZoomFunction =  ({children}) => {
                 // y: event.absoluteY - scaleFactor * event.y
             }
             console.log('xxx', offset.value.x)
-            scale.value = 1.8
+            scale.value = 2
             contextScale.value = 2
         })
         .onEnd(() => {
@@ -77,7 +77,7 @@ const ZoomFunction =  ({children}) => {
     });
     return  (
         <GestureHandlerRootView>
-            <GestureDetector gesture={composedGestures}>
+            <GestureDetector gesture={longPressGesture}>
                 <Animated.View style={animatedStyles}>
                     {children}
                 </Animated.View>

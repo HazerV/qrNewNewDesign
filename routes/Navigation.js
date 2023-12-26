@@ -22,7 +22,7 @@ const Navigation = () => {
             }}
             onStateChange={async () => {
                 const previousRouteName = route;
-                const currentRouteName = navigationRef.getCurrentRoute().name;
+                const currentRouteName = navigationRef.getCurrentRoute().name;``
                 if (previousRouteName !== currentRouteName) {
                     setRoute(currentRouteName);
                 }
@@ -50,6 +50,7 @@ const Navigation = () => {
                 }
             </Stack.Navigator>
         </NavigationContainer>
+
     )
 }
 export default  Navigation

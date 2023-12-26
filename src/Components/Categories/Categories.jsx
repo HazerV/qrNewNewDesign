@@ -13,7 +13,7 @@ const Categories = () => {
     const serverUrl = config.server
     const storage = config.storage
     const getName = () => {
-        axios.get(`${serverUrl}/api/categories`, {
+        axios.get(`${serverUrl}/categories`, {
             headers: {'SubDomain': 'zaryadye'}
         })
             .then(res => {
@@ -37,7 +37,6 @@ const Categories = () => {
             paddingTop: 25,
             textAlign: 'left',
             paddingBottom: config.otstupBottom,
-            // width: Dimensions.get('window').width - 30
         }
     }
     return (

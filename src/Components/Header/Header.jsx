@@ -8,18 +8,21 @@ import {config} from "../../../config";
 const Header = () => {
 
     const [data, setData] = useState([])
-    const server = config.server
+    const server = 'https://api.menu.true-false.ru/api/config'
+    const [loading, setLoading] = useState([])
+
     useEffect(() => {
-        axios.get(server, { headers: {'SubDomain': 'zaryadye'} })
+        axios.get(server, { headers: { 'SubDomain': 'zaryadye' } })
             .then((res) => {
-                console.log(res.data.data.logo_light)
                 setData(res.data.data)
+                // console.log(res.data.data)
             })
             .catch((err) => {
                 console.log(err)
             })
     }, []);
 
+    // console.log('url', data.logo_light)
     const {theme} = useContext(ThemeContext)
 
     if (theme === 'dark') {
