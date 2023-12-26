@@ -34,7 +34,7 @@ const Footer = () => {
             display: 'flex',
             flexDirection: 'row',
             columnGap: 8,
-            marginLeft: 16,
+            // marginLeft: 16,
             position: 'absolute', left: 0, right: 0, bottom: 0,
             alignItems: 'center',
             justifyContent: 'center',
@@ -83,23 +83,37 @@ const Footer = () => {
             <View style={styles.container}>
                 <View style={styles.icons}>
                     <View style={styles.place}>
-                        <TouchableOpacity onPress={() => {
+                        <TouchableOpacity
+                            hitSlop={{
+                                left: 120,
+                                right: 30,
+                                top: 10,
+                                bottom: 10
+                            }}
+                            onPress={() => {
                             navigation.navigate('Home')
                         }}>
                             <View style={styles.iconFoot }>
                                 {
-                                    route === 'Home' ? (
+                                    route === 'Home' || route === 'Oferta' || route === 'Contacts' ? (
                                         <InfoWhite />
                                     ) : (
                                         <Info/>
                                     )
                                 }
-                                <Text style={[styles.footText, {color: route === 'Home' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
+                                <Text style={[styles.footText, {color: route === 'Home' || route === 'Oferta' || route === 'Contacts' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Инфо
                                 </Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {
+                        <TouchableOpacity
+                            hitSlop={{
+                                right: 30,
+                                left: 30,
+                                bottom: 10,
+                                top: 10
+                            }}
+                            onPress={() => {
                             navigation.navigate('Menu')
                         }}>
                             <View style={styles.iconFoot}>
@@ -115,7 +129,14 @@ const Footer = () => {
                                 </Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {
+                        <TouchableOpacity
+                            hitSlop={{
+                                right: 120,
+                                left: 30,
+                                top: 10,
+                                bottom: 10
+                            }}
+                            onPress={() => {
                             navigation.navigate('CartPage')
                         }}>
                             <View style={styles.iconFoot}>

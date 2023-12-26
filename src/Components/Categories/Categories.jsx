@@ -33,7 +33,6 @@ const Categories = () => {
             lineHeight: 16,
             fontFamily: 'Gilroy-Regular',
             color: theme === 'dark' ? 'white' : 'black',
-            fontWeight: 600,
             paddingTop: 25,
             textAlign: 'left',
             paddingBottom: config.otstupBottom,

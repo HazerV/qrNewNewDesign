@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import {ThemeContext} from "../../Context/Context";
-import {Image, Text, TouchableOpacity, View} from "react-native";
+import {Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
 import Imageee from "../../ProductItem/Image.png";
 
 const name = 'Брускетта с пармской ветчиной и инжиром'
@@ -12,10 +12,11 @@ const PayedProduct = ({name, price, count, sum}) => {
 
     const styles = {
         container: {
-            padding: 16,
+            // padding: 16,
+            paddingBottom: 16,
             flexDirection: 'row',
             flexWrap: 'wrap',
-            width: '100%',
+            width: Dimensions.get('window').width - 10,
         },
         nameProduct: {
             color: 'gray',
@@ -54,7 +55,7 @@ const PayedProduct = ({name, price, count, sum}) => {
                     {price} руб
                 </Text>
             </View>
-            <View style={{paddingLeft: 90, opacity: 0.5, position: 'absolute', top: 20, right: 0}}>
+            <View style={{ opacity: 0.5, position: 'absolute', top: 0, right: 0}}>
                 <Image style={{width: 64, height: 64}} source={Imageee}/>
             </View>
         </View>

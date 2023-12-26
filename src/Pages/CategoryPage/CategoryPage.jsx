@@ -63,9 +63,8 @@ const CategoryPage = (props) => {
     return (
 
         <SafeAreaView style={{backgroundColor: color, alignSelf: 'center'}}>
-            <StatusBar/>
             <ScrollView>
-                <View style={{paddingBottom: config.otstupBottom}}>
+                <View style={{}}>
                     <Text style={[styles.nameCategory, {color: dynamicStyles.color}]}>
                         {cat.name}
                     </Text>
@@ -87,7 +86,8 @@ const CategoryPage = (props) => {
                                     }
                                 )
                             ) : (
-                                loading && <ActivityIndicator color={config.accentColor} animating={true} style={styles.preload}/>
+                                loading &&
+                                <ActivityIndicator color={config.accentColor} animating={true} style={styles.preload}/>
                             )
                         }
                     </View>
@@ -97,17 +97,16 @@ const CategoryPage = (props) => {
                 onRequestClose={hide}
                 transparent={true}
                 visible={visible}
-                // animationType='slide'
             >
                 {
                     visible === true ? (
                         <TouchableOpacity onPress={() => setVisible(false)}>
                             <View style={{
                                 width: '100%',
-                                height: 838,
+                                height: '100%',
                                 backgroundColor: 'black',
                                 opacity: 0.6,
-                                bottom: 65
+                                bottom: 75
                             }}>
                             </View>
                         </TouchableOpacity>
@@ -127,11 +126,15 @@ const CategoryPage = (props) => {
                                 <View style={{
                                     rowGap: 16
                                 }}>
-                                <MiniCartProduct price={450} count={2} sum={900}/>
-                                <MiniCartProduct price={450} count={2} sum={900}/>
-                                <MiniCartProduct price={450} count={2} sum={900}/>
-                                <MiniCartProduct price={450} count={2} sum={900}/>
-                                <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
+                                    <MiniCartProduct price={450} count={2} sum={900}/>
                                 </View>
                             </ScrollView>
                             <LineSvg style={{alignSelf: 'center'}}/>
@@ -193,9 +196,9 @@ const styles = StyleSheet.create({
     objects: {
         alignItems: 'center',
         rowGap: 24,
+        columnGap: 20,
+        display: "flex",
         paddingTop: 32,
-        // paddingLeft: 16,
-        paddingBottom: config.otstupBottom
     },
     modal: {
         position: 'absolute',
@@ -205,8 +208,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         backgroundColor: 'rgba(51, 51, 51, 1)',
-        // backgroundColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
-        height: 460,
+        height: Dimensions.get('window').height - 60 - 60,
         borderRadius: 16,
     },
     modalName: {

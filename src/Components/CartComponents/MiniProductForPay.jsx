@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {Text, View, Image, TouchableOpacity} from "react-native";
+import {Text, View, Image, TouchableOpacity, Dimensions} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Imageee from '../ProductItem/Image.png'
 import {config} from "../../../config";
@@ -11,9 +11,10 @@ const MiniProductForPay = ({name, price, count, sum}) => {
 
     const styles = {
         container: {
-            padding: 16,
+            paddingBottom: 16,
             flexDirection: 'row',
-            width: '100%',
+            width: Dimensions.get('window').width -10 ,
+
         },
         nameProduct: {
             color: theme === 'light' ? 'black' : 'white',
@@ -35,7 +36,7 @@ const MiniProductForPay = ({name, price, count, sum}) => {
             backgroundColor: config.accentColorNonActive,
             justifyContent: 'center',
             position: 'relative',
-            marginTop: 8
+            marginTop: 8,
         },
         chosenProduct: {
             width: 100,
@@ -63,7 +64,9 @@ const MiniProductForPay = ({name, price, count, sum}) => {
                 <Text style={styles.countes}>
                     {price} руб
                 </Text>
-                <TouchableOpacity onPress={() => {
+                <TouchableOpacity
+                    style={{paddingBottom: 16}}
+                    onPress={() => {
                     if (pressed === false) {
                         setPressed(true)
                     } else {
@@ -86,8 +89,8 @@ const MiniProductForPay = ({name, price, count, sum}) => {
                     }
                 </TouchableOpacity>
             </View>
-            <View style={{paddingLeft: 168}}>
-                <Image style={{width: 64, height: 64, position: 'absolute', top: 10, right: 0}} source={Imageee}/>
+            <View style={{position: 'absolute', top: 0, right: 0}}>
+                <Image style={{width: 64, height: 64}} source={Imageee}/>
             </View>
         </View>
     )

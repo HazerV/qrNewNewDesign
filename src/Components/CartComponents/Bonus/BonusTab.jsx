@@ -116,7 +116,10 @@ const BonusTab = () => {
         <View>
             <View style={styles.container}>
                 <Text style={styles.headText}>
-                    Ваши бонусы {countBonuses} бонусов. Доступно к списанию {bonusesToUse}
+                    Ваши бонусы {countBonuses} бонусов.
+                </Text>
+                <Text style={styles.headText}>
+                    Доступно к списанию {bonusesToUse}
                 </Text>
                 <View>
                     <Text style={styles.useBonusesText}>
