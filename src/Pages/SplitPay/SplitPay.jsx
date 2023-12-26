@@ -17,7 +17,7 @@ const SplitPay = () => {
             backgroundColor: theme === 'light' ? 'white' : '#333333'
         },
         container: {
-            height: '100%',
+            // height: '100%',
             alignItems: 'center',
             justifyContent: 'center',
             paddingTop: 48,
@@ -75,14 +75,13 @@ const SplitPay = () => {
                         </Text>
                     </View>
                     <LineSvg style={{ padding: 24 }}/>
-                    <View style={{ flexDirection: 'column' }}>
+                    <View style={{ flexDirection: 'column', justifyContent: 'center', display: 'flex', alignItems: 'center' }}>
                         <PayedProduct name={'Брускетта с пармской ветчиной и инжиром'} count={2} price={450} />
                         <MiniProductForPay name={'Брускетта с козьим сыром и тыквой'} price={350} count={2}  />
                         <MiniProductForPay name={'Брускетта с икрой'} price={350} count={2} />
                         <PayedProduct name={'Брускетта с пармской ветчиной и инжиром'} count={2} price={1000} />
                         <MiniProductForPay name={'Брускетта с икрой'} price={350} count={2} />
                         <PayedProduct name={'Брускетта с пармской ветчиной и инжиром'} count={1} price={500} />
-
                     </View>
                     <View style={styles.billBlock}>
                         <Text style={styles.itogText}>

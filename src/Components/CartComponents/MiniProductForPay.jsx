@@ -13,8 +13,7 @@ const MiniProductForPay = ({name, price, count, sum}) => {
         container: {
             paddingBottom: 16,
             flexDirection: 'row',
-            width: Dimensions.get('window').width -10 ,
-
+            width: Dimensions.get('window').width -20,
         },
         nameProduct: {
             color: theme === 'light' ? 'black' : 'white',

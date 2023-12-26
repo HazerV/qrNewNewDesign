@@ -95,13 +95,13 @@ const Footer = () => {
                         }}>
                             <View style={styles.iconFoot }>
                                 {
-                                    route === 'Home' || route === 'Oferta' || route === 'Contacts' ? (
+                                    route === 'Home' || route === 'Oferta' || route === 'Contacts' || route === 'ChangeCort' ? (
                                         <InfoWhite />
                                     ) : (
                                         <Info/>
                                     )
                                 }
-                                <Text style={[styles.footText, {color: route === 'Home' || route === 'Oferta' || route === 'Contacts' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
+                                <Text style={[styles.footText, {color: route === 'Home' || route === 'Oferta' || route === 'Contacts' || route === 'ChangeCort' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Инфо
                                 </Text>
                             </View>

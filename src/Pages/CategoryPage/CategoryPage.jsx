@@ -64,7 +64,7 @@ const CategoryPage = (props) => {
 
         <SafeAreaView style={{backgroundColor: color, alignSelf: 'center'}}>
             <ScrollView>
-                <View style={{}}>
+                <View style={config.otstupBottom}>
                     <Text style={[styles.nameCategory, {color: dynamicStyles.color}]}>
                         {cat.name}
                     </Text>
@@ -199,6 +199,7 @@ const styles = StyleSheet.create({
         columnGap: 20,
         display: "flex",
         paddingTop: 32,
+        paddingBottom: config.otstupBottom
     },
     modal: {
         position: 'absolute',
