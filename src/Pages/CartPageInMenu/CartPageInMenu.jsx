@@ -6,21 +6,22 @@ import AddToCartBtn from "../CategoryPage/AddToCartBtn";
 import CartButton from "../../Components/CartComponents/CartModal/CartButton";
 import Footer from "../../Components/Footer/Footer";
 import {ThemeContext} from "../../Components/Context/Context";
+import {config} from "../../../config";
 
 const CartPageInMenu = () => {
-
     const {theme} = useContext(ThemeContext)
 
     return (
         <SafeAreaView style={{
             width: '100%',
             height: '100%',
-            backgroundColor: theme === 'light' ? 'white' : '#33333'
+            backgroundColor: theme === 'light' ? 'white' : '#33333',
         }}>
             <ScrollView>
                 <View style={{
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    paddingBottom: config.otstupBottom
                 }}>
                     <Text style = {{
                         color: theme === 'light' ? 'black' : 'white',
