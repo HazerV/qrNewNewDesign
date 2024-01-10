@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         paddingBottom: config.otstupBottom,
         alignSelf: 'center',
         justifyContent: 'center',
-        width: 368,
+        width: 358,
     }
 })
 
