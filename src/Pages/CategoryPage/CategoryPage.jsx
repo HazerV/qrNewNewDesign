@@ -96,6 +96,7 @@ const CategoryPage = (props) => {
             <Modal
                 onRequestClose={hide}
                 transparent={true}
+                animated={false}
                 visible={visible}
             >
                 {
@@ -209,14 +210,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         backgroundColor: 'rgba(51, 51, 51, 1)',
-        height: Dimensions.get('window').height - 60 - 60,
+        height: Dimensions.get('window').height,
         borderRadius: 16,
+
     },
     modalName: {
         fontSize: 24,
         lineHeight: 28,
         fontFamily: 'Gilroy-SemiBold',
-        paddingTop: 48,
+        paddingTop: 130,
         paddingBottom: 16,
         alignSelf: 'center',
     },
@@ -242,7 +244,7 @@ const styles = StyleSheet.create({
     },
     modalStyle: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height - 460,
+        height: Dimensions.get('window').height,
         backgroundColor: 'black',
         opacity: 0.6,
     }

@@ -12,7 +12,15 @@ const Navigation = () => {
 
     const {route, setRoute} = useContext(PageContext)
     const navigationRef = useNavigationContainerRef();
-    const {theme} = useContext(ThemeContext)
+    let {theme} = useContext(ThemeContext)
+
+    let color = 'white'
+    if (theme === 'light') {
+        color = 'white'
+    } else {
+        color = '#333333'
+    }
+
 
     return (
         <NavigationContainer
@@ -40,7 +48,7 @@ const Navigation = () => {
                                     animation: 'none',
                                     statusBarStyle: theme === 'light' ? 'dark' : 'white',
                                     statusBarTranslucent: true,
-                                    statusBarColor: 'transparent',
+                                    statusBarColor: route === 'Categories' ? color : 'transparent',
                                     navigationBarHidden: true,
                                     headerShown: false
                                 }}
