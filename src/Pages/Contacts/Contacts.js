@@ -1,46 +1,28 @@
 import React, { useContext } from "react";
-import {View, Text, SafeAreaView, ScrollView, Dimensions} from "react-native";
+import {View, Text, SafeAreaView, ScrollView, Dimensions, StyleSheet} from "react-native";
 import { ThemeContext } from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 
 const Contacts = () => {
 
     const {theme} = useContext(ThemeContext)
-    const styles = {
-        areaview: {
-            backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            alignSelf: 'center'
-        },
-        container: {
-            alignItems: 'center',
-            width: '90%',
-            alignSelf: 'center'
-        },
-        headName: {
-            fontFamily: 'Gilroy-SemiBold',
-            fontSize: 24,
-            lineHeight: 20,
-            paddingTop: 64,
-            paddingBottom: 16,
-            color: theme === 'light' ? 'black' : 'white'
-        },
-        text: {
-            fontFamily: 'Gilroy-Regular',
-            fontSize: 16,
-            lineHeight: 18,
-            color: theme === 'light' ? 'black' : 'white',
-            width: Dimensions.get('window').width -45
-        }
+    const dynamicStyles = {
+        textColor: theme === 'light' ? 'black' : 'white',
+        bgColor: theme === 'light' ? 'white' : '#333333'
     }
 
     return (
-        <SafeAreaView style = {styles.areaview}>
+        <SafeAreaView style={{
+            alignSelf: 'center',
+            height: '100%',
+            backgroundColor: theme === 'light' ? 'white' : '#333333'
+        }}>
             <ScrollView>
-                <View style={styles.container}>
-                    <Text style={styles.headName}>
+                <View style={[styles.container, {width: Dimensions.get('window').width-20}]}>
+                    <Text style={[styles.headNameText, {color: dynamicStyles.textColor}]}>
                         Контакты
                     </Text>
-                    <Text style={styles.text}>
+                    <Text style={[styles.text, {color: dynamicStyles.textColor}]}>
                         {'\n'}
                         Контакты:{'\n'}{'\n'}
                         Фактический адрес: 1109012, Москва, ул. Варварка, двлд. 6, стр. 4{'\n'}
@@ -59,5 +41,29 @@ const Contacts = () => {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+    },
+    viewFirst: {
+        alignItems: 'center',
+        width: '95%',
+        alignSelf: 'center',
+        paddingLeft: 10
+    },
+    headNameText: {
+        fontFamily: 'Gilroy-SemiBold',
+        fontSize: 24,
+        lineHeight: 28,
+        paddingTop: 32,
+        paddingBottom: 32,
+    },
+    text: {
+        fontFamily: 'Gilroy-Regular',
+        fontSize: 14,
+        lineHeight: 16,
+    }
+})
 
 export default Contacts

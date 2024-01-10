@@ -18,7 +18,7 @@ const Header = () => {
                 // console.log(res.data.data)
             })
             .catch((err) => {
-                console.log(err)
+                console.dir(err)
             })
     }, []);
 

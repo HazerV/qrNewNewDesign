@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, StyleSheet, SafeAreaView, ScrollView, Text } from "react-native";
+import {View, StyleSheet, SafeAreaView, ScrollView, Text, Dimensions} from "react-native";
 import Footer from "../../Components/Footer/Footer";
 import { ThemeContext } from "../../Components/Context/Context";
 
@@ -7,41 +7,20 @@ import { ThemeContext } from "../../Components/Context/Context";
 const Oferta = () => {
 
     const {theme} = useContext(ThemeContext)
-    const styles = StyleSheet.create({
-        container: {
-            backgroundColor: theme === 'dark' ? '#333333' : 'white',
-            alignSelf: 'center'
-        },
-        viewFirst: {
-            alignItems: 'center',
-            width: '95%',
-            alignSelf: 'center',
-            paddingLeft: 10
-        },
-        headName: {
-            fontFamily: 'Gilroy-SemiBold',
-            fontSize: 24,
-            lineHeight: 28,
-            paddingTop: 32,
-            paddingBottom: 32,
-            color: theme === 'light' ? 'black' : 'white'
-        },
-        text: {
-            fontFamily: 'Gilroy-Regular',
-            fontSize: 14,
-            lineHeight: 16,
-            color: theme === 'light' ? 'black' : 'white'
-        }
-    })
+
+    const dynamicStyles = {
+        textColor: theme === 'light' ? 'black' : 'white',
+        bgColor: theme === 'light' ? 'white' : '#333333'
+    }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={[styles.container, {backgroundColor: dynamicStyles.bgColor}]}>
             <ScrollView>
-                <View style={styles.viewFirst}>
-                    <Text style={styles.headName}>
+                <View style={[styles.viewFirst, {width: Dimensions.get('window').width - 20}]}>
+                    <Text style={[styles.headNameText, {color: dynamicStyles.textColor}]}>
                         Оферта
                     </Text>
-                    <Text style={styles.text}>
+                    <Text style={[styles.text, {color: dynamicStyles.textColor}]}>
                     СТОРОНАМИ НАСТОЯЩЕГО СОГЛАШЕНИЯ ЯВЛЯЮТСЯ:{'\n'}
 Клиент — физическое лицо, имеющее намерение оформить заказ на сайте официального интернет-магазина ООО "Орион".
 Продавец — ООО "Орион" (адрес: 117218, город Москва, ул. Кржижановского, д. 15 к. 5, эт 5 пом 515а оф 2, ИНН: 7714364969, ОГРН: 5157746123937).
@@ -72,5 +51,28 @@ JCB.{'\n'}
     )
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+        alignSelf: 'center'
+    },
+    viewFirst: {
+        alignItems: 'center',
+        alignSelf: 'center',
+        paddingTop: 50
+    },
+    headNameText: {
+        fontFamily: 'Gilroy-SemiBold',
+        fontSize: 24,
+        lineHeight: 28,
+        paddingTop: 32,
+        paddingBottom: 32,
+    },
+    text: {
+        fontFamily: 'Gilroy-Regular',
+        fontSize: 14,
+        lineHeight: 16,
+    }
+})
 
 export default Oferta

@@ -4,7 +4,7 @@ import PlusBSvg from '../Counter/PlusB.svg'
 import MinusBSvg from '../Counter/MinusB.svg'
 import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
-import {ThemeContext, CartContext} from "../../Context/Context";
+import {ThemeContext} from "../../Context/Context";
 import {config} from "../../../../config";
 
 const Counter = () => {
@@ -27,7 +27,7 @@ const Counter = () => {
         },
         countValue: {
             fontSize: 18,
-            lineHeight: 20,
+            lineHeight: 22,
             fontFamily: 'Gilroy-Regular',
             color: theme === 'light' ? 'black' : 'white',
         },

@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {View, Text, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet} from "react-native";
+import {View, Text, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions} from "react-native";
 import {ThemeContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
@@ -22,7 +22,9 @@ const Home = () => {
             height: '100%'
         }}>
             <ScrollView>
-                <View style={{paddingTop: config.otstupTop}}>
+                <View style={{paddingTop: config.otstupTop,
+                    // width: Dimensions.get('window').width - 20
+                }}>
                     <Header/>
                     <View style={styles.container}>
                         <Text style={[styles.textHead, {color: dynamicSt.color}]}>

@@ -20,7 +20,7 @@ const ChangeCort = () => {
                 setData(res.data.data.halls)
                 console.log('success', res.data.data.halls)
             })
-            .catch((err) => {console.log('ERROR: ', err)})
+            .catch((err) => {console.log(err)})
     }, []);
     const {theme} = useContext(ThemeContext)
     const dynamicStyle = {
@@ -42,7 +42,6 @@ const ChangeCort = () => {
                     <View style={styles.bufetImgs}>
                             {
                                 data.map((img) => {
-                                    console.log('sss', data.img)
                                     return (
                                         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
                                             <Image style={{width: Dimensions.get('window').width -45, height: 250, resizeMode: 'contain'}}
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: 'Gilroy-Regular',
         justifyContent: 'center',
-        width: Dimensions.get('window').width -45 -45,
+        width: Dimensions.get('window').width -40,
         lineHeight: 18,
         paddingBottom: 32
     }

@@ -34,8 +34,6 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     container: {
-        // width: '100%',
-        // height: '100%',
         alignItems: 'center'
     },
     headName: {
@@ -56,11 +54,9 @@ const styles = StyleSheet.create({
         paddingTop: 25,
         textAlign: 'left',
         paddingBottom: config.otstupBottom,
-        width: Dimensions.get('window').width - 15 - 50
     },
     catPlace: {
         paddingTop: 16,
-        // width: Dimensions.get('window').width
         flex: 1
     }
 })
