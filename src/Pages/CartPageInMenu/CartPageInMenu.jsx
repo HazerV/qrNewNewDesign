@@ -21,7 +21,8 @@ const CartPageInMenu = () => {
                 <View style={{
                     alignItems: 'center',
                     justifyContent: 'center',
-                    paddingBottom: config.otstupBottom
+                    paddingBottom: config.otstupBottom,
+                    backgroundColor: theme === 'light' ? 'white' : '#333333'
                 }}>
                     <Text style = {{
                         color: theme === 'light' ? 'black' : 'white',
