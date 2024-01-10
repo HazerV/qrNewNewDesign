@@ -2,9 +2,11 @@ import React, {useContext, useState} from "react";
 import {View, Text, TouchableOpacity} from 'react-native'
 import {ThemeContext} from "../../Context/Context";
 import {config} from "../../../../config";
+import {useNavigation} from "@react-navigation/native";
 
 const CartButton = ({onPress}) => {
 
+    const navigation = useNavigation()
     const {theme} = useContext(ThemeContext)
 
     const sum = 4100
@@ -40,7 +42,7 @@ const CartButton = ({onPress}) => {
     }
 
     return (
-        <TouchableOpacity onPress={() => {onPress()}}>
+        <TouchableOpacity onPress={() => navigation.navigate('CartPageInMenu')}>
             <View style={styles.container}>
                 <Text style = {styles.sum}>
                     {sum} руб

@@ -93,88 +93,88 @@ const CategoryPage = (props) => {
                     </View>
                 </View>
             </ScrollView>
-            <Modal
-                onRequestClose={hide}
-                transparent={true}
-                animated={false}
-                visible={visible}
-            >
-                {
-                    visible === true ? (
-                        <TouchableOpacity onPress={() => setVisible(false)}>
-                            <View style={{
-                                // width: '100%',
-                                height: '100%',
-                                backgroundColor: 'black',
-                                opacity: 0.6,
-                                bottom: 75
-                            }}>
-                            </View>
-                        </TouchableOpacity>
-                    ) : null
-                }
-                {
-                    visible === false ? (
-                        <View>
-                            <Text> nothing </Text>
-                        </View>
-                    ) : (
-                        <View style={[styles.modal, {backgroundColor: dynamicStyles.bgColor}]}>
-                            <Text style={[styles.modalName, {color: dynamicStyles.color}]}>
-                                Корзина
-                            </Text>
-                            <ScrollView>
-                                <View style={{
-                                    rowGap: 16
-                                }}>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                    <MiniCartProduct price={450} count={2} sum={900}/>
-                                </View>
-                            </ScrollView>
-                            <LineSvg style={{alignSelf: 'center'}}/>
-                            <View style={{
-                                flexDirection: 'row',
-                                justifyContent: 'center',
-                                paddingTop: 16
-                            }}>
-                                <Text style={{
-                                    fontFamily: 'Gilroy-Regular',
-                                    fontSize: 16,
-                                    color: "rgba(187, 187, 187, 1)",
-                                    lineHeight: 20,
-                                    alignSelf: 'center'
-                                    // padding: 16
-                                }}>
-                                    Итого:
-                                </Text>
-                                <Text style={{
-                                    fontFamily: 'Gilroy-Regular',
-                                    fontSize: 16,
-                                    color: "rgba(187, 187, 187, 1)",
-                                    lineHeight: 20
-                                }}>
-                                    {' '} 1 350 руб
-                                </Text>
-                            </View>
-                            <View style={{
-                                // paddingLeft: 72,
-                                paddingTop: 16,
-                                paddingBottom: 16
-                            }}>
-                                <AddToCartBtn/>
-                            </View>
-                        </View>
-                    )
-                }
-            </Modal>
-            <CartButton onPress={show}/>
+            {/*<Modal*/}
+            {/*    onRequestClose={hide}*/}
+            {/*    transparent={true}*/}
+            {/*    animated={false}*/}
+            {/*    visible={visible}*/}
+            {/*    statusBarTranslucent={true}*/}
+            {/*>*/}
+            {/*    {*/}
+            {/*        visible === true ? (*/}
+            {/*            <TouchableOpacity onPress={() => setVisible(false)}>*/}
+            {/*                <View style={{*/}
+            {/*                    // width: '100%',*/}
+            {/*                    height: '100%',*/}
+            {/*                    backgroundColor: 'black',*/}
+            {/*                    opacity: 0.6,*/}
+            {/*                    bottom: 75*/}
+            {/*                }}>*/}
+            {/*                </View>*/}
+            {/*            </TouchableOpacity>*/}
+            {/*        ) : null*/}
+            {/*    }*/}
+            {/*    {*/}
+            {/*        visible === false ? (*/}
+            {/*            <View>*/}
+            {/*                <Text> nothing </Text>*/}
+            {/*            </View>*/}
+            {/*        ) : (*/}
+            {/*            <View style={[styles.modal, {backgroundColor: dynamicStyles.bgColor}]}>*/}
+            {/*                <Text style={[styles.modalName, {color: dynamicStyles.color}]}>*/}
+            {/*                    Корзина*/}
+            {/*                </Text>*/}
+            {/*                <ScrollView>*/}
+            {/*                    <View style={{*/}
+            {/*                        rowGap: 16*/}
+            {/*                    }}>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
+            {/*                    </View>*/}
+            {/*                </ScrollView>*/}
+            {/*                <LineSvg style={{alignSelf: 'center'}}/>*/}
+            {/*                <View style={{*/}
+            {/*                    flexDirection: 'row',*/}
+            {/*                    justifyContent: 'center',*/}
+            {/*                    paddingTop: 16*/}
+            {/*                }}>*/}
+            {/*                    <Text style={{*/}
+            {/*                        fontFamily: 'Gilroy-Regular',*/}
+            {/*                        fontSize: 16,*/}
+            {/*                        color: "rgba(187, 187, 187, 1)",*/}
+            {/*                        lineHeight: 20,*/}
+            {/*                        alignSelf: 'center'*/}
+            {/*                        // padding: 16*/}
+            {/*                    }}>*/}
+            {/*                        Итого:*/}
+            {/*                    </Text>*/}
+            {/*                    <Text style={{*/}
+            {/*                        fontFamily: 'Gilroy-Regular',*/}
+            {/*                        fontSize: 16,*/}
+            {/*                        color: "rgba(187, 187, 187, 1)",*/}
+            {/*                        lineHeight: 20*/}
+            {/*                    }}>*/}
+            {/*                        {' '} 1 350 руб*/}
+            {/*                    </Text>*/}
+            {/*                </View>*/}
+            {/*                <View style={{*/}
+            {/*                    // paddingLeft: 72,*/}
+            {/*                    paddingTop: 16,*/}
+            {/*                    paddingBottom: 16*/}
+            {/*                }}>*/}
+            {/*                    <AddToCartBtn/>*/}
+            {/*                </View>*/}
+            {/*            </View>*/}
+            {/*        )*/}
+            {/*    }*/}
+            {/*</Modal>*/}
+            <CartButton/>
             <Footer/>
         </SafeAreaView>
     )
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         lineHeight: 28,
         fontFamily: 'Gilroy-SemiBold',
-        paddingTop: 130,
+        paddingTop: 100,
         paddingBottom: 16,
         alignSelf: 'center',
     },

@@ -6,6 +6,7 @@ import SplitPay from "../src/Pages/SplitPay/SplitPay";
 import ChangeCort from "../src/Pages/ChangeCort/ChangeCort";
 import Oferta from "../src/Pages/Oferta/Oferta";
 import CartPage from "../src/Pages/CartPage/CartPage";
+import CartPageInMenu from "../src/Pages/CartPageInMenu/CartPageInMenu";
 
 export default  {
     "Home" : Home,
@@ -13,7 +14,9 @@ export default  {
     "Contacts": Contacts,
     "Categories": CategoryPage,
     'SplitPay': SplitPay,
+    'CartPageInMenu': CartPageInMenu,
     Oferta,
     ChangeCort,
-    CartPage
+    CartPage,
+
 }
