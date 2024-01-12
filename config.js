@@ -9,3 +9,9 @@ export const config = {
     storage: 'https://api.menu.true-false.ru/storage/',
     getProductUrl: 'https://api.menu.true-false.ru'
 }
+
+// GET     https://api.menu.true-false.ru/api/carts - create new cart
+// GET     https://api.menu.true-false.ru/api/carts/{id} - get cart data by id
+// POST    https://api.menu.true-false.ru/api/carts/{cartId}/lines - {productId: int, quantity: int} - create new line in the cart
+// PUT     https://api.menu.true-false.ru/api/carts/{cartId}/lines/{lineId} - {quantity: int} - edit line in the cart
+// DELETE  https://api.menu.true-false.ru/api/carts/{cartId}/lines/{lineId} - delete line in the cart
