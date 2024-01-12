@@ -118,13 +118,13 @@ const Footer = () => {
                         }}>
                             <View style={styles.iconFoot}>
                                 {
-                                    route === 'Menu' || route === 'Categories' ? (
+                                    route === 'Menu' || route === 'Categories' || route === 'CartPageInMenu' ? (
                                         <MenuWhite />
                                     ) : (
                                         <Menu/>
                                     )
                                 }
-                                <Text style={[styles.footText, {color: route === 'Menu' || route === 'Categories' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
+                                <Text style={[styles.footText, {color: route === 'Menu' || route === 'Categories' || route === 'CartPageInMenu' ? 'white' : 'rgba(255, 255, 255, 0.5)'}]}>
                                     Меню
                                 </Text>
                             </View>

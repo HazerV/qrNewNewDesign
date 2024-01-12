@@ -14,13 +14,12 @@ import Animated from "react-native-reanimated";
 import ZoomFunction from "./Zoom/ZoomFunction";
 
 const ProductItem = ({ name, description, sum, weight, preview }) => {
-
+    console.log(name , typeof preview)
     const [open, setOpen] = useState(false)
     const {theme} = useContext(ThemeContext)
     let styles = {
         container: {
             width: Dimensions.get('window').width -20,
-            // height: 172,
             flexDirection: 'column',
             display: 'inline-block',
         },
@@ -28,7 +27,6 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
             display: 'flex',
             flexDirection: 'row',
             columnGap: 12,
-            // paddingBottom: 16
             alignItems: 'center'
         },
         name: {
@@ -68,7 +66,6 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
         imgPosititon: {
             top: 0,
             position: 'absolute',
-            // bottom: 0,
             right: 0,
             zIndex: -1,
             borderRadius: 16
@@ -114,13 +111,12 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                 columnGap: 12,
                 alignItems: 'center',
                 paddingBottom: 10,
-                left: 11,
-                // bottom: 16
+                left: 14,
             },
             name: {
                 position: 'absolute',
                 top: 10,
-                left: 12,
+                left: 13,
                 fontFamily: 'Gilroy-Regular',
                 fontSize: 16,
                 lineHeight: 20,
@@ -154,32 +150,21 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                 alignItems: 'center',
             },
             imgPosititon: {
-                // top: -16,
                 position: 'absolute',
                 right: 0,
                 zIndex: -1,
                 alignItems: 'center'
-                // overflow: 'hidden',
             },
             openImage: {
-                // alignSelf: 'center',
-                // paddingBottom: 26,
                 resizeMode: 'cover',
                 left: 1,
                 height: Dimensions.get('window').width,
                 width: Dimensions.get('window').width +1,
-                // alignItems: 'center',
             },
             nonContainer: {
-                position: 'relative',
-                // top: 0,
-                // left: 0,
-                // left: 21.5,
-                // alignSelf: 'center',
                 width: Dimensions.get('window').width,
                 height: Dimensions.get('window').width,
                 overflow: 'hidden',
-                // alignItems: 'center',
             },
         }
     }
@@ -190,7 +175,7 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                 {name}
             </Text>
             {
-                open === false ? (
+                open === false && description != 0 ?  (
                     <Text style={styles.description}>
                         {description}
                     </Text>
@@ -198,8 +183,8 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                     null
                 )
             }
-            <View style={styles.imgPosititon}>
-                <View>
+            {preview && (
+                <View style={styles.imgPosititon}>
                     <TouchableOpacity onPress={() => {
                         open === false ? (
                             setOpen(true)
@@ -209,17 +194,35 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                             open === false ? (
                                 <Image style={styles.image} source={{uri: `${preview}`}}/>
                             ) : (
-                                    <TouchableOpacity onPress={() => {
-                                        setOpen(false)
-                                    }} activeOpacity={1}>
-                                        <Image style={styles.openImage} source={{uri: `${preview}`}}/>
-                                    </TouchableOpacity>
-
+                                <TouchableOpacity onPress={() => {
+                                    setOpen(false)
+                                }} activeOpacity={1}>
+                                    <Image style={styles.openImage} source={{uri: `${preview}`}}/>
+                                </TouchableOpacity>
                             )
                         }
                     </TouchableOpacity>
                 </View>
-            </View>
+            )}
+            {/*<View style={styles.imgPosititon}>*/}
+            {/*        <TouchableOpacity onPress={() => {*/}
+            {/*            open === false ? (*/}
+            {/*                setOpen(true)*/}
+            {/*            ) : (setOpen(false))*/}
+            {/*        }}>*/}
+            {/*            {*/}
+            {/*                open === false ? (*/}
+            {/*                    <Image style={styles.image} source={{uri: `${preview}`}}/>*/}
+            {/*                ) : (*/}
+            {/*                        <TouchableOpacity onPress={() => {*/}
+            {/*                            setOpen(false)*/}
+            {/*                        }} activeOpacity={1}>*/}
+            {/*                            <Image style={styles.openImage} source={{uri: `${preview}`}}/>*/}
+            {/*                        </TouchableOpacity>*/}
+            {/*                )*/}
+            {/*            }*/}
+            {/*        </TouchableOpacity>*/}
+            {/*</View>*/}
             <View style={styles.counterBlock}>
                 <View style={styles.counter}>
                     <Counter/>

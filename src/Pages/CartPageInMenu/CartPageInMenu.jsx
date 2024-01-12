@@ -15,14 +15,14 @@ const CartPageInMenu = () => {
         <SafeAreaView style={{
             width: '100%',
             height: '100%',
-            backgroundColor: theme === 'light' ? 'white' : '#33333',
+            backgroundColor: theme === 'light' ? 'white' : '#333333',
         }}>
             <ScrollView>
                 <View style={{
                     alignItems: 'center',
                     justifyContent: 'center',
                     paddingBottom: config.otstupBottom,
-                    backgroundColor: theme === 'light' ? 'white' : '#333333'
+                    backgroundColor: theme === 'light' ? 'white' : '#33333'
                 }}>
                     <Text style = {{
                         color: theme === 'light' ? 'black' : 'white',

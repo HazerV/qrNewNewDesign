@@ -5,20 +5,15 @@ import {
     SafeAreaView,
     ScrollView,
     Dimensions,
-    StatusBar,
-    Modal,
-    StyleSheet, ActivityIndicator, TouchableOpacity, Touchable, Button
+    StyleSheet,
+    ActivityIndicator
 } from "react-native";
 import {ThemeContext, ProductContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import ProductItem from "../../Components/ProductItem/ProductItem";
 import CartButton from "../../Components/CartComponents/CartModal/CartButton";
 import axios from "axios";
-import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartProduct";
-import LineSvg from '../../Components/Images/Line.svg'
-import AddToCartBtn from "./AddToCartBtn";
 import {config} from "../../../config";
-import {SafeAreaProvider} from "react-native-safe-area-context";
 
 const CategoryPage = (props) => {
 
@@ -37,7 +32,8 @@ const CategoryPage = (props) => {
             .then(
                 res => {
                     setProduct(res.data.data.products)
-                    setLoading(false)
+
+                        setLoading(false)
                 }
             )
             .catch(err => {
@@ -48,23 +44,24 @@ const CategoryPage = (props) => {
     useEffect(() => {
         getProduct()
     }, []);
-    let color = 'white'
+    let bgColor = 'white'
     if (theme === 'light') {
-        color = 'white'
+        bgColor = 'white'
     }
     if (theme === 'dark') {
-        color = '#333333'
+        bgColor = '#333333'
     }
     const dynamicStyles = {
         color: theme === 'light' ? 'black' : 'white',
         bgColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
     }
     const [scrollEnabled, setScrollEnabled] = useState(true);
+
     return (
 
-        <SafeAreaView style={{backgroundColor: color, alignSelf: 'center'}}>
+        <SafeAreaView style={{backgroundColor: bgColor, alignSelf: 'center'}}>
             <ScrollView>
-                <View style={config.otstupBottom}>
+                <View style={{paddingBottom: config.otstupBottom}}>
                     <Text style={[styles.nameCategory, {color: dynamicStyles.color}]}>
                         {cat.name}
                     </Text>
@@ -81,7 +78,8 @@ const CategoryPage = (props) => {
                                                 description={prod.content}
                                                 sum={prod.price}
                                                 weight={220}
-                                                preview={`${serverUrl}/storage/${prod.preview}`}/>
+                                                preview={prod.preview ? `${serverUrl}/storage/${prod.preview}` : null}
+                                            />
                                         )
                                     }
                                 )
@@ -93,87 +91,6 @@ const CategoryPage = (props) => {
                     </View>
                 </View>
             </ScrollView>
-            {/*<Modal*/}
-            {/*    onRequestClose={hide}*/}
-            {/*    transparent={true}*/}
-            {/*    animated={false}*/}
-            {/*    visible={visible}*/}
-            {/*    statusBarTranslucent={true}*/}
-            {/*>*/}
-            {/*    {*/}
-            {/*        visible === true ? (*/}
-            {/*            <TouchableOpacity onPress={() => setVisible(false)}>*/}
-            {/*                <View style={{*/}
-            {/*                    // width: '100%',*/}
-            {/*                    height: '100%',*/}
-            {/*                    backgroundColor: 'black',*/}
-            {/*                    opacity: 0.6,*/}
-            {/*                    bottom: 75*/}
-            {/*                }}>*/}
-            {/*                </View>*/}
-            {/*            </TouchableOpacity>*/}
-            {/*        ) : null*/}
-            {/*    }*/}
-            {/*    {*/}
-            {/*        visible === false ? (*/}
-            {/*            <View>*/}
-            {/*                <Text> nothing </Text>*/}
-            {/*            </View>*/}
-            {/*        ) : (*/}
-            {/*            <View style={[styles.modal, {backgroundColor: dynamicStyles.bgColor}]}>*/}
-            {/*                <Text style={[styles.modalName, {color: dynamicStyles.color}]}>*/}
-            {/*                    Корзина*/}
-            {/*                </Text>*/}
-            {/*                <ScrollView>*/}
-            {/*                    <View style={{*/}
-            {/*                        rowGap: 16*/}
-            {/*                    }}>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/}
-            {/*                    </View>*/}
-            {/*                </ScrollView>*/}
-            {/*                <LineSvg style={{alignSelf: 'center'}}/>*/}
-            {/*                <View style={{*/}
-            {/*                    flexDirection: 'row',*/}
-            {/*                    justifyContent: 'center',*/}
-            {/*                    paddingTop: 16*/}
-            {/*                }}>*/}
-            {/*                    <Text style={{*/}
-            {/*                        fontFamily: 'Gilroy-Regular',*/}
-            {/*                        fontSize: 16,*/}
-            {/*                        color: "rgba(187, 187, 187, 1)",*/}
-            {/*                        lineHeight: 20,*/}
-            {/*                        alignSelf: 'center'*/}
-            {/*                        // padding: 16*/}
-            {/*                    }}>*/}
-            {/*                        Итого:*/}
-            {/*                    </Text>*/}
-            {/*                    <Text style={{*/}
-            {/*                        fontFamily: 'Gilroy-Regular',*/}
-            {/*                        fontSize: 16,*/}
-            {/*                        color: "rgba(187, 187, 187, 1)",*/}
-            {/*                        lineHeight: 20*/}
-            {/*                    }}>*/}
-            {/*                        {' '} 1 350 руб*/}
-            {/*                    </Text>*/}
-            {/*                </View>*/}
-            {/*                <View style={{*/}
-            {/*                    // paddingLeft: 72,*/}
-            {/*                    paddingTop: 16,*/}
-            {/*                    paddingBottom: 16*/}
-            {/*                }}>*/}
-            {/*                    <AddToCartBtn/>*/}
-            {/*                </View>*/}
-            {/*            </View>*/}
-            {/*        )*/}
-            {/*    }*/}
-            {/*</Modal>*/}
             <CartButton/>
             <Footer/>
         </SafeAreaView>
@@ -192,7 +109,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         paddingTop: 300,
-        alignItems: 'center'
     },
     objects: {
         alignItems: 'center',
@@ -251,3 +167,167 @@ const styles = StyleSheet.create({
 })
 
 export default CategoryPage
+
+
+{/*<Modal*/
+}
+{/*    onRequestClose={hide}*/
+}
+{/*    transparent={true}*/
+}
+{/*    animated={false}*/
+}
+{/*    visible={visible}*/
+}
+{/*    statusBarTranslucent={true}*/
+}
+{/*>*/
+}
+{/*    {*/
+}
+{/*        visible === true ? (*/
+}
+{/*            <TouchableOpacity onPress={() => setVisible(false)}>*/
+}
+{/*                <View style={{*/
+}
+{/*                    // width: '100%',*/
+}
+{/*                    height: '100%',*/
+}
+{/*                    backgroundColor: 'black',*/
+}
+{/*                    opacity: 0.6,*/
+}
+{/*                    bottom: 75*/
+}
+{/*                }}>*/
+}
+{/*                </View>*/
+}
+{/*            </TouchableOpacity>*/
+}
+{/*        ) : null*/
+}
+{/*    }*/
+}
+{/*    {*/
+}
+{/*        visible === false ? (*/
+}
+{/*            <View>*/
+}
+{/*                <Text> nothing </Text>*/
+}
+{/*            </View>*/
+}
+{/*        ) : (*/
+}
+{/*            <View style={[styles.modal, {backgroundColor: dynamicStyles.bgColor}]}>*/
+}
+{/*                <Text style={[styles.modalName, {color: dynamicStyles.color}]}>*/
+}
+{/*                    Корзина*/
+}
+{/*                </Text>*/
+}
+{/*                <ScrollView>*/
+}
+{/*                    <View style={{*/
+}
+{/*                        rowGap: 16*/
+}
+{/*                    }}>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                        <MiniCartProduct price={450} count={2} sum={900}/>*/
+}
+{/*                    </View>*/
+}
+{/*                </ScrollView>*/
+}
+{/*                <LineSvg style={{alignSelf: 'center'}}/>*/
+}
+{/*                <View style={{*/
+}
+{/*                    flexDirection: 'row',*/
+}
+{/*                    justifyContent: 'center',*/
+}
+{/*                    paddingTop: 16*/
+}
+{/*                }}>*/
+}
+{/*                    <Text style={{*/
+}
+{/*                        fontFamily: 'Gilroy-Regular',*/
+}
+{/*                        fontSize: 16,*/
+}
+{/*                        color: "rgba(187, 187, 187, 1)",*/
+}
+{/*                        lineHeight: 20,*/
+}
+{/*                        alignSelf: 'center'*/
+}
+{/*                        // padding: 16*/
+}
+{/*                    }}>*/
+}
+{/*                        Итого:*/
+}
+{/*                    </Text>*/
+}
+{/*                    <Text style={{*/
+}
+{/*                        fontFamily: 'Gilroy-Regular',*/
+}
+{/*                        fontSize: 16,*/
+}
+{/*                        color: "rgba(187, 187, 187, 1)",*/
+}
+{/*                        lineHeight: 20*/
+}
+{/*                    }}>*/
+}
+{/*                        {' '} 1 350 руб*/
+}
+{/*                    </Text>*/
+}
+{/*                </View>*/
+}
+{/*                <View style={{*/
+}
+{/*                    // paddingLeft: 72,*/
+}
+{/*                    paddingTop: 16,*/
+}
+{/*                    paddingBottom: 16*/
+}
+{/*                }}>*/
+}
+{/*                    <AddToCartBtn/>*/
+}
+{/*                </View>*/
+}
+{/*            </View>*/
+}
+{/*        )*/
+}
+{/*    }*/
+}
+{/*</Modal>*/
+}
