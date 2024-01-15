@@ -1,10 +1,11 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {View, Text, Image, TouchableOpacity, Dimensions} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
 import {config} from "../../../config";
 import {CartContext} from "../Context/Context";
 import 'react-native-gesture-handler'
+import axios from "axios";
 
 const ProductItem = ({ key, name, description, sum, weight, preview }) => {
     const  {theme} = useContext(ThemeContext)
@@ -161,14 +162,26 @@ const ProductItem = ({ key, name, description, sum, weight, preview }) => {
         }
     }
 
-    const {cart, setCart, findLineByProductId} = useContext(CartContext)
+    const {cart, findLineByProductId} = useContext(CartContext)
 
     let q = 0
-    const line = findLineByProductId()
-    if (line) {
-        q = line.Quantity
-    }
 
+    const line = findLineByProductId()
+    console.log(line)
+    const serverUrl = config.getProductUrl
+    const getCartById = () => {
+        axios.get(`${serverUrl}/api/carts/${cart.id}`, {headers: {'SubDomain': 'zaryadye'}})
+            .then(res => {
+                cart.id=(res.data.data.id)
+                console.log('GetCartById', cart.id)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+    useEffect(() => {
+        getCartById()
+    }, []);
 
     return (
         <View style={styles.container}>

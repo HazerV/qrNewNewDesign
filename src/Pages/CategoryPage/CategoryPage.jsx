@@ -95,6 +95,7 @@ const CategoryPage = (props) => {
         </SafeAreaView>
     )
 }
+
 const styles = StyleSheet.create({
     nameCategory: {
         fontFamily: 'Gilroy-SemiBold',

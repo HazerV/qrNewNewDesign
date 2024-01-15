@@ -15,21 +15,26 @@ const Context = ({children}) => {
     const [Category, setCategory] = useState([])
     const [Product, setProduct] = useState([])
 
-    let [cart = {
-        id,
+    let cart = {
+        id: {
+
+        },
         lines: [
             {
 
             }
-        ]
-    }, setCart] = useState([])
+        ],
+        totalPrice: {
 
+        }
+    }
     const serverUrl = config.getProductUrl
     const getCart = () => {
         axios.get(`${serverUrl}/api/carts`, {headers: {'SubDomain': 'zaryadye'}})
             .then(
                 res => {
-                    setCart(res.data.data)
+                    cart.id=(res.data.data.id)
+                    console.log('ctx', cart.id)
                 }
             )
             .catch(err => {
@@ -39,15 +44,12 @@ const Context = ({children}) => {
     useEffect(() => {
         getCart()
     }, []);
-
-
     function findLineByProductId (key) {
         return cart.lines.filter(l => l.productId = key)
     }
 
     const cartCtx = {
         cart,
-        setCart,
         findLineByProductId
     }
 
