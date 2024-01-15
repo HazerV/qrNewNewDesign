@@ -3,20 +3,12 @@ import {View, Text, Image, TouchableOpacity, Dimensions} from "react-native";
 import {ThemeContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
 import {config} from "../../../config";
+import {CartContext} from "../Context/Context";
 import 'react-native-gesture-handler'
-import {
-    LongPressGestureHandler,
-    GestureHandlerRootView,
-    State,
-    Gesture
-} from "react-native-gesture-handler";
-import Animated from "react-native-reanimated";
-import ZoomFunction from "./Zoom/ZoomFunction";
 
-const ProductItem = ({ name, description, sum, weight, preview }) => {
-    console.log(name , typeof preview)
+const ProductItem = ({ key, name, description, sum, weight, preview }) => {
+    const  {theme} = useContext(ThemeContext)
     const [open, setOpen] = useState(false)
-    const {theme} = useContext(ThemeContext)
     let styles = {
         container: {
             width: Dimensions.get('window').width -20,
@@ -169,6 +161,15 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
         }
     }
 
+    const {cart, setCart, findLineByProductId} = useContext(CartContext)
+
+    let q = 0
+    const line = findLineByProductId()
+    if (line) {
+        q = line.Quantity
+    }
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.name}>
@@ -204,28 +205,9 @@ const ProductItem = ({ name, description, sum, weight, preview }) => {
                     </TouchableOpacity>
                 </View>
             )}
-            {/*<View style={styles.imgPosititon}>*/}
-            {/*        <TouchableOpacity onPress={() => {*/}
-            {/*            open === false ? (*/}
-            {/*                setOpen(true)*/}
-            {/*            ) : (setOpen(false))*/}
-            {/*        }}>*/}
-            {/*            {*/}
-            {/*                open === false ? (*/}
-            {/*                    <Image style={styles.image} source={{uri: `${preview}`}}/>*/}
-            {/*                ) : (*/}
-            {/*                        <TouchableOpacity onPress={() => {*/}
-            {/*                            setOpen(false)*/}
-            {/*                        }} activeOpacity={1}>*/}
-            {/*                            <Image style={styles.openImage} source={{uri: `${preview}`}}/>*/}
-            {/*                        </TouchableOpacity>*/}
-            {/*                )*/}
-            {/*            }*/}
-            {/*        </TouchableOpacity>*/}
-            {/*</View>*/}
             <View style={styles.counterBlock}>
                 <View style={styles.counter}>
-                    <Counter/>
+                    <Counter q={q}/>
                 </View>
                 <View>
                     <Text style={styles.summa}>

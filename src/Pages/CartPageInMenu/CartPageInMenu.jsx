@@ -1,15 +1,20 @@
 import React, {useContext} from "react";
-import {View, Text, SafeAreaView, ScrollView} from "react-native";
+import {View, Text, SafeAreaView, ScrollView, StyleSheet} from "react-native";
 import LineSvg from '../../Components/Images/Line.svg'
 import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartProduct";
 import AddToCartBtn from "../CategoryPage/AddToCartBtn";
-import CartButton from "../../Components/CartComponents/CartModal/CartButton";
+// import CartButton from "../../Components/CartComponents/CartModal/CartButton";
 import Footer from "../../Components/Footer/Footer";
 import {ThemeContext} from "../../Components/Context/Context";
 import {config} from "../../../config";
 
 const CartPageInMenu = () => {
     const {theme} = useContext(ThemeContext)
+
+    const dymanicStyles = {
+        bgColor: theme === 'light' ? 'white' : '#333333',
+        textColor: theme === 'light' ? 'black' : 'white'
+    }
 
     return (
         <SafeAreaView style={{
@@ -80,7 +85,12 @@ const CartPageInMenu = () => {
             <Footer />
         </SafeAreaView>
     )
-
 }
+
+const styles = StyleSheet.create({
+    areaView: {
+
+    }
+})
 
 export default CartPageInMenu

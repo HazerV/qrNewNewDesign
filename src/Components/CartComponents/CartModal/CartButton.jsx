@@ -4,12 +4,12 @@ import {ThemeContext} from "../../Context/Context";
 import {config} from "../../../../config";
 import {useNavigation} from "@react-navigation/native";
 
-const CartButton = ({onPress}) => {
+const CartButton = ({sum, quantity}) => {
 
     const navigation = useNavigation()
     const {theme} = useContext(ThemeContext)
 
-    const sum = 4100
+
     const count = 9
     const styles = {
         container: {
@@ -50,7 +50,7 @@ const CartButton = ({onPress}) => {
                     {sum} руб
                 </Text>
                 <Text style={styles.count}>
-                    {count} товаров
+                    {quantity} товаров
                 </Text>
             </View>
         </Pressable>

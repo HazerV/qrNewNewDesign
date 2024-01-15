@@ -7,54 +7,36 @@ import PlusW from '../Counter/PlusW.svg'
 import {ThemeContext} from "../../Context/Context";
 import {config} from "../../../../config";
 
-const Counter = () => {
+const Counter = (q) => {
 
     const [count, setCount] = useState(0)
     const {theme} = useContext(ThemeContext)
+    const dynamicStyles = {
+        borderColor: count === 0 ? config.accentColorNonActive : config.accentColor,
+        bgColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
+        textColor: theme === 'light' ? 'black' : 'white'
+    }
 
-    const styles = StyleSheet.create({
-        container: {
-            justifyContent: 'center',
-            width: 100,
-            height: 50,
-            backgroundColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
-            borderRadius: 14,
-            borderColor: count === 0 ? config.accentColorNonActive : config.accentColor,
-            borderWidth: 2,
-            alignItems: 'center',
-            flexDirection: 'row',
-            rowGap: 20,
-        },
-        countValue: {
-            fontSize: 18,
-            lineHeight: 22,
-            fontFamily: 'Gilroy-Regular',
-            color: theme === 'light' ? 'black' : 'white',
-        },
-        minus: {
-            flexDirection: 'row',
-            columnGap: 15,
-            borderRadius: 2,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderColor: 'rgba(255, 122, 0, 1)',
-        }
-    })
+    q = count
+    console.log(q)
     return (
         <TouchableOpacity onPress={() => {
             {
                 count === 0 ? (
-                    setCount(count + 1)
+                    setCount(q + 1)
                 ) : null
             }
         }}>
-            <View style={styles.container}>
+            <View style={[styles.container, {
+                borderColor: dynamicStyles.borderColor,
+                backgroundColor: dynamicStyles.bgColor
+            }]}>
                 {
                     count === 0 ?
                         (
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    setCount(count + 1)
+                                    setCount(q + 1)
                                 }}
                                 hitSlop={15}>
                                     <View>
@@ -68,12 +50,10 @@ const Counter = () => {
                                     </View>
                                 </TouchableOpacity>
                             </View>
-                        )
-                        :
-                        (
+                        ) : (
                             <View style={styles.minus}>
                                 <TouchableOpacity onPress={() => {
-                                    setCount(count - 1)
+                                    setCount(q - 1)
                                 }} hitSlop={16}>
                                     <View>
                                         {
@@ -86,13 +66,15 @@ const Counter = () => {
                                         }
                                     </View>
                                 </TouchableOpacity>
-                                <Text style={styles.countValue}>
-                                    {count}
+                                <Text style={[styles.countValue, {
+                                    color: dynamicStyles.textColor
+                                }]}>
+                                    {q}
                                 </Text>
                                 {
                                     theme === 'light' ? (
                                         <TouchableOpacity onPress={() => {
-                                            setCount(count + 1)
+                                            setCount(q + 1)
                                         }} hitSlop={18}>
                                             <View style={{
                                                 marginLeft: 5,
@@ -104,7 +86,7 @@ const Counter = () => {
                                         </TouchableOpacity>
                                     ) : (
                                         <TouchableOpacity onPress={() => {
-                                            setCount(count + 1)
+                                            setCount(q + 1)
                                         }} hitSlop={18}>
                                             <View style={{
                                                 borderRadius: 2,
@@ -121,7 +103,32 @@ const Counter = () => {
             </View>
         </TouchableOpacity>
     )
-
 }
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        width: 100,
+        height: 50,
+        borderRadius: 14,
+        borderWidth: 2,
+        alignItems: 'center',
+        flexDirection: 'row',
+        rowGap: 20,
+    },
+    countValue: {
+        fontSize: 18,
+        lineHeight: 22,
+        fontFamily: 'Gilroy-Regular',
+    },
+    minus: {
+        flexDirection: 'row',
+        columnGap: 15,
+        borderRadius: 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: 'rgba(255, 122, 0, 1)',
+    }
+})
 
 export default Counter

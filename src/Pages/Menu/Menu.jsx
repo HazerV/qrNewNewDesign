@@ -16,7 +16,6 @@ const Home = () => {
         <SafeAreaView style={{
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
             height: '100%',
-
         }}>
             <ScrollView>
                 <View style={[styles.container, {backgroundColor: dynamicStyles.bgColor}]}>
@@ -36,7 +35,6 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        // width: Dimensions.get('window').width
     },
     headName: {
         fontSize: 24,

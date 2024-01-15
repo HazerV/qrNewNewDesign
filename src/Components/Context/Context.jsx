@@ -1,38 +1,56 @@
+import React, {useEffect} from "react";
 import {createContext, useState} from "react";
-import {Appearance} from "react-native";
-
+import axios from "axios";
+import {config} from "../../../config";
 const ThemeContext = createContext()
 const CartContext = createContext()
 const PageContext = createContext()
-const BonusContext = createContext()
 const CategoryContext = createContext()
 const ProductContext = createContext()
 
-
 const Context = ({children}) => {
-    // const [useBonus, setUseBonus] = useState('')
     const [theme, SetTheme] = useState('light')
-    const colorSheme = Appearance.getColorScheme()
-    if (colorSheme === 'dark' ) {
-        SetTheme('dark')
-    }
     const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
     const [Category, setCategory] = useState([])
-    console.log('ss' + colorSheme)
     const [Product, setProduct] = useState([])
-    const increment = () => {
-        setCartItems((prevItems) =>
-            prevItems.map((item) =>
-                item.id === id ? {...item, quantity: item.quantity + 1} : item))
+
+    let [cart = {
+        id,
+        lines: [
+            {
+
+            }
+        ]
+    }, setCart] = useState([])
+
+    const serverUrl = config.getProductUrl
+    const getCart = () => {
+        axios.get(`${serverUrl}/api/carts`, {headers: {'SubDomain': 'zaryadye'}})
+            .then(
+                res => {
+                    setCart(res.data.data)
+                }
+            )
+            .catch(err => {
+                console.log(err)
+            })
     }
-    const decrement = (id) => {
-        setCartItems((prevItems) =>
-            prevItems.map((item) => item.id === id && item.quantity > 1 ? {
-                ...item,
-                quantity: item.quantity - 1
-            } : item))
+    useEffect(() => {
+        getCart()
+    }, []);
+
+
+    function findLineByProductId (key) {
+        return cart.lines.filter(l => l.productId = key)
     }
+
+    const cartCtx = {
+        cart,
+        setCart,
+        findLineByProductId
+    }
+
     const prodCon = {
         Product,
         setProduct
@@ -49,24 +67,18 @@ const Context = ({children}) => {
         route,
         setRoute
     }
-    const card = {
-        cartItems,
-        setCartItems,
-        increment,
-        decrement
-    }
 
     return (
         <ThemeContext.Provider value={context}>
-            <CartContext.Provider value={card}>
-                <PageContext.Provider value={pages}>
-                    <CategoryContext.Provider value={catCon}>
+            <PageContext.Provider value={pages}>
+                <CategoryContext.Provider value={catCon}>
+                    <CartContext.Provider value={cartCtx}>
                         <ProductContext.Provider value={prodCon}>
-                            {children}
+                        {children}
                         </ProductContext.Provider>
-                    </CategoryContext.Provider>
-                </PageContext.Provider>
-            </CartContext.Provider>
+                    </CartContext.Provider>
+                </CategoryContext.Provider>
+            </PageContext.Provider>
         </ThemeContext.Provider>
     )
 }
@@ -79,3 +91,16 @@ export {
     CategoryContext,
     ProductContext
 }
+
+// const increment = () => {
+//     setCartItems((prevItems) =>
+//         prevItems.map((item) =>
+//             item.id === id ? {...item, quantity: item.quantity + 1} : item))
+// }
+// const decrement = (id) => {
+//     setCartItems((prevItems) =>
+//         prevItems.map((item) => item.id === id && item.quantity > 1 ? {
+//             ...item,
+//             quantity: item.quantity - 1
+//         } : item))
+// }

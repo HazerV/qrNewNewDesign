@@ -58,7 +58,6 @@ const CategoryPage = (props) => {
     const [scrollEnabled, setScrollEnabled] = useState(true);
 
     return (
-
         <SafeAreaView style={{backgroundColor: bgColor, alignSelf: 'center'}}>
             <ScrollView>
                 <View style={{paddingBottom: config.otstupBottom}}>
@@ -71,9 +70,9 @@ const CategoryPage = (props) => {
                                 Product.map((prod) => {
                                         return (
                                             <ProductItem
-                                                key={prod.id}
                                                 scrollEnabled={scrollEnabled}
                                                 setScrollEnabled={setScrollEnabled}
+                                                key={prod.id}
                                                 name={prod.name}
                                                 description={prod.content}
                                                 sum={prod.price}
@@ -91,7 +90,7 @@ const CategoryPage = (props) => {
                     </View>
                 </View>
             </ScrollView>
-            <CartButton/>
+            <CartButton sum={1000} quantity={1}/>
             <Footer/>
         </SafeAreaView>
     )
