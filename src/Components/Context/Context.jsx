@@ -10,47 +10,38 @@ const ProductContext = createContext()
 
 const Context = ({children}) => {
     const [theme, SetTheme] = useState('light')
-    const [cartItems, setCartItems] = useState([])
     const [route, setRoute] = useState('')
     const [Category, setCategory] = useState([])
     const [Product, setProduct] = useState([])
 
-    let cart = {
-        id: {
-
-        },
+    let cart = [{
+        id: {},
         lines: [
-            {
-
-            }
+            {}
         ],
-        totalPrice: {
+        totalPrice: {}
+    }]
 
-        }
-    }
-    const serverUrl = config.getProductUrl
-    const getCart = () => {
-        axios.get(`${serverUrl}/api/carts`, {headers: {'SubDomain': 'zaryadye'}})
-            .then(
-                res => {
-                    cart.id=(res.data.data.id)
-                    console.log('ctx', cart.id)
-                }
-            )
-            .catch(err => {
-                console.log(err)
-            })
-    }
-    useEffect(() => {
-        getCart()
-    }, []);
-    function findLineByProductId (key) {
-        return cart.lines.filter(l => l.productId = key)
-    }
+    // const serverUrl = config.getProductUrl
+    // const getCart = () => {
+    //     axios.get(`${serverUrl}/api/carts`, {headers: {'SubDomain': 'zaryadye'}})
+    //         .then(
+    //             res => {
+    //                 cart.id=(res.data.data.id)
+    //                 console.log('ctx', cart.id)
+    //             }
+    //         )
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }
+
+    // function findLineByProductId (key) {
+    //     return cart.lines.filter(l => l.productId = key)
+    // }
 
     const cartCtx = {
         cart,
-        findLineByProductId
     }
 
     const prodCon = {

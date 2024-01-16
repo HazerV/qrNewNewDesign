@@ -9,6 +9,7 @@ import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
 import {useNavigation} from "@react-navigation/native";
 import {config} from "../../../config";
+import ApiService from "../../Components/ApiService/ApiService";
 const Home = () => {
 
     const {theme} = useContext(ThemeContext)
@@ -16,7 +17,9 @@ const Home = () => {
     const dynamicSt = {
         color: theme === 'light' ? 'black' : 'white',
     }
+    ApiService()
     return (
+
         <SafeAreaView style={{
             backgroundColor: theme === 'dark' ? '#333333' : 'white',
             height: '100%'
