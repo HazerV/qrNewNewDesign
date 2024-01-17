@@ -8,24 +8,24 @@ import {
     StyleSheet,
     ActivityIndicator
 } from "react-native";
-import {ThemeContext, ProductContext} from "../../Components/Context/Context";
+import {ThemeContext, ProductContext, CartContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import ProductItem from "../../Components/ProductItem/ProductItem";
 import CartButton from "../../Components/CartComponents/CartModal/CartButton";
 import axios from "axios";
 import {config} from "../../../config";
+import ApiService from "../../Components/ApiService/ApiService";
 
 const CategoryPage = (props) => {
 
-    const show = () => setVisible(true)
-    const hide = () => setVisible(false)
-    const {theme} = useContext(ThemeContext)
-    const [visible, setVisible] = useState(false)
-
     let cat = props.route.params.cat
+    const cartId = useContext(CartContext)
+    console.log('St', cartId)
+    const {theme} = useContext(ThemeContext)
     const serverUrl = config.getProductUrl
     const {Product, setProduct} = useContext(ProductContext)
     const [loading, setLoading] = useState(false)
+
     const getProduct = () => {
         setLoading(true)
         axios.get(`${serverUrl}/api/${cat.slug}/products`, {headers: {'SubDomain': 'zaryadye'}})
@@ -56,6 +56,7 @@ const CategoryPage = (props) => {
         bgColor: theme === 'dark' ? 'rgba(51, 51, 51, 1)' : 'white',
     }
     const [scrollEnabled, setScrollEnabled] = useState(true);
+
 
     return (
         <SafeAreaView style={{backgroundColor: bgColor, alignSelf: 'center'}}>

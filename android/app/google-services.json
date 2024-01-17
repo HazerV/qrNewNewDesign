@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "815341380123",
+    "project_id": "qrmenunew",
+    "storage_bucket": "qrmenunew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815341380123:android:5610068c40950d71308ebe",
+        "android_client_info": {
+          "package_name": "com.vovakra2.qrNewNew"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx1bh6eyGUAi5C4QZq4sjs-UPp7-rDF-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

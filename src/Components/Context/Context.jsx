@@ -14,34 +14,21 @@ const Context = ({children}) => {
     const [Category, setCategory] = useState([])
     const [Product, setProduct] = useState([])
 
+    const [cartId, setCartId] = useState([])
+
     let cart = [{
-        id: {},
+        id: {cartId},
         lines: [
             {}
         ],
         totalPrice: {}
     }]
 
-    // const serverUrl = config.getProductUrl
-    // const getCart = () => {
-    //     axios.get(`${serverUrl}/api/carts`, {headers: {'SubDomain': 'zaryadye'}})
-    //         .then(
-    //             res => {
-    //                 cart.id=(res.data.data.id)
-    //                 console.log('ctx', cart.id)
-    //             }
-    //         )
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }
-
-    // function findLineByProductId (key) {
-    //     return cart.lines.filter(l => l.productId = key)
-    // }
 
     const cartCtx = {
         cart,
+        cartId,
+        setCartId
     }
 
     const prodCon = {

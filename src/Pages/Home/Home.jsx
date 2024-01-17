@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {View, Text, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions} from "react-native";
-import {ThemeContext} from "../../Components/Context/Context";
+import {CartContext, ThemeContext} from "../../Components/Context/Context";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import AcceptOrd from "./AcceptOrd";
@@ -10,14 +10,20 @@ import TrueShop from '../../Components/TrueShop/TrueShop'
 import {useNavigation} from "@react-navigation/native";
 import {config} from "../../../config";
 import ApiService from "../../Components/ApiService/ApiService";
+import Storage from "../../Storage/Storage";
+
 const Home = () => {
+
+    ApiService()
 
     const {theme} = useContext(ThemeContext)
     const navigation = useNavigation()
     const dynamicSt = {
         color: theme === 'light' ? 'black' : 'white',
     }
-    ApiService()
+    const {cartId} = useContext(CartContext)
+    console.log(cartId)
+
     return (
 
         <SafeAreaView style={{

@@ -162,26 +162,11 @@ const ProductItem = ({ key, name, description, sum, weight, preview }) => {
         }
     }
 
-    const {cart, findLineByProductId} = useContext(CartContext)
+    const {cart} = useContext(CartContext)
 
     let q = 0
 
-    const line = findLineByProductId()
-    console.log(line)
     const serverUrl = config.getProductUrl
-    const getCartById = () => {
-        axios.get(`${serverUrl}/api/carts/${cart.id}`, {headers: {'SubDomain': 'zaryadye'}})
-            .then(res => {
-                cart.id=(res.data.data.id)
-                console.log('GetCartById', cart.id)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-    useEffect(() => {
-        getCartById()
-    }, []);
 
     return (
         <View style={styles.container}>
