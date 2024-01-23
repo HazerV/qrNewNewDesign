@@ -7,7 +7,6 @@ import PlusW from '../Counter/PlusW.svg'
 import {CartContext, ThemeContext, LineContext} from "../../Context/Context";
 import {config} from "../../../../config";
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Counter = ({id, q}) => {
 
@@ -18,11 +17,7 @@ const Counter = ({id, q}) => {
         bgColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
         textColor: theme === 'light' ? 'black' : 'white'
     }
-    const {line, setLine} = useContext(LineContext)
     const {cartId} = useContext(CartContext)
-    console.log('id: ', cartId)
-
-    console.log(cartId, 'count')
     function addToCart() {
         useEffect(() => {
             axios.post(`${config.server}/carts/${cartId}/lines`, {
@@ -37,10 +32,22 @@ const Counter = ({id, q}) => {
                 })
         }, []);
     }
+    function removeFromCart () {
+        useEffect(() => {
+            axios.delete(`${config.server}/carts/${cartId}/lines.`, {
+                headers: {'SubDomain': 'zaryadye'}
+            })
+        }, []);
+    }
 
+    function putCart () {
+        useEffect(() => {
+            axios.put(`${config.server}/carts/${cartId}/lines`)
+        }, []);
+    }
+    addToCart()
     console.log('inCounter', cartId)
-    q = count
-    console.log(q)
+
     return (
         <TouchableOpacity onPress={() => {
             {

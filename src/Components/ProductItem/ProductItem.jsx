@@ -162,9 +162,7 @@ const ProductItem = ({ id, name, description, sum, weight, preview }) => {
         }
     }
 
-    const {line, setLine} = useContext(LineContext)
     let q = 0
-
 
     return (
         <View style={styles.container}>

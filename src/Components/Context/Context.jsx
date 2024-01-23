@@ -11,6 +11,7 @@ const CategoryContext = createContext()
 const ProductContext = createContext()
 const LineContext = createContext()
 
+
 const Context = ({children}) => {
     const [theme, SetTheme] = useState('light')
     const [route, setRoute] = useState('')
@@ -53,6 +54,8 @@ const Context = ({children}) => {
         setRoute
     }
 
+
+
     useEffect(() => {
         (async function () {
             const ci = await AsyncStorage.getItem('cartId');
@@ -64,7 +67,7 @@ const Context = ({children}) => {
                         console.log('CART ERROR: ', err)
                     })
                 setCartId(res.data.id)
-                console.log('1 cart ', res)
+                // console.log('1 cart ', res)
             } else {
                 const res = await axios.get(`${config.server}/carts`, {headers: {'SubDomain': 'zaryadye'}})
                     .then(res => res.data.data)
@@ -74,7 +77,6 @@ const Context = ({children}) => {
                 await AsyncStorage.setItem('cartId', res.id.toString());
             }
         })()
-        // console.log('cii', cartId)
     }, []);
 
     return (
@@ -85,6 +87,7 @@ const Context = ({children}) => {
                         <ProductContext.Provider value={prodCon}>
                             <LineContext.Provider value={linez}>
                                 {children}
+
                             </LineContext.Provider>
                         </ProductContext.Provider>
                     </CartContext.Provider>
@@ -93,7 +96,6 @@ const Context = ({children}) => {
         </ThemeContext.Provider>
     )
 }
-
 export {
     Context,
     ThemeContext,
@@ -101,7 +103,7 @@ export {
     PageContext,
     CategoryContext,
     ProductContext,
-    LineContext
+    LineContext,
 }
 
 // const increment = () => {
