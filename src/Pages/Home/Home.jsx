@@ -9,12 +9,10 @@ import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
 import {useNavigation} from "@react-navigation/native";
 import {config} from "../../../config";
-import ApiService from "../../Components/ApiService/ApiService";
 import Storage from "../../Storage/Storage";
 
 const Home = () => {
 
-    ApiService()
 
     const {theme} = useContext(ThemeContext)
     const navigation = useNavigation()

@@ -1,20 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import useFonts from './assets/fonts/fonts'
 import AppLoading from 'expo-app-loading'
 import Navigation from "./routes/Navigation";
 import 'react-native-gesture-handler'
 import {Context} from "./src/Components/Context/Context";
+import ApiService from './src/Components/ApiService/ApiService'
+import axios from "axios";
 
 const App = () => {
 
     const [IsReady, SetIsReady] = useState(false)
-    const LoadFonts = async () => {
+    const Load = async () => {
         await useFonts()
+
     }
     if (!IsReady) {
         return (
             <AppLoading
-                startAsync={LoadFonts}
+                startAsync={Load}
                 onFinish={() => SetIsReady(true)}
                 onError={() => {
                 }}

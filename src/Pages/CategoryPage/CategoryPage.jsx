@@ -32,10 +32,7 @@ const CategoryPage = (props) => {
             .then(
                 res => {
                     setProduct(res.data.data.products)
-
-                        setLoading(false)
-                }
-            )
+                    setLoading(false) })
             .catch(err => {
                 console.log(err)
                 setLoading(false)
@@ -57,7 +54,6 @@ const CategoryPage = (props) => {
     }
     const [scrollEnabled, setScrollEnabled] = useState(true);
 
-
     return (
         <SafeAreaView style={{backgroundColor: bgColor, alignSelf: 'center'}}>
             <ScrollView>
@@ -73,7 +69,7 @@ const CategoryPage = (props) => {
                                             <ProductItem
                                                 scrollEnabled={scrollEnabled}
                                                 setScrollEnabled={setScrollEnabled}
-                                                key={prod.id}
+                                                id={prod.id}
                                                 name={prod.name}
                                                 description={prod.content}
                                                 sum={prod.price}

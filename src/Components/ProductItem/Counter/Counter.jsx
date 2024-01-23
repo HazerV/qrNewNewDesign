@@ -1,13 +1,15 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 import PlusBSvg from '../Counter/PlusB.svg'
 import MinusBSvg from '../Counter/MinusB.svg'
 import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
-import {ThemeContext} from "../../Context/Context";
+import {CartContext, ThemeContext, LineContext} from "../../Context/Context";
 import {config} from "../../../../config";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Counter = (q) => {
+const Counter = ({id, q}) => {
 
     const [count, setCount] = useState(0)
     const {theme} = useContext(ThemeContext)
@@ -16,7 +18,27 @@ const Counter = (q) => {
         bgColor: theme === 'light' ? 'white' : config.buttonBackgroundDark,
         textColor: theme === 'light' ? 'black' : 'white'
     }
+    const {line, setLine} = useContext(LineContext)
+    const {cartId} = useContext(CartContext)
+    console.log('id: ', cartId)
 
+    console.log(cartId, 'count')
+    function addToCart() {
+        useEffect(() => {
+            axios.post(`${config.server}/carts/${cartId}/lines`, {
+                productId: id,
+                quantity: q
+            }, {headers: {'SubDomain': 'zaryadye'}})
+                .then((res) => {
+                    console.log(res.data.data.id)
+                })
+                .catch((err) => {
+                    console.log('POST PROD ERR: ', err)
+                })
+        }, []);
+    }
+
+    console.log('inCounter', cartId)
     q = count
     console.log(q)
     return (

@@ -1,14 +1,14 @@
 import React, {useContext, useEffect, useState} from "react";
 import {View, Text, Image, TouchableOpacity, Dimensions} from "react-native";
-import {ThemeContext} from "../Context/Context";
+import {LineContext, ThemeContext} from "../Context/Context";
 import Counter from "./Counter/Counter";
 import {config} from "../../../config";
 import {CartContext} from "../Context/Context";
 import 'react-native-gesture-handler'
 import axios from "axios";
 
-const ProductItem = ({ key, name, description, sum, weight, preview }) => {
-    const  {theme} = useContext(ThemeContext)
+const ProductItem = ({ id, name, description, sum, weight, preview }) => {
+    const {theme} = useContext(ThemeContext)
     const [open, setOpen] = useState(false)
     let styles = {
         container: {
@@ -162,11 +162,9 @@ const ProductItem = ({ key, name, description, sum, weight, preview }) => {
         }
     }
 
-    const {cart} = useContext(CartContext)
-
+    const {line, setLine} = useContext(LineContext)
     let q = 0
 
-    const serverUrl = config.getProductUrl
 
     return (
         <View style={styles.container}>
@@ -205,7 +203,7 @@ const ProductItem = ({ key, name, description, sum, weight, preview }) => {
             )}
             <View style={styles.counterBlock}>
                 <View style={styles.counter}>
-                    <Counter q={q}/>
+                    <Counter q={q} name={name} id={id} sum={sum} description={description} preview={preview} weight={weight}/>
                 </View>
                 <View>
                     <Text style={styles.summa}>
