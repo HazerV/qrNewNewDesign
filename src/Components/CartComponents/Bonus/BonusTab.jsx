@@ -1,12 +1,14 @@
 import React, {useContext, useState} from "react";
 import {View, Text, TouchableOpacity, TextInput} from "react-native";
-import {ThemeContext} from "../../Context/Context";
+import {CartContext, ThemeContext} from "../../Context/Context";
 import ArrowWhiteSvg from '../icons/ArrowWhite.svg'
 import ArrowBlackSvg from '../icons/ArrowBlack.svg'
 import {config} from "../../../../config";
 const BonusTab = () => {
 
     const {theme} = useContext(ThemeContext);
+    const {price} = useContext(CartContext)
+
 
     const styles = {
         container: {
@@ -99,8 +101,8 @@ const BonusTab = () => {
         }
     }
 
-    const summa = 1350
-    const countBonuses = 600;
+    const summa = price
+    const countBonuses = 200;
     const bonusesToUse = countBonuses/2;
     const [useBonus, setUseBonus] = useState('0');
     const [bonusState, setBonusState] = useState(bonusesToUse)
@@ -164,7 +166,7 @@ const BonusTab = () => {
                             Подытог:
                         </Text>
                         <Text style={styles.itogRowRight}>
-                            {summa} руб
+                            {price} руб
                         </Text>
                     </View>
                     <View style={styles.itogRow}>

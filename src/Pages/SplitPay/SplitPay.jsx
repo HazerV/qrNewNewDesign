@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {SafeAreaView, ScrollView, Text, View, StyleSheet} from "react-native";
 import Footer from "../../Components/Footer/Footer";
-import {ThemeContext} from "../../Components/Context/Context";
+import {CartContext, ThemeContext} from "../../Components/Context/Context";
 import LineSvg from '../../Components/Images/Line.svg'
 import MiniProductForPay from "../../Components/CartComponents/MiniProductForPay";
 import PayButton from "../../Components/CartComponents/PayButton/PayButton";
@@ -10,12 +10,12 @@ import {config} from "../../../config";
 
 const SplitPay = () => {
 
+    const {price, sumQuantity} = useContext(CartContext)
     const {theme} = useContext(ThemeContext)
     const dynamicStyles = {
         color: theme === 'light' ? 'black' : 'white'
     }
-    const sum = 1150
-    const count = 2
+
     return (
         <SafeAreaView style={[styles.areaView,
             {
@@ -29,7 +29,7 @@ const SplitPay = () => {
                             Раздельная оплата
                         </Text>
                         <Text style={[styles.underHeadText, {color: dynamicStyles.color}]}>
-                            Вы выбрали {count} товара на сумму 1350 руб
+                            Вы выбрали {sumQuantity} товара на сумму {price} руб
                         </Text>
                     </View>
                     <LineSvg style={{ padding: 24 }}/>
@@ -46,7 +46,7 @@ const SplitPay = () => {
                             Итого:
                         </Text>
                         <Text style={[styles.sumRubText, {color: dynamicStyles.color}]}>
-                            {sum} руб
+                            {price} руб
                         </Text>
                     </View>
                     <View style={{paddingBottom: config.otstupBottom}}>

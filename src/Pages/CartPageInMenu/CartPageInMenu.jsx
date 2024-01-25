@@ -5,7 +5,7 @@ import MiniCartProduct from "../../Components/CartComponents/CartModal/MiniCartP
 import AddToCartBtn from "../CategoryPage/AddToCartBtn";
 // import CartButton from "../../Components/CartComponents/CartModal/CartButton";
 import Footer from "../../Components/Footer/Footer";
-import {ThemeContext} from "../../Components/Context/Context";
+import {CartContext, ThemeContext} from "../../Components/Context/Context";
 import {config} from "../../../config";
 
 const CartPageInMenu = () => {
@@ -15,6 +15,7 @@ const CartPageInMenu = () => {
         bgColor: theme === 'light' ? 'white' : '#333333',
         textColor: theme === 'light' ? 'black' : 'white'
     }
+    const {price} = useContext(CartContext)
 
     return (
         <SafeAreaView style={{
@@ -48,11 +49,6 @@ const CartPageInMenu = () => {
                         <MiniCartProduct price={450} count={2} sum={900}/>
                         <MiniCartProduct price={450} count={2} sum={900}/>
                         <MiniCartProduct price={450} count={2} sum={900}/>
-                        {/*<MiniCartProduct price={450} count={2} sum={900}/>*/}
-                        {/*<MiniCartProduct price={450} count={2} sum={900}/>*/}
-                        {/*<MiniCartProduct price={450} count={2} sum={900}/>*/}
-                        {/*<MiniCartProduct price={450} count={2} sum={900}/>*/}
-                        {/*<MiniCartProduct price={450} count={2} sum={900}/>*/}
                     </View>
                     <LineSvg style={{
                         padding: 24
@@ -76,7 +72,7 @@ const CartPageInMenu = () => {
                                 fontFamily: 'Gilroy-Regular',
                                 color: theme === 'light' ? 'black' : 'white'
                             }}>
-                                1300 руб
+                                {price} руб
                             </Text>
                         </View>
                         <AddToCartBtn />

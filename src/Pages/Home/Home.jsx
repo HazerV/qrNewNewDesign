@@ -9,7 +9,6 @@ import ChangeButton from "./ChangeButton";
 import TrueShop from '../../Components/TrueShop/TrueShop'
 import {useNavigation} from "@react-navigation/native";
 import {config} from "../../../config";
-import Storage from "../../Storage/Storage";
 
 const Home = () => {
 

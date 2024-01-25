@@ -162,8 +162,6 @@ const ProductItem = ({ id, name, description, sum, weight, preview }) => {
         }
     }
 
-    let q = 0
-
     return (
         <View style={styles.container}>
             <Text style={styles.name}>
@@ -201,7 +199,7 @@ const ProductItem = ({ id, name, description, sum, weight, preview }) => {
             )}
             <View style={styles.counterBlock}>
                 <View style={styles.counter}>
-                    <Counter q={q} name={name} id={id} sum={sum} description={description} preview={preview} weight={weight}/>
+                    <Counter q={0} name={name} id={id} sum={sum} description={description} preview={preview} weight={weight}/>
                 </View>
                 <View>
                     <Text style={styles.summa}>

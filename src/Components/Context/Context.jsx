@@ -9,7 +9,6 @@ const CartContext = createContext()
 const PageContext = createContext()
 const CategoryContext = createContext()
 const ProductContext = createContext()
-const LineContext = createContext()
 
 
 const Context = ({children}) => {
@@ -17,25 +16,26 @@ const Context = ({children}) => {
     const [route, setRoute] = useState('')
     const [Category, setCategory] = useState([])
     const [Product, setProduct] = useState([])
-
+    const [price, setPrice] = useState(1)
     const [cartId, setCartId] = useState(0)
     const [line, setLine] = useState([])
-
-    const linez = {
-        line,
-        setLine
-    }
+    const [sumQuantity, setSumQuantity] = useState(1)
 
     let cart = {
         id: cartId,
         lines: [line],
-        totalPrice: {}
+        totalPrice: {price}
     }
-
     const cartCtx = {
         cart,
+        price,
+        setPrice,
         cartId,
-        setCartId
+        setCartId,
+        line,
+        setLine,
+        sumQuantity,
+        setSumQuantity
     }
     const prodCon = {
         Product,
@@ -54,8 +54,6 @@ const Context = ({children}) => {
         setRoute
     }
 
-
-
     useEffect(() => {
         (async function () {
             const ci = await AsyncStorage.getItem('cartId');
@@ -67,7 +65,6 @@ const Context = ({children}) => {
                         console.log('CART ERROR: ', err)
                     })
                 setCartId(res.data.id)
-                // console.log('1 cart ', res)
             } else {
                 const res = await axios.get(`${config.server}/carts`, {headers: {'SubDomain': 'zaryadye'}})
                     .then(res => res.data.data)
@@ -85,10 +82,7 @@ const Context = ({children}) => {
                 <CategoryContext.Provider value={catCon}>
                     <CartContext.Provider value={cartCtx}>
                         <ProductContext.Provider value={prodCon}>
-                            <LineContext.Provider value={linez}>
-                                {children}
-
-                            </LineContext.Provider>
+                            {children}
                         </ProductContext.Provider>
                     </CartContext.Provider>
                 </CategoryContext.Provider>
@@ -103,18 +97,4 @@ export {
     PageContext,
     CategoryContext,
     ProductContext,
-    LineContext,
 }
-
-// const increment = () => {
-//     setCartItems((prevItems) =>
-//         prevItems.map((item) =>
-//             item.id === id ? {...item, quantity: item.quantity + 1} : item))
-// }
-// const decrement = (id) => {
-//     setCartItems((prevItems) =>
-//         prevItems.map((item) => item.id === id && item.quantity > 1 ? {
-//             ...item,
-//             quantity: item.quantity - 1
-//         } : item))
-// }

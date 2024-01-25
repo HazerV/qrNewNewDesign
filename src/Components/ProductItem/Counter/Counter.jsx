@@ -4,12 +4,11 @@ import PlusBSvg from '../Counter/PlusB.svg'
 import MinusBSvg from '../Counter/MinusB.svg'
 import MinusW from '../Counter/MinusW.svg'
 import PlusW from '../Counter/PlusW.svg'
-import {CartContext, ThemeContext, LineContext} from "../../Context/Context";
+import {CartContext, ThemeContext} from "../../Context/Context";
 import {config} from "../../../../config";
 import axios from "axios";
 
 const Counter = ({id, q}) => {
-
     const [count, setCount] = useState(0)
     const {theme} = useContext(ThemeContext)
     const dynamicStyles = {
@@ -18,6 +17,10 @@ const Counter = ({id, q}) => {
         textColor: theme === 'light' ? 'black' : 'white'
     }
     const {cartId} = useContext(CartContext)
+
+    // console.log('id: ', cartId)
+    // console.log(cartId, 'count')
+
     function addToCart() {
         useEffect(() => {
             axios.post(`${config.server}/carts/${cartId}/lines`, {
@@ -32,6 +35,7 @@ const Counter = ({id, q}) => {
                 })
         }, []);
     }
+
     function removeFromCart () {
         useEffect(() => {
             axios.delete(`${config.server}/carts/${cartId}/lines.`, {
@@ -45,9 +49,9 @@ const Counter = ({id, q}) => {
             axios.put(`${config.server}/carts/${cartId}/lines`)
         }, []);
     }
-    addToCart()
-    console.log('inCounter', cartId)
-
+    // addToCart()
+    q = count
+    console.log(q)
     return (
         <TouchableOpacity onPress={() => {
             {
@@ -98,7 +102,7 @@ const Counter = ({id, q}) => {
                                 <Text style={[styles.countValue, {
                                     color: dynamicStyles.textColor
                                 }]}>
-                                    {q}
+                                    {count}
                                 </Text>
                                 {
                                     theme === 'light' ? (
@@ -132,6 +136,7 @@ const Counter = ({id, q}) => {
             </View>
         </TouchableOpacity>
     )
+
 }
 
 const styles = StyleSheet.create({

@@ -19,7 +19,7 @@ import ApiService from "../../Components/ApiService/ApiService";
 const CategoryPage = (props) => {
 
     let cat = props.route.params.cat
-    const cartId = useContext(CartContext)
+    const {cartId, price, sumQuantity} = useContext(CartContext)
     console.log('St', cartId)
     const {theme} = useContext(ThemeContext)
     const serverUrl = config.getProductUrl
@@ -87,7 +87,13 @@ const CategoryPage = (props) => {
                     </View>
                 </View>
             </ScrollView>
-            <CartButton sum={1000} quantity={1}/>
+            {
+                price !== 0 ? (
+                    <CartButton sum={price} quantity={sumQuantity}/>
+                ) : (
+                    null
+                )
+            }
             <Footer/>
         </SafeAreaView>
     )
